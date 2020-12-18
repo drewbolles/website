@@ -14,7 +14,7 @@ const Identity = ({ className, reveal, ...rest }: IdentityProps) => (
   <img
     className={classNames(
       'transition-opacity',
-      { 'opacity-0 hidden ': reveal === false },
+      { 'opacity-0 hidden': reveal === false },
       { 'opacity-100 block': reveal },
       className,
     )}
@@ -29,7 +29,7 @@ function SecretIdentity() {
     <div
       onMouseOver={() => setHovered(true)}
       onMouseOut={() => setHovered(false)}
-      className="relative mx-auto"
+      className="mx-auto"
       style={{ width: 255 }}
     >
       <figure>
@@ -38,7 +38,7 @@ function SecretIdentity() {
           src={require('../../public/images/drew.svg')}
         />
         <Identity
-          className="relative left-2 top-1"
+          className="transform translate-y-1 translate-x-2"
           reveal={hovered}
           src={require('../../public/images/batman.svg')}
         />
