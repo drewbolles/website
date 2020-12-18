@@ -22,18 +22,20 @@ export default function Talks({ talks }: Props): JSX.Element {
           <ul className="space-y-8 md:space-y-16">
             {talks.map(({ attributes, events }) => (
               <li key={attributes.title}>
-                <h2 className="text-2xl font-semibold mb-3">
+                <h2 className="text-xl md:text-2xl font-semibold mb-2 md:mb-3">
                   {attributes.title}
                 </h2>
                 <a
                   href={attributes.slides}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-700 text-lg border-b border-dashed border-blue-700 inline-flex items-center mb-6"
+                  className="text-blue-700 md:text-lg border-b border-dashed border-blue-700 inline-flex items-center mb-6"
                 >
                   View slides <MdOpenInNew className="ml-1" />
                 </a>
-                <p className="mb-1 text-xl font-semibold">Presented at:</p>
+                <p className="mb-1 text-lg md:text-xl font-medium">
+                  Presented at:
+                </p>
                 <ul className="list-disc pl-6 space-y-1">
                   {events.map(event => (
                     <li key={event.slug}>{event.attributes.title}</li>
