@@ -7,6 +7,7 @@ import Document, {
   DocumentContext,
   DocumentInitialProps,
 } from 'next/document';
+import Manifest from 'next-manifest/manifest';
 
 class MyDocument extends Document {
   static async getInitialProps(
@@ -18,7 +19,9 @@ class MyDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <Manifest href="/manifest.json" />
+        </Head>
         <body>
           <Main />
           <NextScript />

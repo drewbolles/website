@@ -24,7 +24,7 @@ const Link = ({ href, ...rest }: LinkProps) => {
     <NextLink href={href}>
       <a
         className={classNames(
-          'text-sm md:text-base h-full inline-flex items-center px-4 rounded-sm transition-colors text-gray-700 hover:bg-blue-50',
+          'text-sm md:text-base h-full inline-flex items-center md:px-4 rounded-sm transition-colors text-gray-700 hover:bg-blue-50',
           { 'bg-blue-50': asPath.includes(href) },
         )}
         {...rest}
@@ -66,7 +66,7 @@ export default function Layout({
                 </span>
               </a>
             </NextLink>
-            <nav className="md:space-x-2 py-1 flex items-center h-full">
+            <nav className="space-x-2 py-1 flex items-center h-full">
               {links.map(([path, title]) => (
                 <Link href={path} key={path}>
                   {title}
