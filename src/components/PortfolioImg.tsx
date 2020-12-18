@@ -2,7 +2,7 @@ import React from 'react';
 
 const cleanImgSrc = src => src.replace('/uploads/screenshots/', './');
 const requireImgWebp = require.context(
-  `../../public/uploads/screenshots?size=1464&format=webp`,
+  `../../public/uploads/screenshots?size=1098&format=webp`,
   false,
   /\.(png|jpg)$/,
 );
@@ -31,7 +31,7 @@ export default function PortfolioImg({
       <source
         srcSet={`${requireImg(imgSrc)} 1x, ${requireImgRetina(imgSrc)} 2x`}
       />
-      <img src={requireImg(imgSrc)} alt={alt} />
+      <img src={requireImg(imgSrc)} alt={alt} width="732px" />
     </picture>
   );
 }
