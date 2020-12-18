@@ -1,0 +1,88 @@
+backend:
+  name: github
+  repo: drewbolles/drewbolles.com # Path to your GitHub repository
+local_backend: true
+media_folder: public/uploads
+public_folder: uploads
+publish_mode: editorial_workflow
+collections:
+  - label: 'Blog'
+    name: 'blog'
+    folder: 'content/blog'
+    create: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'text',
+          required: false,
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: false }
+      - { label: 'Created at', name: 'date', widget: 'datetime' }
+      - {
+          label: 'Enable comments',
+          name: 'comments',
+          widget: 'boolean',
+          default: true,
+        }
+      - {
+          label: 'Canonical URL',
+          name: 'canonical_url',
+          widget: 'strig',
+          required: false,
+        }
+  - label: 'Portfolio'
+    name: 'portfolio'
+    folder: 'content/portfolio'
+    create: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Featured Project',
+          name: 'featured',
+          widget: 'boolean',
+          default: false,
+        }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'text',
+          required: false,
+        }
+      - { label: 'Project URL', name: 'url', widget: 'string' }
+      - {
+          label: 'Technologies',
+          name: 'technologies',
+          widget: 'list',
+          required: false,
+        }
+      - { label: 'Role', name: 'role', widget: 'string', required: false }
+      - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: false }
+      - { label: 'Created at', name: 'date', widget: 'datetime' }
+  - label: 'Talk'
+    name: 'talk'
+    folder: 'content/talks'
+    create: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Slides', name: 'slides', widget: 'string' }
+      - { label: 'Created at', name: 'date', widget: 'datetime' }
+      - {
+          label: 'Events',
+          name: 'events',
+          widget: 'relation',
+          collection: 'event',
+          value_field: '{{slug}}',
+          search_fields: ['title'],
+          display_fields: ['title'],
+          multiple: true,
+        }
+  - label: 'Event'
+    name: 'event'
+    folder: 'content/events'
+    create: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Date', name: 'date', widget: 'datetime' }
