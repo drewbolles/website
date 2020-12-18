@@ -1,6 +1,7 @@
 backend:
   name: github
   repo: drewbolles/website # Path to your GitHub repository
+  branch: main
 media_folder: public/uploads
 public_folder: uploads
 publish_mode: editorial_workflow
