@@ -48,11 +48,14 @@ export default function Home({
               <span className="font-semibold">Software Engineer</span> with over
               a <span className="font-semibold">decade</span> of experience.
             </h2>
-            <h3 className="text-base md:text-2xl mb-6">
-              Currently working with <Icon icon={FaReact} />
-              <strong>React</strong>, <Icon icon={FaNodeJs} />
-              <strong>Node</strong>, <Icon icon={SiTypescript} />
-              <strong>TypeScript</strong>.
+            <h3 className="flex flex-col justify-center sm:flex-row text-base md:text-2xl mb-6">
+              <span className="mb-1 sm:mb-0">Currently working with&nbsp;</span>
+              <span>
+                <Icon icon={FaReact} />
+                <strong>React</strong>, <Icon icon={FaNodeJs} />
+                <strong>Node</strong>, <Icon icon={SiTypescript} />
+                <strong>TypeScript</strong>
+              </span>
             </h3>
             <div className="mb-6 text-gray-700">
               <FaRegHandPointDown className="inline" size="2rem" />
