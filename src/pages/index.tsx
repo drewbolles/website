@@ -16,6 +16,7 @@ import { importBlogPosts, importPortfolioItems } from '../utils/content';
 import { Blog } from '../types/blog';
 import sortByDate from '../utils/sortByDate';
 import { Portfolio } from '../types/portfolio';
+import PortfolioImg from '../components/PortfolioImg';
 
 type IconProps = {
   icon: React.ElementType;
@@ -94,9 +95,9 @@ export default function Home({
                   style={{ maxHeight: 500 }}
                   className="shadow rounded overflow-hidden"
                 >
-                  <img
+                  <PortfolioImg
                     src={featuredPortfolio.attributes.image}
-                    alt={`${featuredPortfolio.attributes.title} Website`}
+                    alt={`${featuredPortfolio.attributes.title} website`}
                   />
                 </div>
               </Col>

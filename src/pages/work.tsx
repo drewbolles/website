@@ -9,23 +9,7 @@ import classNames from 'classnames';
 import { MdOpenInNew } from 'react-icons/md';
 import { Portfolio } from '../types/portfolio';
 import sortByDate from '../utils/sortByDate';
-
-const cleanImgSrc = src => src.replace('/uploads/screenshots/', './');
-const requireImgWebp = require.context(
-  `../../public/uploads/screenshots?size=1464&format=webp`,
-  false,
-  /\.(png|jpg)$/,
-);
-const requireImgRetina = require.context(
-  `../../public/uploads/screenshots?size=1464`,
-  false,
-  /\.(png|jpg)$/,
-);
-const requireImg = require.context(
-  `../../public/uploads/screenshots?size=732`,
-  false,
-  /\.(png|jpg)$/,
-);
+import PortfolioImg from '../components/PortfolioImg';
 
 export default function Work({
   portfolioItems,
@@ -39,7 +23,6 @@ export default function Work({
           <PageTitle>My Work</PageTitle>
           <ul className="space-y-12 md:space-y-16 lg:space-y-24">
             {portfolioItems.map((item, index) => {
-              const imgSrc = cleanImgSrc(item.attributes.image);
               return (
                 <li key={item.attributes.title}>
                   <Row className="items-center">
@@ -91,18 +74,7 @@ export default function Work({
                         style={{ maxHeight: 500 }}
                         className="overflow-hidden mb-2 shadow rounded"
                       >
-                        <picture>
-                          <source
-                            srcSet={requireImgWebp(imgSrc)}
-                            type="image/webp"
-                          />
-                          <source
-                            srcSet={`${requireImg(
-                              imgSrc,
-                            )} 1x, ${requireImgRetina(imgSrc)} 2x`}
-                          />
-                          <img src={requireImg(imgSrc)} />
-                        </picture>
+                        <PortfolioImg src={item.attributes.image} />
                       </div>
                     </Col>
                   </Row>

@@ -33,11 +33,14 @@ function SecretIdentity() {
       style={{ width: 255 }}
     >
       <figure>
-        <Identity reveal={hovered === false} src="/images/drew.svg" />
+        <Identity
+          reveal={hovered === false}
+          src={require('../../public/images/drew.svg')}
+        />
         <Identity
           className="relative left-2 top-1"
           reveal={hovered}
-          src="/images/batman.svg"
+          src={require('../../public/images/batman.svg')}
         />
       </figure>
       <figcaption className="text-xs font-medium">
