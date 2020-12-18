@@ -15,8 +15,12 @@ module.exports = withManifest(
             handler: 'NetworkFirst',
             options: {
               cacheName: 'offlineCache',
+              networkTimeoutSeconds: 10,
               expiration: {
                 maxEntries: 200,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
               },
             },
           },
@@ -36,6 +40,11 @@ module.exports = withManifest(
             src: '/android-chrome-512x512.png',
             sizes: '512x512',
             type: 'image/png',
+          },
+          {
+            src: '/safari-pinned-tab.svg',
+            type: 'image/svg',
+            purpose: 'maskable',
           },
         ],
       },
