@@ -46,7 +46,7 @@ type Props = {
 export default function Layout({
   children,
   title = `Drew Bolles | Software Engineer`,
-  description,
+  description = 'Software Engineer with over a decade of experience specializing in React, Node, and TypeScript',
 }: Props): JSX.Element {
   return (
     <>
@@ -83,17 +83,26 @@ export default function Layout({
             </p>
             <ul className="inline-flex">
               <li>
-                <FooterIconLink href="https://twitter.com/bollskis">
+                <FooterIconLink
+                  href="https://twitter.com/bollskis"
+                  title="Follow me on Twitter"
+                >
                   <FaTwitter />
                 </FooterIconLink>
               </li>
               <li>
-                <FooterIconLink href="https://github.com/drewbolles">
+                <FooterIconLink
+                  href="https://github.com/drewbolles"
+                  title="Check me out on GitHub"
+                >
                   <FaGithub />
                 </FooterIconLink>
               </li>
               <li>
-                <FooterIconLink href="https://www.linkedin.com/in/drew-bolles/">
+                <FooterIconLink
+                  href="https://www.linkedin.com/in/drew-bolles/"
+                  title="Connect with me on LinkedIn"
+                >
                   <FaLinkedin />
                 </FooterIconLink>
               </li>

@@ -19,7 +19,7 @@ const requireImg = require.context(
 
 export default function PortfolioImg({
   src,
-  alt,
+  alt = '',
 }: {
   src: string;
   alt?: string;

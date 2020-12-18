@@ -12,7 +12,7 @@ const Button: React.FC<Props> = ({ className, href, ...rest }: Props) => {
     <El
       className={classNames(
         className,
-        'inline-flex items-center px-4 h-12 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 transition-colors',
+        'inline-flex items-center px-4 h-12 bg-blue-700 text-white font-semibold rounded hover:bg-blue-900 transition-colors',
       )}
       href={href}
       {...rest}
