@@ -1,18 +1,13 @@
 import React from 'react';
 
-const cleanImgSrc = src => src.replace('/uploads/screenshots/', './');
+const cleanImgSrc = (src: string) => src.replace('/uploads/screenshots/', './');
 const requireImgWebp = require.context(
-  `../../public/uploads/screenshots?size=1098&format=webp`,
-  false,
-  /\.(png|jpg)$/,
-);
-const requireImgRetina = require.context(
-  `../../public/uploads/screenshots?size=1464`,
+  `../../public/uploads/screenshots?sizes[]=768,sizes[]=1024&format=webp`,
   false,
   /\.(png|jpg)$/,
 );
 const requireImg = require.context(
-  `../../public/uploads/screenshots?size=732`,
+  `../../public/uploads/screenshots?sizes[]=768,sizes[]=1024`,
   false,
   /\.(png|jpg)$/,
 );
@@ -25,13 +20,19 @@ export default function PortfolioImg({
   alt?: string;
 }): JSX.Element {
   const imgSrc = cleanImgSrc(src);
+  const webpImg = requireImgWebp(imgSrc);
+  const img = requireImg(imgSrc);
   return (
     <picture>
-      <source srcSet={requireImgWebp(imgSrc)} type="image/webp" />
-      <source
-        srcSet={`${requireImg(imgSrc)} 1x, ${requireImgRetina(imgSrc)} 2x`}
+      <source srcSet={webpImg.srcSet} type="image/webp" />
+      <img
+        srcSet={img.srcSet}
+        sizes="(min-width: 768px) 50vw, 100vw"
+        width={img.width}
+        height={img.height}
+        src={img.src}
+        alt={alt}
       />
-      <img src={requireImg(imgSrc)} alt={alt} width="732px" />
     </picture>
   );
 }
