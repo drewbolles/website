@@ -14,7 +14,6 @@ type Props = {
 };
 
 export default function Talks({ talks }: Props): JSX.Element {
-  console.log({ talks });
   return (
     <Layout title="My Talks">
       <Main>

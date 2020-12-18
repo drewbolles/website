@@ -1,4 +1,8 @@
-module.exports = {
+/* eslint-disable */
+const withOptimizedImages = require('next-optimized-images');
+
+module.exports = withOptimizedImages({
+  optimizeImagesInDev: true,
   webpack: configuration => {
     configuration.module.rules.push({
       test: /\.md$/,
@@ -6,4 +10,4 @@ module.exports = {
     });
     return configuration;
   },
-};
+});

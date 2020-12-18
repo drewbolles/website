@@ -10,6 +10,23 @@ import { MdOpenInNew } from 'react-icons/md';
 import { Portfolio } from '../types/portfolio';
 import sortByDate from '../utils/sortByDate';
 
+const cleanImgSrc = src => src.replace('/uploads/screenshots/', './');
+const requireImgWebp = require.context(
+  `../../public/uploads/screenshots?size=1464&format=webp`,
+  false,
+  /\.(png|jpg)$/,
+);
+const requireImgRetina = require.context(
+  `../../public/uploads/screenshots?size=1464`,
+  false,
+  /\.(png|jpg)$/,
+);
+const requireImg = require.context(
+  `../../public/uploads/screenshots?size=732`,
+  false,
+  /\.(png|jpg)$/,
+);
+
 export default function Work({
   portfolioItems,
 }: {
@@ -21,63 +38,77 @@ export default function Work({
         <div className="container">
           <PageTitle>My Work</PageTitle>
           <ul className="space-y-12 md:space-y-16 lg:space-y-24">
-            {portfolioItems.map((item, index) => (
-              <li key={item.attributes.title}>
-                <Row className="items-center">
-                  <Col
-                    className={classNames('w-full md:w-1/2', {
-                      'md:order-2': index % 2 !== 0,
-                    })}
-                  >
-                    <h2 className="text-2xl md:text-3xl font-semibold mb-2">
-                      {item.attributes.title}
-                    </h2>
-                    {item.attributes.role ? (
-                      <h3 className="text-lg md:text-2xl mb-2">
-                        <span className="font-semibold">Role:</span>{' '}
-                        {item.attributes.role}
-                      </h3>
-                    ) : null}
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: item.attributes.description,
-                      }}
-                      className="md:text-lg mb-4"
-                    />
-                    {item.attributes.technologies ? (
-                      <ul className="flex flex-wrap mb-3 md:mb-4">
-                        {item.attributes.technologies.map(tech => (
-                          <li
-                            className="inline-flex items-center rounded-sm h-6 md:h-8 px-4 text-sm mb-2 mr-2 last:mr-0 bg-blue-50"
-                            key={tech}
-                          >
-                            {tech}
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
-                    <a
-                      href={item.attributes.url}
-                      className="text-blue-700 border-b border-dashed inline-flex items-center hover:text-blue-900"
+            {portfolioItems.map((item, index) => {
+              const imgSrc = cleanImgSrc(item.attributes.image);
+              return (
+                <li key={item.attributes.title}>
+                  <Row className="items-center">
+                    <Col
+                      className={classNames('w-full md:w-1/2', {
+                        'md:order-2': index % 2 !== 0,
+                      })}
                     >
-                      View site <MdOpenInNew className="ml-1" />
-                    </a>
-                  </Col>
-                  <Col
-                    className={classNames('w-full md:w-1/2', {
-                      'md:order-1': index % 2 !== 0,
-                    })}
-                  >
-                    <div
-                      style={{ maxHeight: 500 }}
-                      className="overflow-hidden mb-2 shadow rounded"
+                      <h2 className="text-2xl md:text-3xl font-semibold mb-2">
+                        {item.attributes.title}
+                      </h2>
+                      {item.attributes.role ? (
+                        <h3 className="text-lg md:text-2xl mb-2">
+                          <span className="font-semibold">Role:</span>{' '}
+                          {item.attributes.role}
+                        </h3>
+                      ) : null}
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: item.attributes.description,
+                        }}
+                        className="md:text-lg mb-4"
+                      />
+                      {item.attributes.technologies ? (
+                        <ul className="flex flex-wrap mb-3 md:mb-4">
+                          {item.attributes.technologies.map(tech => (
+                            <li
+                              className="inline-flex items-center rounded-sm h-6 md:h-8 px-4 text-sm mb-2 mr-2 last:mr-0 bg-blue-50"
+                              key={tech}
+                            >
+                              {tech}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+                      <a
+                        href={item.attributes.url}
+                        className="text-blue-700 border-b border-dashed inline-flex items-center hover:text-blue-900"
+                      >
+                        View site <MdOpenInNew className="ml-1" />
+                      </a>
+                    </Col>
+                    <Col
+                      className={classNames('w-full md:w-1/2', {
+                        'md:order-1': index % 2 !== 0,
+                      })}
                     >
-                      <img src={item.attributes.image} />
-                    </div>
-                  </Col>
-                </Row>
-              </li>
-            ))}
+                      <div
+                        style={{ maxHeight: 500 }}
+                        className="overflow-hidden mb-2 shadow rounded"
+                      >
+                        <picture>
+                          <source
+                            srcSet={requireImgWebp(imgSrc)}
+                            type="image/webp"
+                          />
+                          <source
+                            srcSet={`${requireImg(
+                              imgSrc,
+                            )} 1x, ${requireImgRetina(imgSrc)} 2x`}
+                          />
+                          <img src={requireImg(imgSrc)} />
+                        </picture>
+                      </div>
+                    </Col>
+                  </Row>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </Main>
