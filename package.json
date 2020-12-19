@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next build && next export",
     "analyze": "ANALYZE=true next build",
     "test": "jest",
     "cypress:open": "cypress open",
