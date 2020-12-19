@@ -1,0 +1,6 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "projectId": "17pg29",
+  "video": false,
+  "videoUploadOnPasses": false
+}

@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "export": "next build && next export",
-    "test": "jest"
+    "test": "jest",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --browser chrome --headless --record --key 0edf7fce-9866-4c39-af61-616c9fbc7c63"
   },
   "dependencies": {
     "classnames": "^2.2.6",
@@ -31,6 +33,7 @@
     "autoprefixer": "^10.1.0",
     "cypress": "^6.1.0",
     "eslint": "^7.15.0",
+    "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-react": "^7.21.5",
     "frontmatter-markdown-loader": "^3.6.2",
     "imagemin-mozjpeg": "^9.0.0",

@@ -19,7 +19,7 @@ export default function Talks({ talks }: Props): JSX.Element {
       <Main>
         <div className="container max-w-prose">
           <PageTitle>My Talks</PageTitle>
-          <ul className="space-y-8 md:space-y-16">
+          <ul data-testid="talks-list" className="space-y-8 md:space-y-16">
             {talks.map(({ attributes, events }) => (
               <li key={attributes.title}>
                 <h2 className="text-xl md:text-2xl font-semibold mb-2 md:mb-3">

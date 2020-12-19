@@ -42,7 +42,7 @@ export default function BlogIndex({
       <Main>
         <div className="container max-w-prose">
           <PageTitle>Blog</PageTitle>
-          <ul className="space-y-6">
+          <ul data-testid="blog-list" className="space-y-6">
             {postsList.map(({ attributes, slug }: Blog) => (
               <li key={attributes.title}>
                 <Post attributes={attributes} slug={slug} />

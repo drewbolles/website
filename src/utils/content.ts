@@ -3,6 +3,15 @@ import { Event } from '../types/event';
 import { Portfolio } from '../types/portfolio';
 import { Talk } from '../types/talk';
 
+async function getAllFiles(files, type) {
+  return await Promise.all(
+    files.map(async path => {
+      const markdown = await import(`../../content/${type}/${path}`);
+      return { ...markdown, slug: path.substring(0, path.length - 3) };
+    }),
+  );
+}
+
 export const importBlogPosts = async (): Promise<Blog[]> => {
   // https://webpack.js.org/guides/dependency-management/#requirecontext
   const markdownFiles = require
@@ -10,12 +19,7 @@ export const importBlogPosts = async (): Promise<Blog[]> => {
     .keys()
     .map(relativePath => relativePath.substring(2));
 
-  return Promise.all(
-    markdownFiles.map(async path => {
-      const markdown = await import(`../../content/blog/${path}`);
-      return { ...markdown, slug: path.substring(0, path.length - 3) };
-    }),
-  );
+  return (await getAllFiles(markdownFiles, 'blog')) as Blog[];
 };
 
 export const importPortfolioItems = async (): Promise<Portfolio[]> => {
@@ -24,12 +28,8 @@ export const importPortfolioItems = async (): Promise<Portfolio[]> => {
     .context('../../content/portfolio', false, /\.md$/)
     .keys()
     .map(relativePath => relativePath.substring(2));
-  return Promise.all(
-    markdownFiles.map(async path => {
-      const markdown = await import(`../../content/portfolio/${path}`);
-      return { ...markdown, slug: path.substring(0, path.length - 3) };
-    }),
-  );
+
+  return (await getAllFiles(markdownFiles, 'portfolio')) as Portfolio[];
 };
 
 export const importTalks = async (): Promise<Talk[]> => {
@@ -38,12 +38,8 @@ export const importTalks = async (): Promise<Talk[]> => {
     .context('../../content/talks', false, /\.md$/)
     .keys()
     .map(relativePath => relativePath.substring(2));
-  return Promise.all(
-    markdownFiles.map(async path => {
-      const markdown = await import(`../../content/talks/${path}`);
-      return { ...markdown, slug: path.substring(0, path.length - 3) };
-    }),
-  );
+
+  return (await getAllFiles(markdownFiles, 'talks')) as Talk[];
 };
 
 export const importEvents = async (): Promise<Event[]> => {
@@ -52,10 +48,6 @@ export const importEvents = async (): Promise<Event[]> => {
     .context('../../content/events', false, /\.md$/)
     .keys()
     .map(relativePath => relativePath.substring(2));
-  return Promise.all(
-    markdownFiles.map(async path => {
-      const markdown = await import(`../../content/events/${path}`);
-      return { ...markdown, slug: path.substring(0, path.length - 3) };
-    }),
-  );
+
+  return (await getAllFiles(markdownFiles, 'events')) as Event[];
 };

@@ -21,7 +21,10 @@ export default function Work({
       <Main>
         <div className="container">
           <PageTitle>My Work</PageTitle>
-          <ul className="space-y-12 md:space-y-16 lg:space-y-24">
+          <ul
+            data-testid="portfolio-list"
+            className="space-y-12 md:space-y-16 lg:space-y-24"
+          >
             {portfolioItems.map((item, index) => {
               return (
                 <li key={item.attributes.title}>
