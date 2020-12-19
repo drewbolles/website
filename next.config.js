@@ -9,6 +9,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const pwaOpts = {
   pwa: {
+    disable: process.env.NODE_ENV !== 'production',
     dest: 'public',
     runtimeCaching,
   },

@@ -34,10 +34,13 @@
     "next-seo": "^4.17.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-icons": "^4.1.0"
+    "react-icons": "^4.1.0",
+    "react-query": "^3.3.3",
+    "steamapi": "^2.1.2"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^10.0.3",
+    "@octokit/types": "^6.1.1",
     "@tailwindcss/typography": "^0.3.1",
     "@testing-library/cypress": "^7.0.3",
     "@testing-library/jest-dom": "^5.11.6",

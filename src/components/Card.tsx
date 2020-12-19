@@ -1,0 +1,49 @@
+import * as React from 'react';
+import classNames from 'classnames';
+
+type Props = {
+  className?: string;
+};
+
+export function CardHeader({
+  icon: Icon,
+  title,
+  className,
+}: Props & { icon?: React.ElementType; title: string }): JSX.Element {
+  return (
+    <header className={classNames('py-2 px-4 bg-gray-100', className)}>
+      <h3 className="text-xl tracking-wide leading-none flex items-center">
+        {Icon ? <Icon className="mr-2" /> : null}
+        <span>{title}</span>
+      </h3>
+    </header>
+  );
+}
+
+export function CardContent({
+  className,
+  padding = true,
+  ...rest
+}: React.PropsWithChildren<Props & { padding?: boolean }>): JSX.Element {
+  return (
+    <div
+      className={classNames(
+        { 'p-4': padding, 'p-0': padding === false },
+        className,
+      )}
+      {...rest}
+    />
+  );
+}
+
+export default function Card({
+  className,
+  ...rest
+}: React.PropsWithChildren<Props>): JSX.Element {
+  return (
+    <article
+      className={classNames('rounded shadow flex flex-col', className)}
+      {...rest}
+    />
+  );
+}
