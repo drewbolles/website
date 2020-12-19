@@ -42,7 +42,10 @@ export default function Card({
 }: React.PropsWithChildren<Props>): JSX.Element {
   return (
     <article
-      className={classNames('rounded shadow flex flex-col', className)}
+      className={classNames(
+        'rounded overflow-hidden shadow flex flex-col',
+        className,
+      )}
       {...rest}
     />
   );

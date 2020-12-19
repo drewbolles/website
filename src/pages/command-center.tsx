@@ -6,6 +6,8 @@ import Layout from '../components/Layout/Layout';
 import PageTitle from '../components/PageTitle';
 import SteamCard from '../components/CommandCenter/SteamCard';
 import AmazonWishListCard from '../components/CommandCenter/AmazonWishListCard';
+import SpotifyCard from '../components/CommandCenter/SpotifyCard';
+import BitcoinCard from '../components/CommandCenter/BitcoinCard';
 
 const CommandCol = props => (
   <Col className="w-full md:w-1/2 lg:w-1/4 xl:w-1/5" {...props} />
@@ -31,6 +33,12 @@ export default function CommandCenter(): JSX.Element {
           </CommandCol>
           <CommandCol>
             <AmazonWishListCard />
+          </CommandCol>
+          <CommandCol>
+            <SpotifyCard />
+          </CommandCol>
+          <CommandCol>
+            <BitcoinCard />
           </CommandCol>
         </Row>
       </div>
