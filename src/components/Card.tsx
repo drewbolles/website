@@ -43,7 +43,7 @@ export default function Card({
   return (
     <article
       className={classNames(
-        'rounded overflow-hidden shadow flex flex-col',
+        'rounded overflow-hidden flex-grow shadow flex flex-col',
         className,
       )}
       {...rest}

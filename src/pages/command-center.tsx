@@ -10,7 +10,7 @@ import SpotifyCard from '../components/CommandCenter/SpotifyCard';
 import BitcoinCard from '../components/CommandCenter/BitcoinCard';
 
 const CommandCol = props => (
-  <Col className="w-full md:w-1/2 lg:w-1/4 xl:w-1/5" {...props} />
+  <Col className="flex flex-col w-full md:w-1/2 lg:w-1/4 xl:w-1/5" {...props} />
 );
 
 export default function CommandCenter(): JSX.Element {

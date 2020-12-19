@@ -7,18 +7,20 @@ export default function TwitterCard(): JSX.Element {
     <Card>
       <CardHeader icon={FaTwitter} title="Twitter" />
       <CardContent padding={false}>
-        <div style={{ maxHeight: 350 }} className="overflow-scroll">
-          <a
-            className="twitter-timeline"
-            href="https://twitter.com/bollskis?ref_src=twsrc%5Etfw"
-          >
-            Tweets by bollskis
-          </a>
-          <script
-            async
-            src="https://platform.twitter.com/widgets.js"
-            charSet="utf-8"
-          />
+        <div className="aspect-w-9 aspect-h-12">
+          <div className="overflow-scroll">
+            <a
+              className="twitter-timeline"
+              href="https://twitter.com/bollskis?ref_src=twsrc%5Etfw"
+            >
+              Tweets by bollskis
+            </a>
+            <script
+              async
+              src="https://platform.twitter.com/widgets.js"
+              charSet="utf-8"
+            />
+          </div>
         </div>
       </CardContent>
     </Card>
