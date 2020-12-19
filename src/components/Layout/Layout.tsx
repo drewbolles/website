@@ -12,12 +12,7 @@ const links = [
   ['/blog', 'Blog'],
 ];
 
-type LinkProps = {
-  href: string;
-  children: React.ReactNode;
-};
-
-const Link = ({ href, ...rest }: LinkProps) => {
+function Link({ href, ...rest }: React.PropsWithChildren<{ href: string }>) {
   const { asPath } = useRouter();
 
   return (
@@ -31,14 +26,13 @@ const Link = ({ href, ...rest }: LinkProps) => {
       />
     </NextLink>
   );
-};
+}
 
 const FooterIconLink = props => (
   <a className="inline-flex w-12 h-12 items-center justify-center" {...props} />
 );
 
 type Props = {
-  children: React.ReactNode;
   title?: string;
   description?: string;
 };
@@ -47,7 +41,7 @@ export default function Layout({
   children,
   title = `Drew Bolles | Software Engineer`,
   description = 'Software Engineer with over a decade of experience specializing in React, Node, and TypeScript',
-}: Props): JSX.Element {
+}: React.PropsWithChildren<Props>): JSX.Element {
   return (
     <>
       <NextSeo

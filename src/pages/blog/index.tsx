@@ -9,7 +9,7 @@ import { Blog } from '../../types/blog';
 import { importBlogPosts } from '../../utils/content';
 import sortByDate from '../../utils/sortByDate';
 
-function Post({ attributes, slug }: Blog): JSX.Element {
+function Post({ attributes, slug }: Blog) {
   const { title, description } = attributes;
   const href = `/blog/${slug}`;
   return (

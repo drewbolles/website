@@ -26,7 +26,7 @@ const Icon = ({ icon: IconEl }: IconProps) => (
   <IconEl className="inline mr-1 align-middle" />
 );
 
-const Divider = (): JSX.Element => (
+const Divider = () => (
   <div className="w-12 h-px bg-gray-700 mb-4 bg-opacity-25" />
 );
 

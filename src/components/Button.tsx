@@ -1,12 +1,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-type Props = {
+export default function Button({
+  className,
+  href,
+  ...rest
+}: React.PropsWithChildren<{
   href?: string;
   className?: string;
-};
-
-const Button: React.FC<Props> = ({ className, href, ...rest }: Props) => {
+}>): JSX.Element {
   const El = href ? 'a' : 'button';
   return (
     <El
@@ -18,6 +20,4 @@ const Button: React.FC<Props> = ({ className, href, ...rest }: Props) => {
       {...rest}
     />
   );
-};
-
-export default Button;
+}

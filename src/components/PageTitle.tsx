@@ -1,17 +1,13 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-type Props = {
-  children: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-};
-
 export default function PageTitle({
-  children,
   className,
   ...rest
-}: Props): JSX.Element {
+}: React.PropsWithChildren<{
+  className?: string;
+  style?: React.CSSProperties;
+}>): JSX.Element {
   return (
     <h1
       className={classNames(
@@ -19,8 +15,6 @@ export default function PageTitle({
         className,
       )}
       {...rest}
-    >
-      {children}
-    </h1>
+    />
   );
 }
