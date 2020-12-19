@@ -8,7 +8,7 @@ import Document, {
   DocumentInitialProps,
 } from 'next/document';
 import Manifest from 'next-manifest/manifest';
-import { GA_TRACKING_ID } from '../utils/gtag';
+import { GA_TRACKING_ID } from '../utils/ga';
 
 class MyDocument extends Document {
   static async getInitialProps(
@@ -43,21 +43,14 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#2d89ef" />
           <meta name="theme-color" content="#ffffff" />
           <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-          />
-          <script
             dangerouslySetInnerHTML={{
               __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', '${GA_TRACKING_ID}', 'auto');
+            ga('send', 'pageview');`,
             }}
           />
+          <script async src="https://www.google-analytics.com/analytics.js" />
         </Head>
         <body>
           <Main />

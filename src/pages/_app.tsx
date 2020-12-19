@@ -2,7 +2,7 @@ import * as React from 'react';
 import { AppProps } from 'next/app';
 import '../styles/globals.css';
 import { useRouter } from 'next/router';
-import * as gtag from '../utils/gtag';
+import * as gtag from '../utils/ga';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter();

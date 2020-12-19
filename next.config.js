@@ -30,7 +30,7 @@ module.exports = withManifest(
         output: './public',
         name: 'Drew Bolles',
         short_name: 'Drew Bolles',
-        start_url: 'https://www.drewbolles.com?utm_source=web_app_manifest',
+        start_url: '/?utm_source=web_app_manifest',
         icons: [
           {
             src: '/android-chrome-192x192.png',
