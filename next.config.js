@@ -21,14 +21,6 @@ module.exports = withPlugins(
     [withOptimizedImages, { optimizeImagesInDev: true }],
   ],
   {
-    async rewrites() {
-      return [
-        {
-          source: '/service-worker.js',
-          destination: '/_next/static/service-worker.js',
-        },
-      ];
-    },
     webpack: configuration => {
       configuration.module.rules.push({
         test: /\.md$/,

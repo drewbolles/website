@@ -15,27 +15,27 @@ async function getFileContent(files, type) {
   return await Promise.all(fileContentMap);
 }
 
-export const importBlogPosts = async (): Promise<Blog[]> => {
-  // https://webpack.js.org/guides/dependency-management/#requirecontext
-  const files = require.context('../../content/blog', false, /\.md$/);
+// https://webpack.js.org/guides/dependency-management/#requirecontext
+export const importBlogPosts = async (): Promise<Blog[]> =>
+  (await getFileContent(
+    require.context('../../content/blog', false, /\.md$/),
+    'blog',
+  )) as Blog[];
 
-  return (await getFileContent(files, 'blog')) as Blog[];
-};
+export const importPortfolioItems = async (): Promise<Portfolio[]> =>
+  (await getFileContent(
+    require.context('../../content/portfolio', false, /\.md$/),
+    'portfolio',
+  )) as Portfolio[];
 
-export const importPortfolioItems = async (): Promise<Portfolio[]> => {
-  const files = require.context('../../content/portfolio', false, /\.md$/);
+export const importTalks = async (): Promise<Talk[]> =>
+  (await getFileContent(
+    require.context('../../content/talks', false, /\.md$/),
+    'talks',
+  )) as Talk[];
 
-  return (await getFileContent(files, 'portfolio')) as Portfolio[];
-};
-
-export const importTalks = async (): Promise<Talk[]> => {
-  const files = require.context('../../content/talks', false, /\.md$/);
-
-  return (await getFileContent(files, 'talks')) as Talk[];
-};
-
-export const importEvents = async (): Promise<Event[]> => {
-  const files = require.context('../../content/events', false, /\.md$/);
-
-  return (await getFileContent(files, 'events')) as Event[];
-};
+export const importEvents = async (): Promise<Event[]> =>
+  (await getFileContent(
+    require.context('../../content/events', false, /\.md$/),
+    'events',
+  )) as Event[];
