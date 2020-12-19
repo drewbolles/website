@@ -3,6 +3,9 @@ import { AppProps } from 'next/app';
 import '../styles/globals.css';
 import { useRouter } from 'next/router';
 import * as ga from '../utils/ga';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter();
@@ -17,7 +20,11 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     };
   }, [router.events]);
 
-  return <Component {...pageProps} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Component {...pageProps} />
+    </QueryClientProvider>
+  );
 }
 
 export default MyApp;

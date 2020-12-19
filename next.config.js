@@ -9,6 +9,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const pwaOpts = {
   pwa: {
+    disable: process.env.NODE_ENV !== 'production',
     dest: 'public',
     runtimeCaching,
   },
@@ -21,6 +22,7 @@ module.exports = withPlugins(
     [withOptimizedImages, { optimizeImagesInDev: true }],
   ],
   {
+    target: 'serverless',
     webpack: configuration => {
       configuration.module.rules.push({
         test: /\.md$/,
