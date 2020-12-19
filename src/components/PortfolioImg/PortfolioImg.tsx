@@ -1,20 +1,11 @@
-import React from 'react';
+import React from "react";
+import { requireImg, requireImgWebp } from "./requireImages";
 
-const cleanImgSrc = (src: string) => src.replace('/uploads/screenshots/', './');
-const requireImgWebp = require.context(
-  `../../public/uploads/screenshots?sizes[]=768,sizes[]=1024&format=webp`,
-  false,
-  /\.(png|jpg)$/,
-);
-const requireImg = require.context(
-  `../../public/uploads/screenshots?sizes[]=768,sizes[]=1024`,
-  false,
-  /\.(png|jpg)$/,
-);
+const cleanImgSrc = (src: string) => src.replace("/uploads/screenshots/", "./");
 
 export default function PortfolioImg({
   src,
-  alt = '',
+  alt = "",
 }: {
   src: string;
   alt?: string;
@@ -22,8 +13,9 @@ export default function PortfolioImg({
   const imgSrc = cleanImgSrc(src);
   const webpImg = requireImgWebp(imgSrc);
   const img = requireImg(imgSrc);
-  return (
-    <picture>
+
+  return webpImg && img ? (
+    <picture data-testid="portfolio-img">
       <source srcSet={webpImg.srcSet} type="image/webp" />
       <img
         srcSet={img.srcSet}
@@ -34,5 +26,5 @@ export default function PortfolioImg({
         alt={alt}
       />
     </picture>
-  );
+  ) : null;
 }
