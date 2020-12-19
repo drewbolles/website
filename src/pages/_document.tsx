@@ -7,7 +7,6 @@ import Document, {
   DocumentContext,
   DocumentInitialProps,
 } from 'next/document';
-import Manifest from 'next-manifest/manifest';
 import { GA_TRACKING_ID } from '../utils/ga';
 
 class MyDocument extends Document {
@@ -21,7 +20,8 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <Manifest href="/manifest.json" />
+          <meta name="theme-color" content="#ffffff" />
+          <link rel="manifest" href="/manifest.json" />
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -42,6 +42,7 @@ class MyDocument extends Document {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#333333" />
           <meta name="msapplication-TileColor" content="#2d89ef" />
           <meta name="theme-color" content="#ffffff" />
+          <link rel="dns-prefetch" href="https://www.google-analytics.com" />
           <script
             dangerouslySetInnerHTML={{
               __html: `
