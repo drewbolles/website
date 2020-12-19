@@ -18,11 +18,7 @@ import sortByDate from '../utils/sortByDate';
 import { Portfolio } from '../types/portfolio';
 import PortfolioImg from '../components/PortfolioImg';
 
-type IconProps = {
-  icon: React.ElementType;
-};
-
-const Icon = ({ icon: IconEl }: IconProps) => (
+const Icon = ({ icon: IconEl }: { icon: React.ElementType }) => (
   <IconEl className="inline mr-1 align-middle" />
 );
 
@@ -30,15 +26,13 @@ const Divider = () => (
   <div className="w-12 h-px bg-gray-700 mb-4 bg-opacity-25" />
 );
 
-type Props = {
-  postsList: Blog[];
-  featuredPortfolio: Portfolio;
-};
-
 export default function Home({
   postsList,
   featuredPortfolio,
-}: Props): JSX.Element {
+}: {
+  postsList: Blog[];
+  featuredPortfolio: Portfolio;
+}): JSX.Element {
   return (
     <Layout>
       <main className="flex-grow">
@@ -58,7 +52,10 @@ export default function Home({
               </span>
             </h3>
             <div className="mb-6 text-gray-700">
-              <FaRegHandPointDown className="inline" size="2rem" />
+              <FaRegHandPointDown
+                className="inline animate-bounce-slow"
+                size="2rem"
+              />
             </div>
             <Button href="mailto:drewbolles@gmail.com">
               <MdEmail size="1rem" className="mr-2" />
@@ -112,7 +109,7 @@ export default function Home({
             <h2 className="text-2xl font-bold mb-6 md:text-3xl lg:text-4xl text-center">
               Recent Blog Posts
             </h2>
-            <ul className="space-y-6 mb-6">
+            <ul className="space-y-6 md:space-y-10 mb-6">
               {postsList.map(({ attributes, slug }: Blog) => (
                 <li key={attributes.title}>
                   <h3 className="text-lg md:text-2xl mb-2 font-semibold">
@@ -124,7 +121,7 @@ export default function Home({
                     dangerouslySetInnerHTML={{
                       __html: attributes.description,
                     }}
-                    className="mb-4"
+                    className="mb-3"
                   />
                   <NextLink href={`/blog/${slug}`}>
                     <a className="flex items-center text-blue-700">
@@ -145,14 +142,14 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const postsList = await importBlogPosts();
-  const portfolioItems = await importPortfolioItems();
-
-  const sortedPostsList = postsList.sort(sortByDate).slice(0, 5);
+  const [postsList, portfolioItems] = await Promise.all([
+    importBlogPosts(),
+    importPortfolioItems(),
+  ]);
 
   return {
     props: {
-      postsList: sortedPostsList,
+      postsList: postsList.sort(sortByDate).slice(0, 5),
       featuredPortfolio: portfolioItems
         .sort(sortByDate)
         .find(item => item.attributes.featured),

@@ -3,51 +3,39 @@ import { Event } from '../types/event';
 import { Portfolio } from '../types/portfolio';
 import { Talk } from '../types/talk';
 
-async function getAllFiles(files, type) {
-  return await Promise.all(
-    files.map(async path => {
+async function getFileContent(files, type) {
+  const fileContentMap = files
+    .keys()
+    .map(relativePath => relativePath.substring(2))
+    .map(async path => {
       const markdown = await import(`../../content/${type}/${path}`);
       return { ...markdown, slug: path.substring(0, path.length - 3) };
-    }),
-  );
+    });
+
+  return await Promise.all(fileContentMap);
 }
 
 export const importBlogPosts = async (): Promise<Blog[]> => {
   // https://webpack.js.org/guides/dependency-management/#requirecontext
-  const markdownFiles = require
-    .context('../../content/blog', false, /\.md$/)
-    .keys()
-    .map(relativePath => relativePath.substring(2));
+  const files = require.context('../../content/blog', false, /\.md$/);
 
-  return (await getAllFiles(markdownFiles, 'blog')) as Blog[];
+  return (await getFileContent(files, 'blog')) as Blog[];
 };
 
 export const importPortfolioItems = async (): Promise<Portfolio[]> => {
-  // https://webpack.js.org/guides/dependency-management/#requirecontext
-  const markdownFiles = require
-    .context('../../content/portfolio', false, /\.md$/)
-    .keys()
-    .map(relativePath => relativePath.substring(2));
+  const files = require.context('../../content/portfolio', false, /\.md$/);
 
-  return (await getAllFiles(markdownFiles, 'portfolio')) as Portfolio[];
+  return (await getFileContent(files, 'portfolio')) as Portfolio[];
 };
 
 export const importTalks = async (): Promise<Talk[]> => {
-  // https://webpack.js.org/guides/dependency-management/#requirecontext
-  const markdownFiles = require
-    .context('../../content/talks', false, /\.md$/)
-    .keys()
-    .map(relativePath => relativePath.substring(2));
+  const files = require.context('../../content/talks', false, /\.md$/);
 
-  return (await getAllFiles(markdownFiles, 'talks')) as Talk[];
+  return (await getFileContent(files, 'talks')) as Talk[];
 };
 
 export const importEvents = async (): Promise<Event[]> => {
-  // https://webpack.js.org/guides/dependency-management/#requirecontext
-  const markdownFiles = require
-    .context('../../content/events', false, /\.md$/)
-    .keys()
-    .map(relativePath => relativePath.substring(2));
+  const files = require.context('../../content/events', false, /\.md$/);
 
-  return (await getAllFiles(markdownFiles, 'events')) as Event[];
+  return (await getFileContent(files, 'events')) as Event[];
 };

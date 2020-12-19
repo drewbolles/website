@@ -6,7 +6,11 @@ module.exports = {
       center: true,
       padding: '1.5rem',
     },
-    extend: {},
+    extend: {
+      animation: {
+        'bounce-slow': 'bounce 1.5s infinite',
+      },
+    },
   },
   variants: {
     extend: {},

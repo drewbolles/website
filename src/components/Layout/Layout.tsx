@@ -32,16 +32,14 @@ const FooterIconLink = props => (
   <a className="inline-flex w-12 h-12 items-center justify-center" {...props} />
 );
 
-type Props = {
-  title?: string;
-  description?: string;
-};
-
 export default function Layout({
   children,
   title = `Drew Bolles | Software Engineer`,
   description = 'Software Engineer with over a decade of experience specializing in React, Node, and TypeScript',
-}: React.PropsWithChildren<Props>): JSX.Element {
+}: React.PropsWithChildren<{
+  title?: string;
+  description?: string;
+}>): JSX.Element {
   return (
     <>
       <NextSeo

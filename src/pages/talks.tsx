@@ -51,8 +51,7 @@ export default function Talks({ talks }: Props): JSX.Element {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const talks = await importTalks();
-  const events = await importEvents();
+  const [talks, events] = await Promise.all([importTalks(), importEvents()]);
 
   return {
     props: {

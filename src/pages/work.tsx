@@ -47,10 +47,10 @@ export default function Work({
                         dangerouslySetInnerHTML={{
                           __html: item.attributes.description,
                         }}
-                        className="md:text-lg mb-4"
+                        className="md:text-lg mb-4 max-w-prose"
                       />
                       {item.attributes.technologies ? (
-                        <ul className="flex flex-wrap mb-3 md:mb-4">
+                        <ul className="flex flex-wrap mb-3">
                           {item.attributes.technologies.map(tech => (
                             <li
                               className="inline-flex items-center rounded-sm h-6 md:h-8 px-4 text-sm mb-2 mr-2 last:mr-0 bg-blue-50"
@@ -63,7 +63,7 @@ export default function Work({
                       ) : null}
                       <a
                         href={item.attributes.url}
-                        className="text-blue-700 border-b border-dashed inline-flex items-center hover:text-blue-900"
+                        className="text-blue-700 md:text-lg border-b border-dashed inline-flex items-center hover:text-blue-900"
                       >
                         View site <MdOpenInNew className="ml-1" />
                       </a>
@@ -73,11 +73,13 @@ export default function Work({
                         'md:order-1': index % 2 !== 0,
                       })}
                     >
-                      <div
-                        style={{ maxHeight: 500 }}
-                        className="overflow-hidden mb-2 shadow rounded"
-                      >
-                        <PortfolioImg src={item.attributes.image} />
+                      <div className="mb-2 shadow-lg md:shadow-xl lg:shadow-2xl ">
+                        <div
+                          style={{ maxHeight: 500 }}
+                          className="overflow-hidden rounded"
+                        >
+                          <PortfolioImg src={item.attributes.image} />
+                        </div>
                       </div>
                     </Col>
                   </Row>
@@ -93,10 +95,10 @@ export default function Work({
 
 export const getStaticProps: GetStaticProps = async () => {
   const portfolioItems = await importPortfolioItems();
-  const sortedPortfolioItems = portfolioItems.sort(sortByDate);
+
   return {
     props: {
-      portfolioItems: sortedPortfolioItems,
+      portfolioItems: portfolioItems.sort(sortByDate),
     },
   };
 };
