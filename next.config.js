@@ -22,6 +22,7 @@ module.exports = withPlugins(
     [withOptimizedImages, { optimizeImagesInDev: true }],
   ],
   {
+    target: 'serverless',
     webpack: configuration => {
       configuration.module.rules.push({
         test: /\.md$/,
