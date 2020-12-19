@@ -8,6 +8,7 @@ import Document, {
   DocumentInitialProps,
 } from 'next/document';
 import Manifest from 'next-manifest/manifest';
+import { GA_TRACKING_ID } from '../utils/gtag';
 
 class MyDocument extends Document {
   static async getInitialProps(
@@ -41,6 +42,22 @@ class MyDocument extends Document {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#333333" />
           <meta name="msapplication-TileColor" content="#2d89ef" />
           <meta name="theme-color" content="#ffffff" />
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+            }}
+          />
         </Head>
         <body>
           <Main />
