@@ -33,7 +33,7 @@ function GamesList() {
   const visibleGames = showAll ? sortedGames : sortedGames.slice(0, 5);
 
   return status === 'success' ? (
-    <div>
+    <div className="border-t-2 border-gray-200 pt-4 -mt-1">
       <ul className="space-y-2">
         {visibleGames.map(game => (
           <li key={game.appID} className="flex items-center">
