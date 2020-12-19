@@ -1,15 +1,15 @@
-import { GetStaticProps } from "next";
-import * as React from "react";
-import { Row, Col } from "../components/Grid";
-import Layout from "../components/Layout/Layout";
-import Main from "../components/Layout/Main";
-import PageTitle from "../components/PageTitle";
-import { importPortfolioItems } from "../utils/content";
-import classNames from "classnames";
-import { MdOpenInNew } from "react-icons/md";
-import { Portfolio } from "../types/portfolio";
-import sortByDate from "../utils/sortByDate";
-import PortfolioImg from "../components/PortfolioImg/PortfolioImg";
+import { GetStaticProps } from 'next';
+import * as React from 'react';
+import { Row, Col } from '../components/Grid';
+import Layout from '../components/Layout/Layout';
+import Main from '../components/Layout/Main';
+import PageTitle from '../components/PageTitle';
+import { importPortfolioItems } from '../utils/content';
+import classNames from 'classnames';
+import { MdOpenInNew } from 'react-icons/md';
+import { Portfolio } from '../types/portfolio';
+import sortByDate from '../utils/sortByDate';
+import PortfolioImg from '../components/PortfolioImg/PortfolioImg';
 
 export default function Work({
   portfolioItems,
@@ -30,8 +30,8 @@ export default function Work({
                 <li key={item.attributes.title}>
                   <Row className="items-center">
                     <Col
-                      className={classNames("w-full md:w-1/2", {
-                        "md:order-2": index % 2 !== 0,
+                      className={classNames('w-full md:w-1/2', {
+                        'md:order-2': index % 2 !== 0,
                       })}
                     >
                       <h2 className="text-2xl md:text-3xl font-semibold mb-2">
@@ -39,7 +39,7 @@ export default function Work({
                       </h2>
                       {item.attributes.role ? (
                         <h3 className="text-lg md:text-2xl mb-2">
-                          <span className="font-semibold">Role:</span>{" "}
+                          <span className="font-semibold">Role:</span>{' '}
                           {item.attributes.role}
                         </h3>
                       ) : null}
@@ -51,7 +51,7 @@ export default function Work({
                       />
                       {item.attributes.technologies ? (
                         <ul className="flex flex-wrap mb-3">
-                          {item.attributes.technologies.map((tech) => (
+                          {item.attributes.technologies.map(tech => (
                             <li
                               className="inline-flex items-center rounded-sm h-6 md:h-8 px-4 text-sm mb-2 mr-2 last:mr-0 bg-blue-50"
                               key={tech}
@@ -69,8 +69,8 @@ export default function Work({
                       </a>
                     </Col>
                     <Col
-                      className={classNames("w-full md:w-1/2", {
-                        "md:order-1": index % 2 !== 0,
+                      className={classNames('w-full md:w-1/2', {
+                        'md:order-1': index % 2 !== 0,
                       })}
                     >
                       <div className="mb-2 shadow-lg md:shadow-xl lg:shadow-2xl ">

@@ -1,26 +1,26 @@
 {
-	"name": "Drew Bolles",
-	"short_name": "Drew Bolles",
-	"start_url": "/",
-	"display": "standalone",
-	"orientation": "natural",
-	"background_color": "#ffffff",
-	"theme_color": "#ffffff",
-	"icons": [
-		{
-			"src": "/android-chrome-192x192.png",
-			"sizes": "192x192",
-			"type": "image/png"
-		},
-		{
-			"src": "/android-chrome-512x512.png",
-			"sizes": "512x512",
-			"type": "image/png"
-		},
-		{
-			"src": "/safari-pinned-tab.svg",
-			"type": "image/svg",
-			"purpose": "maskable"
-		}
-	]
+  "name": "Drew Bolles",
+  "short_name": "Drew Bolles",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "natural",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/safari-pinned-tab.svg",
+      "type": "image/svg",
+      "purpose": "maskable"
+    }
+  ]
 }

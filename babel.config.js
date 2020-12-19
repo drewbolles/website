@@ -1,9 +1,9 @@
 module.exports = {
-  presets: ["next/babel"],
+  presets: ['next/babel'],
   plugins: [],
   env: {
     test: {
-      plugins: ["transform-require-context"],
+      plugins: ['transform-require-context'],
     },
   },
 };

@@ -11,7 +11,7 @@ I wanted to write a quick post about how I'm structuring my projects recently. I
 
 The first thing I set up for each project is obviously the folder structure. Lately I've been developing in [Laravel](http://laravel.com 'Laravel, PHP framework'), [Jekyll](http://jekyllrb.com 'Jekyll'), and [Drupal](http://drupal.org 'Drupal CMS'), and they each have unique theming requirements, but it basically boils down to creating a theme 'assets' folder. This assets folder will hold all theme based assets - Sass, CSS, images, fonts, javascripts, etc - and will contain your frameworks and js libraries, etc. You can place this folder inside a Drupal theme, the Laravel public folder, or the Jekyll root folder. Placing the 'asset' folder in the root is also how you would approach a normal .html site as well.
 
-```css
+```
 ...
 /assets
   /sass

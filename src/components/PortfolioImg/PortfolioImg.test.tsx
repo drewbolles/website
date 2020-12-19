@@ -1,23 +1,23 @@
-import * as React from "react";
-import { render } from "@testing-library/react";
-import PortfolioImg from "./PortfolioImg";
+import * as React from 'react';
+import { render } from '@testing-library/react';
+import PortfolioImg from './PortfolioImg';
 
 const imgStub = {
-  src: "test-src.png",
-  srcSet: "test-src-set.png 1x, test-src-set-2.png 2x",
+  src: 'test-src.png',
+  srcSet: 'test-src-set.png 1x, test-src-set-2.png 2x',
 };
 
-jest.mock("./requireImages.ts", () => ({
+jest.mock('./requireImages.ts', () => ({
   requireImg: () => imgStub,
   requireImgWebp: () => imgStub,
 }));
 
-test("it renders with the correct picture syntax", () => {
+test('it renders with the correct picture syntax', () => {
   const { getByAltText, getByTestId } = render(
-    <PortfolioImg src="/uploads/screenshots/test.png" alt="My Test Image" />
+    <PortfolioImg src="/uploads/screenshots/test.png" alt="My Test Image" />,
   );
-  expect(getByAltText("My Test Image")).toBeInTheDocument();
-  expect(getByTestId("portfolio-img")).toMatchInlineSnapshot(`
+  expect(getByAltText('My Test Image')).toBeInTheDocument();
+  expect(getByTestId('portfolio-img')).toMatchInlineSnapshot(`
     <picture
       data-testid="portfolio-img"
     >

@@ -1,22 +1,22 @@
-import * as React from "react";
-import Button from "../components/Button";
-import { MdEmail, MdOpenInNew } from "react-icons/md";
+import * as React from 'react';
+import Button from '../components/Button';
+import { MdEmail, MdOpenInNew } from 'react-icons/md';
 import {
   FaArrowRight,
   FaNodeJs,
   FaReact,
   FaRegHandPointDown,
-} from "react-icons/fa";
-import { SiTypescript } from "react-icons/si";
-import { Row, Col } from "../components/Grid";
-import { GetStaticProps } from "next";
-import NextLink from "next/link";
-import Layout from "../components/Layout/Layout";
-import { importBlogPosts, importPortfolioItems } from "../utils/content";
-import { Blog } from "../types/blog";
-import sortByDate from "../utils/sortByDate";
-import { Portfolio } from "../types/portfolio";
-import PortfolioImg from "../components/PortfolioImg/PortfolioImg";
+} from 'react-icons/fa';
+import { SiTypescript } from 'react-icons/si';
+import { Row, Col } from '../components/Grid';
+import { GetStaticProps } from 'next';
+import NextLink from 'next/link';
+import Layout from '../components/Layout/Layout';
+import { importBlogPosts, importPortfolioItems } from '../utils/content';
+import { Blog } from '../types/blog';
+import sortByDate from '../utils/sortByDate';
+import { Portfolio } from '../types/portfolio';
+import PortfolioImg from '../components/PortfolioImg/PortfolioImg';
 
 const Icon = ({ icon: IconEl }: { icon: React.ElementType }) => (
   <IconEl className="inline mr-1 align-middle" />
@@ -152,7 +152,7 @@ export const getStaticProps: GetStaticProps = async () => {
       postsList: postsList.sort(sortByDate).slice(0, 5),
       featuredPortfolio: portfolioItems
         .sort(sortByDate)
-        .find((item) => item.attributes.featured),
+        .find(item => item.attributes.featured),
     },
   };
 };

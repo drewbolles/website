@@ -1,11 +1,11 @@
 export const requireImgWebp = require.context(
-  `../../public/uploads/screenshots?sizes[]=768,sizes[]=1024&format=webp`,
+  `../../../public/uploads/screenshots?sizes[]=768,sizes[]=1024&format=webp`,
   false,
-  /\.(png|jpg)$/
+  /\.(png|jpg)$/,
 );
 
 export const requireImg = require.context(
-  `../../public/uploads/screenshots?sizes[]=768,sizes[]=1024`,
+  `../../../public/uploads/screenshots?sizes[]=768,sizes[]=1024`,
   false,
-  /\.(png|jpg)$/
+  /\.(png|jpg)$/,
 );

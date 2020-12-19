@@ -1,0 +1,6 @@
+# Ignore artifacts:
+out
+coverage
+.next
+.github
+public

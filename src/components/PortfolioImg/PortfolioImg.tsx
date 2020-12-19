@@ -1,11 +1,11 @@
-import React from "react";
-import { requireImg, requireImgWebp } from "./requireImages";
+import React from 'react';
+import { requireImg, requireImgWebp } from './requireImages';
 
-const cleanImgSrc = (src: string) => src.replace("/uploads/screenshots/", "./");
+const cleanImgSrc = (src: string) => src.replace('/uploads/screenshots/', './');
 
 export default function PortfolioImg({
   src,
-  alt = "",
+  alt = '',
 }: {
   src: string;
   alt?: string;

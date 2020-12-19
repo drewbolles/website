@@ -12,17 +12,18 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run --browser chrome --headless --record --key 0edf7fce-9866-4c39-af61-616c9fbc7c63",
     "type-check": "tsc --pretty --noEmit",
-    "lint": "eslint . --ext ts --ext tsx --ext js"
+    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "lint:fix": "eslint . --ext ts --ext tsx --ext js --fix"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm run type-check"
+      "pre-push": "npm run type-check && npm run test"
     }
   },
   "lint-staged": {
     "*.{ts,tsx,js}": [
-      "npm run lint",
+      "npm run lint:fix",
       "pretty-quick --staged"
     ]
   },

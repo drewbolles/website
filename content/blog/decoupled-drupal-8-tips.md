@@ -1,7 +1,7 @@
 ---
-title: "Decoupled Drupal 8 Tips"
-description: "Tips for developing a decoupled application with Drupal 8 as your backend"
-date: "2020-01-11T11:47:26-0500"
+title: 'Decoupled Drupal 8 Tips'
+description: 'Tips for developing a decoupled application with Drupal 8 as your backend'
+date: '2020-01-11T11:47:26-0500'
 ---
 
 I've been developing a decoupled Drupal 8 site for a while now, and I've gone through my shares of trials and tribulations. I've learned a few tips and tricks throughout the process that I'd like to share.

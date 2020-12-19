@@ -1,5 +1,5 @@
 ---
-title: "Gulpin’, Gruntin’, or none of the above: Front-end build process"
+title: 'Gulpin’, Gruntin’, or none of the above: Front-end build process'
 slides: https://speakerdeck.com/cwightrun/gruntin-gulpin-or-none-of-the-above
 date: 2015-04-11
 events:
