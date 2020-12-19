@@ -18,7 +18,7 @@
 			"purpose": "maskable"
 		}
 	],
-	"start_url": "https://www.drewbolles.com?utm_source=web_app_manifest",
+	"start_url": "/?utm_source=web_app_manifest",
 	"display": "standalone",
 	"orientation": "natural",
 	"background_color": "#FFFFFF",
