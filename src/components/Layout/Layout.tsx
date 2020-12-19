@@ -71,7 +71,11 @@ export default function Layout({
         <footer className="py-6 bg-gray-100 text-center">
           <div className="container md:flex items-center justify-between">
             <p className="text-xs">
-              &copy; Copyright {new Date().getFullYear()}. All rights reserved.
+              &copy; Copyright {new Date().getFullYear()}. All rights reserved.{' '}
+              <NextLink href="/privacy-policy">
+                <a className="underline">Privacy policy</a>
+              </NextLink>
+              .
             </p>
             <ul className="inline-flex">
               <li>
