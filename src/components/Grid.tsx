@@ -11,7 +11,10 @@ export function Row({
 }: React.PropsWithChildren<Props>): JSX.Element {
   return (
     <div
-      className={classNames('flex flex-wrap -mx-3 -mb-6', className)}
+      className={classNames(
+        'flex flex-col md:flex-row flex-wrap -mx-3 -mb-6',
+        className,
+      )}
       {...rest}
     />
   );

@@ -25,13 +25,10 @@ const useSteamGames = () =>
   });
 
 function GamesList() {
-  const [showAll, setShowAll] = React.useState(false);
   const { status, data: games = [] } = useSteamGames();
   const sortedGames = games
     .filter(game => game.playTime > 0)
     .sort((a, b) => b.playTime - a.playTime);
-
-  const visibleGames = showAll ? sortedGames : sortedGames.slice(0, 5);
 
   if (status === 'loading') {
     return (
@@ -42,9 +39,9 @@ function GamesList() {
   }
 
   return status === 'success' ? (
-    <div className="flex flex-col flex-grow border-gray-200 pt-1 lg:pt-2">
-      <ul className="space-y-3 lg:space-y-4">
-        {visibleGames.map(game => (
+    <div className="flex flex-col flex-grow border-gray-200 pt-1 overflow-scroll px-4 -mx-4 lg:pt-2">
+      <ul className="space-y-3 2xl:space-y-4">
+        {sortedGames.map(game => (
           <li key={game.appID} className="flex items-center">
             <div className="mr-2 flex-none">
               <img
@@ -54,7 +51,7 @@ function GamesList() {
               />
             </div>
             <div className="overflow-hidden">
-              <div className="text-sm lg:text-base lg:leading-tight leading-tight mb-1 font-semibold text-gray-700 truncate">
+              <div className="text-sm 2xl:text-base 2xl:leading-tight leading-tight mb-1 font-semibold text-gray-700 truncate">
                 {game.name}
               </div>
               <div className="flex text-xs leading-tight">
@@ -67,13 +64,6 @@ function GamesList() {
           </li>
         ))}
       </ul>
-      {sortedGames.length > 5 ? (
-        <footer className="text-center pt-1 mt-auto">
-          <button className="text-sm" onClick={() => setShowAll(prev => !prev)}>
-            {showAll ? 'Show less' : 'Show all'}
-          </button>
-        </footer>
-      ) : null}
     </div>
   ) : null;
 }

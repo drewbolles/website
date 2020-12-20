@@ -7,11 +7,16 @@ import PageTitle from '../components/PageTitle';
 import SteamCard from '../components/CommandCenter/SteamCard';
 import AmazonWishListCard from '../components/CommandCenter/AmazonWishListCard';
 import SpotifyCard from '../components/CommandCenter/SpotifyCard';
-import BitcoinCard from '../components/CommandCenter/BitcoinCard';
+import classNames from 'classnames';
+
+import styles from '../styles/command-center.module.css';
 
 const CommandCol = props => (
   <Col
-    className="flex flex-col w-full md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5"
+    className={classNames(
+      'flex flex-col w-full md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5',
+      styles.col,
+    )}
     {...props}
   />
 );
@@ -22,7 +27,7 @@ export default function CommandCenter(): JSX.Element {
       title="Command Center"
       description="The command center is a dashboard for my digital footprint"
     >
-      <div className="p-6 lg:p-10 flex-grow">
+      <div className="p-6 pb-12 lg:p-10 lg:pb-16 flex-grow">
         <PageTitle className="text-center lg:mb-8">Command Center</PageTitle>
         <Row>
           <CommandCol>
@@ -39,9 +44,6 @@ export default function CommandCenter(): JSX.Element {
           </CommandCol>
           <CommandCol>
             <SpotifyCard />
-          </CommandCol>
-          <CommandCol>
-            <BitcoinCard />
           </CommandCol>
         </Row>
       </div>

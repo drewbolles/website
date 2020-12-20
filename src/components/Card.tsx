@@ -28,7 +28,10 @@ export function CardContent({
   return (
     <div
       className={classNames(
-        { 'p-4 flex-grow flex flex-col': padding, 'p-0': padding === false },
+        {
+          'p-4 flex-grow flex flex-col overflow-hidden': padding,
+          'p-0': padding === false,
+        },
         className,
       )}
       {...rest}

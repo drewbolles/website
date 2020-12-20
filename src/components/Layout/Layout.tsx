@@ -29,7 +29,10 @@ function Link({ href, ...rest }: React.PropsWithChildren<{ href: string }>) {
 }
 
 const FooterIconLink = props => (
-  <a className="inline-flex w-12 h-12 items-center justify-center" {...props} />
+  <a
+    className="inline-flex w-12 h-12 items-center justify-center text-gray-600 hover:text-gray-900"
+    {...props}
+  />
 );
 
 export default function Layout({
@@ -70,7 +73,7 @@ export default function Layout({
         {children}
         <footer className="py-6 bg-gray-100 text-center">
           <div className="container md:flex items-center justify-between">
-            <p className="text-xs">
+            <p className="text-xs mb-2 md:mb-0">
               &copy; Copyright {new Date().getFullYear()}. All rights reserved.{' '}
               <NextLink href="/privacy-policy">
                 <a className="underline">Privacy policy</a>
@@ -83,7 +86,7 @@ export default function Layout({
                   href="https://twitter.com/bollskis"
                   title="Follow me on Twitter"
                 >
-                  <FaTwitter />
+                  <FaTwitter size="1.5rem" />
                 </FooterIconLink>
               </li>
               <li>
@@ -91,7 +94,7 @@ export default function Layout({
                   href="https://github.com/drewbolles"
                   title="Check me out on GitHub"
                 >
-                  <FaGithub />
+                  <FaGithub size="1.5rem" />
                 </FooterIconLink>
               </li>
               <li>
@@ -99,7 +102,7 @@ export default function Layout({
                   href="https://www.linkedin.com/in/drew-bolles/"
                   title="Connect with me on LinkedIn"
                 >
-                  <FaLinkedin />
+                  <FaLinkedin size="1.5rem" />
                 </FooterIconLink>
               </li>
             </ul>
