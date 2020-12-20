@@ -4,7 +4,7 @@ import { MdTimer } from 'react-icons/md';
 import { useQuery } from 'react-query';
 import AvatarBlock from '../AvatarBlock';
 import Card, { CardContent, CardHeader } from '../Card';
-import CircularProgress from '../CircularProgress';
+import QueryRenderManager from '../QueryRenderManager';
 
 const useSteamProfile = () =>
   useQuery('steamProfile', async () => {
@@ -30,45 +30,41 @@ function GamesList() {
     .filter(game => game.playTime > 0)
     .sort((a, b) => b.playTime - a.playTime);
 
-  if (status === 'loading') {
-    return (
-      <div className="py-6">
-        <CircularProgress center />
+  return (
+    <QueryRenderManager status={status}>
+      <div className="flex flex-col flex-grow border-gray-200 overflow-scroll px-4 -mx-4">
+        <ul className="space-y-1">
+          {sortedGames.map(game => (
+            <li key={game.appID}>
+              <a
+                href={`https://store.steampowered.com/app/${game.appID}`}
+                className="flex items-center hover:bg-gray-100 rounded py-2 px-2 -mx-2"
+              >
+                <div className="mr-2 flex-none">
+                  <img
+                    className="w-8 h-8 rounded"
+                    src={game.iconURL}
+                    alt={game.name}
+                  />
+                </div>
+                <div className="overflow-hidden">
+                  <div className="text-sm leading-none mb-1 truncate">
+                    {game.name}
+                  </div>
+                  <div className="flex items-center text-xs leading-tight text-gray-600">
+                    <MdTimer size=".75rem" className="mr-1" />
+                    <span className="">
+                      {Math.round(game.playTime / 60)} hrs
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
-    );
-  }
-
-  return status === 'success' ? (
-    <div className="flex flex-col flex-grow border-gray-200 overflow-scroll px-4 -mx-4">
-      <ul className="space-y-1">
-        {sortedGames.map(game => (
-          <li key={game.appID}>
-            <a
-              href={`https://store.steampowered.com/app/${game.appID}`}
-              className="flex items-center hover:bg-gray-100 rounded py-2 px-2 -mx-2"
-            >
-              <div className="mr-2 flex-none">
-                <img
-                  className="w-8 h-8 rounded"
-                  src={game.iconURL}
-                  alt={game.name}
-                />
-              </div>
-              <div className="overflow-hidden">
-                <div className="text-sm leading-none mb-1 truncate">
-                  {game.name}
-                </div>
-                <div className="flex items-center text-xs leading-tight text-gray-600">
-                  <MdTimer size=".75rem" className="mr-1" />
-                  <span className="">{Math.round(game.playTime / 60)} hrs</span>
-                </div>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  ) : null;
+    </QueryRenderManager>
+  );
 }
 
 export default function SteamCard(): JSX.Element {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FaAmazon } from 'react-icons/fa';
 import { useQuery } from 'react-query';
 import Card, { CardContent, CardHeader } from '../Card';
-import CircularProgress from '../CircularProgress';
+import QueryRenderManager from '../QueryRenderManager';
 
 const useWishList = () =>
   useQuery('amazonWishList', async () => {
@@ -14,14 +14,13 @@ const useWishList = () =>
   });
 
 export default function AmazonWishListCard(): JSX.Element {
-  const { data: wishList, status } = useWishList();
+  const { data: wishList = [], status } = useWishList();
 
   return (
     <Card>
       <CardHeader icon={FaAmazon} title="Wish List" />
       <CardContent>
-        {status === 'loading' ? <CircularProgress center /> : null}
-        {status === 'success' ? (
+        <QueryRenderManager status={status}>
           <ul className="divide-y-2 space-y-3">
             {wishList.map(list => (
               <li key={list.link} className="pt-3 first:pt-0">
@@ -47,7 +46,7 @@ export default function AmazonWishListCard(): JSX.Element {
               </li>
             ))}
           </ul>
-        ) : null}
+        </QueryRenderManager>
       </CardContent>
     </Card>
   );

@@ -3,7 +3,7 @@ import { FaGithub } from 'react-icons/fa';
 import { useQuery } from 'react-query';
 import AvatarBlock from '../AvatarBlock';
 import Card, { CardContent, CardHeader } from '../Card';
-import CircularProgress from '../CircularProgress';
+import QueryRenderManager from '../QueryRenderManager';
 
 const StatItem = ({
   label,
@@ -40,11 +40,9 @@ const useGitHubRepos = () =>
 
 function GitHubRepos() {
   const { data = [], status } = useGitHubRepos();
-  if (status === 'loading') {
-    return <CircularProgress center />;
-  }
-  return status === 'success' ? (
-    <>
+
+  return (
+    <QueryRenderManager status={status}>
       <h3 className="font-semibold lg:text-lg">Projects:</h3>
       <ul className="text-sm lg:text-base">
         {data.slice(0, 5).map(repo => (
@@ -60,8 +58,8 @@ function GitHubRepos() {
           </li>
         ))}
       </ul>
-    </>
-  ) : null;
+    </QueryRenderManager>
+  );
 }
 
 export default function GithubCard(): JSX.Element {
@@ -79,13 +77,14 @@ export default function GithubCard(): JSX.Element {
           tertiary={userData.location}
           loading={userStatus === 'loading'}
         />
-        {userStatus === 'success' ? (
+        <QueryRenderManager status={userStatus}>
           <ul className="mb-3 lg:mb-6 lg:pt-2 flex justify-center">
             <StatItem label="Repos" value={userData.public_repos} />
             <StatItem label="Followers" value={userData.followers} />
             <StatItem label="Following" value={userData.following} />
           </ul>
-        ) : null}
+        </QueryRenderManager>
+
         <GitHubRepos />
       </CardContent>
     </Card>
