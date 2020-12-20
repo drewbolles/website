@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FaAmazon } from 'react-icons/fa';
 import { useQuery } from 'react-query';
 import Card, { CardContent, CardHeader } from '../Card';
-import QueryRenderManager from '../QueryRenderManager';
+import RenderQuery from '../RenderQuery';
 
 const useWishList = () =>
   useQuery('amazonWishList', async () => {
@@ -20,7 +20,7 @@ export default function AmazonWishListCard(): JSX.Element {
     <Card>
       <CardHeader icon={FaAmazon} title="Wish List" />
       <CardContent>
-        <QueryRenderManager status={status}>
+        <RenderQuery status={status}>
           <ul className="divide-y-2 space-y-3">
             {wishList.map(list => (
               <li key={list.link} className="pt-3 first:pt-0">
@@ -46,7 +46,7 @@ export default function AmazonWishListCard(): JSX.Element {
               </li>
             ))}
           </ul>
-        </QueryRenderManager>
+        </RenderQuery>
       </CardContent>
     </Card>
   );

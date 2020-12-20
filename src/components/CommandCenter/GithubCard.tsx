@@ -3,7 +3,7 @@ import { FaGithub } from 'react-icons/fa';
 import { useQuery } from 'react-query';
 import AvatarBlock from '../AvatarBlock';
 import Card, { CardContent, CardHeader } from '../Card';
-import QueryRenderManager from '../QueryRenderManager';
+import RenderQuery from '../RenderQuery';
 
 const StatItem = ({
   label,
@@ -42,7 +42,7 @@ function GitHubRepos() {
   const { data = [], status } = useGitHubRepos();
 
   return (
-    <QueryRenderManager status={status}>
+    <RenderQuery status={status}>
       <h3 className="font-semibold lg:text-lg">Projects:</h3>
       <ul className="text-sm lg:text-base">
         {data.slice(0, 5).map(repo => (
@@ -58,7 +58,7 @@ function GitHubRepos() {
           </li>
         ))}
       </ul>
-    </QueryRenderManager>
+    </RenderQuery>
   );
 }
 
@@ -77,13 +77,13 @@ export default function GithubCard(): JSX.Element {
           tertiary={userData.location}
           loading={userStatus === 'loading'}
         />
-        <QueryRenderManager status={userStatus}>
+        <RenderQuery status={userStatus}>
           <ul className="mb-3 lg:mb-6 lg:pt-2 flex justify-center">
             <StatItem label="Repos" value={userData.public_repos} />
             <StatItem label="Followers" value={userData.followers} />
             <StatItem label="Following" value={userData.following} />
           </ul>
-        </QueryRenderManager>
+        </RenderQuery>
 
         <GitHubRepos />
       </CardContent>

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FaBitcoin } from 'react-icons/fa';
 import { useQuery } from 'react-query';
 import Card, { CardContent, CardHeader } from '../Card';
-import QueryRenderManager from '../QueryRenderManager';
+import RenderQuery from '../RenderQuery';
 
 const useBitcoinPrice = () =>
   useQuery(
@@ -27,12 +27,12 @@ export default function BitcoinCard(): JSX.Element {
     <Card>
       <CardHeader icon={FaBitcoin} title="Bitcoin" />
       <CardContent>
-        <QueryRenderManager status={status}>
+        <RenderQuery status={status}>
           <h3 className="text-2xl py-6 pb-10 lg:py-12 lg:pb-14 text-center">
             <span dangerouslySetInnerHTML={{ __html: data.bpi.USD.symbol }} />
             {data.bpi.USD.rate}
           </h3>
-        </QueryRenderManager>
+        </RenderQuery>
         <p className="text-xs text-gray-700">
           Price provided by{' '}
           <a

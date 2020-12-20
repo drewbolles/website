@@ -6,7 +6,7 @@ type Props = {
   fallback?: React.ReactElement;
 };
 
-export default function QueryRenderManager({
+export default function RenderQuery({
   children,
   status,
   fallback = <CircularProgress center />,

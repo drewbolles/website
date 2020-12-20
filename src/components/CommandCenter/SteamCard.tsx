@@ -4,7 +4,7 @@ import { MdTimer } from 'react-icons/md';
 import { useQuery } from 'react-query';
 import AvatarBlock from '../AvatarBlock';
 import Card, { CardContent, CardHeader } from '../Card';
-import QueryRenderManager from '../QueryRenderManager';
+import RenderQuery from '../RenderQuery';
 
 const useSteamProfile = () =>
   useQuery('steamProfile', async () => {
@@ -31,7 +31,7 @@ function GamesList() {
     .sort((a, b) => b.playTime - a.playTime);
 
   return (
-    <QueryRenderManager status={status}>
+    <RenderQuery status={status}>
       <div className="flex flex-col flex-grow border-gray-200 overflow-scroll px-4 -mx-4">
         <ul className="space-y-1">
           {sortedGames.map(game => (
@@ -63,7 +63,7 @@ function GamesList() {
           ))}
         </ul>
       </div>
-    </QueryRenderManager>
+    </RenderQuery>
   );
 }
 
