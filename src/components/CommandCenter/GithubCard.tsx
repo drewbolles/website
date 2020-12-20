@@ -3,6 +3,7 @@ import { FaGithub } from 'react-icons/fa';
 import { useQuery } from 'react-query';
 import AvatarBlock from '../AvatarBlock';
 import Card, { CardContent, CardHeader } from '../Card';
+import CircularProgress from '../CircularProgress';
 
 const StatItem = ({
   label,
@@ -37,50 +38,55 @@ const useGitHubRepos = () =>
     return await res.json();
   });
 
+function GitHubRepos() {
+  const { data = [], status } = useGitHubRepos();
+  if (status === 'loading') {
+    return <CircularProgress center />;
+  }
+  return status === 'success' ? (
+    <>
+      <h3 className="font-semibold lg:text-lg">Projects:</h3>
+      <ul className="text-sm lg:text-base">
+        {data.slice(0, 5).map(repo => (
+          <li key={repo.id}>
+            <div>
+              <a
+                href={repo.html_url}
+                className="border-b border-blue-700 border-dashed text-blue-700 leading-relaxed"
+              >
+                {repo.name}
+              </a>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </>
+  ) : null;
+}
+
 export default function GithubCard(): JSX.Element {
-  const { data: userData, status: userStatus } = useGitHubUserInfo();
-  const { data: reposData = [], status: reposStatus } = useGitHubRepos();
+  const { data: userData = {}, status: userStatus } = useGitHubUserInfo();
 
   return (
     <Card>
       <CardHeader icon={FaGithub} title="GitHub" />
       <CardContent>
-        <div>
-          {userStatus === 'loading' ? <span>Loading...</span> : null}
-          {userStatus === 'success' ? (
-            <>
-              <AvatarBlock
-                href={userData.html_url}
-                img={userData.avatar_url}
-                primary={userData.login}
-                secondary={userData.name}
-                tertiary={userData.location}
-              />
-              <ul className="mb-3 flex justify-center">
-                <StatItem label="Repos" value={userData.public_repos} />
-                <StatItem label="Followers" value={userData.followers} />
-                <StatItem label="Following" value={userData.following} />
-              </ul>
-              <h3 className="font-semibold">Projects:</h3>
-            </>
-          ) : null}
-          {reposStatus === 'success' ? (
-            <ul className="text-sm">
-              {reposData.slice(0, 5).map(repo => (
-                <li key={repo.id}>
-                  <div>
-                    <a
-                      href={repo.html_url}
-                      className="border-b border-blue-700 border-dashed text-blue-700 leading-relaxed"
-                    >
-                      {repo.name}
-                    </a>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          ) : null}
-        </div>
+        <AvatarBlock
+          href={userData.html_url}
+          img={userData.avatar_url}
+          primary={userData.login}
+          secondary={userData.name}
+          tertiary={userData.location}
+          loading={userStatus === 'loading'}
+        />
+        {userStatus === 'success' ? (
+          <ul className="mb-3 lg:mb-6 lg:pt-2 flex justify-center">
+            <StatItem label="Repos" value={userData.public_repos} />
+            <StatItem label="Followers" value={userData.followers} />
+            <StatItem label="Following" value={userData.following} />
+          </ul>
+        ) : null}
+        <GitHubRepos />
       </CardContent>
     </Card>
   );

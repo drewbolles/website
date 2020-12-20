@@ -4,6 +4,7 @@ import { MdTimer } from 'react-icons/md';
 import { useQuery } from 'react-query';
 import AvatarBlock from '../AvatarBlock';
 import Card, { CardContent, CardHeader } from '../Card';
+import CircularProgress from '../CircularProgress';
 
 const useSteamProfile = () =>
   useQuery('steamProfile', async () => {
@@ -32,9 +33,17 @@ function GamesList() {
 
   const visibleGames = showAll ? sortedGames : sortedGames.slice(0, 5);
 
+  if (status === 'loading') {
+    return (
+      <div className="py-6">
+        <CircularProgress center />
+      </div>
+    );
+  }
+
   return status === 'success' ? (
-    <div className="border-t-2 border-gray-200 pt-4 -mt-1">
-      <ul className="space-y-2">
+    <div className="flex flex-col flex-grow border-gray-200 pt-1 lg:pt-2">
+      <ul className="space-y-3 lg:space-y-4">
         {visibleGames.map(game => (
           <li key={game.appID} className="flex items-center">
             <div className="mr-2 flex-none">
@@ -45,7 +54,7 @@ function GamesList() {
               />
             </div>
             <div className="overflow-hidden">
-              <div className="text-sm leading-tight mb-1 font-semibold text-gray-700 truncate">
+              <div className="text-sm lg:text-base lg:leading-tight leading-tight mb-1 font-semibold text-gray-700 truncate">
                 {game.name}
               </div>
               <div className="flex text-xs leading-tight">
@@ -59,7 +68,7 @@ function GamesList() {
         ))}
       </ul>
       {sortedGames.length > 5 ? (
-        <footer className="text-center pt-1">
+        <footer className="text-center pt-1 mt-auto">
           <button className="text-sm" onClick={() => setShowAll(prev => !prev)}>
             {showAll ? 'Show less' : 'Show all'}
           </button>
@@ -70,21 +79,20 @@ function GamesList() {
 }
 
 export default function SteamCard(): JSX.Element {
-  const profile = useSteamProfile();
+  const { data = {}, status } = useSteamProfile();
 
   return (
     <Card>
       <CardHeader icon={FaSteam} title="Steam" />
       <CardContent>
-        {profile.status === 'success' ? (
-          <AvatarBlock
-            href={profile.data.url}
-            img={profile.data.avatar.medium}
-            primary={profile.data.nickname}
-            secondary={profile.data.realName}
-            tertiary={profile.data.stateCode}
-          />
-        ) : null}
+        <AvatarBlock
+          href={data.url}
+          img={data.avatar?.medium}
+          primary={data.nickname}
+          secondary={data.realName}
+          tertiary={data.stateCode}
+          loading={status === 'loading'}
+        />
         <GamesList />
       </CardContent>
     </Card>

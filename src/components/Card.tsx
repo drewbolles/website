@@ -11,8 +11,8 @@ export function CardHeader({
   className,
 }: Props & { icon?: React.ElementType; title: string }): JSX.Element {
   return (
-    <header className={classNames('py-2 px-4 bg-gray-100', className)}>
-      <h3 className="text-xl tracking-wide leading-none flex items-center">
+    <header className={classNames('bg-gray-100', className)}>
+      <h3 className="text-xl tracking-wide leading-none flex items-center h-12 py-2 px-4">
         {Icon ? <Icon className="mr-2" /> : null}
         <span>{title}</span>
       </h3>
@@ -28,7 +28,7 @@ export function CardContent({
   return (
     <div
       className={classNames(
-        { 'p-4': padding, 'p-0': padding === false },
+        { 'p-4 flex-grow flex flex-col': padding, 'p-0': padding === false },
         className,
       )}
       {...rest}

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { FaTwitter } from 'react-icons/fa';
 import Card, { CardContent, CardHeader } from '../Card';
+import CircularProgress from '../CircularProgress';
 
 export default function TwitterCard(): JSX.Element {
   return (
@@ -10,10 +11,10 @@ export default function TwitterCard(): JSX.Element {
         <div className="aspect-w-9 aspect-h-12">
           <div className="overflow-scroll">
             <a
-              className="twitter-timeline"
+              className="twitter-timeline h-full flex"
               href="https://twitter.com/bollskis?ref_src=twsrc%5Etfw"
             >
-              Tweets by bollskis
+              <CircularProgress center />
             </a>
             <script
               async

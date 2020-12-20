@@ -10,7 +10,10 @@ import SpotifyCard from '../components/CommandCenter/SpotifyCard';
 import BitcoinCard from '../components/CommandCenter/BitcoinCard';
 
 const CommandCol = props => (
-  <Col className="flex flex-col w-full md:w-1/2 lg:w-1/4 xl:w-1/5" {...props} />
+  <Col
+    className="flex flex-col w-full md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5"
+    {...props}
+  />
 );
 
 export default function CommandCenter(): JSX.Element {
@@ -19,8 +22,8 @@ export default function CommandCenter(): JSX.Element {
       title="Command Center"
       description="The command center is a dashboard for my digital footprint"
     >
-      <div className="p-6 flex-grow">
-        <PageTitle>Command Center</PageTitle>
+      <div className="p-6 lg:p-10 flex-grow">
+        <PageTitle className="text-center lg:mb-8">Command Center</PageTitle>
         <Row>
           <CommandCol>
             <GithubCard />

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { FaBitcoin } from 'react-icons/fa';
 import { useQuery } from 'react-query';
 import Card, { CardContent, CardHeader } from '../Card';
+import CircularProgress from '../CircularProgress';
 
 const useBitcoinPrice = () =>
   useQuery(
@@ -26,7 +27,7 @@ export default function BitcoinCard(): JSX.Element {
     <Card>
       <CardHeader icon={FaBitcoin} title="Bitcoin" />
       <CardContent>
-        {status === 'loading' ? <>Loading...</> : null}
+        {status === 'loading' ? <CircularProgress center /> : null}
         {status === 'success' ? (
           <h3 className="text-2xl py-6 pb-10 lg:py-12 lg:pb-14 text-center">
             <span dangerouslySetInnerHTML={{ __html: data.bpi.USD.symbol }} />
