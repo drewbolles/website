@@ -39,28 +39,31 @@ function GamesList() {
   }
 
   return status === 'success' ? (
-    <div className="flex flex-col flex-grow border-gray-200 pt-1 overflow-scroll px-4 -mx-4 lg:pt-2">
-      <ul className="space-y-3 2xl:space-y-4">
+    <div className="flex flex-col flex-grow border-gray-200 overflow-scroll px-4 -mx-4">
+      <ul className="space-y-1">
         {sortedGames.map(game => (
-          <li key={game.appID} className="flex items-center">
-            <div className="mr-2 flex-none">
-              <img
-                className="w-8 h-8 rounded"
-                src={game.iconURL}
-                alt={game.name}
-              />
-            </div>
-            <div className="overflow-hidden">
-              <div className="text-sm 2xl:text-base 2xl:leading-tight leading-tight mb-1 font-semibold text-gray-700 truncate">
-                {game.name}
+          <li key={game.appID}>
+            <a
+              href={`https://store.steampowered.com/app/${game.appID}`}
+              className="flex items-center hover:bg-gray-100 rounded py-2 px-2 -mx-2"
+            >
+              <div className="mr-2 flex-none">
+                <img
+                  className="w-8 h-8 rounded"
+                  src={game.iconURL}
+                  alt={game.name}
+                />
               </div>
-              <div className="flex text-xs leading-tight">
-                <MdTimer size="1rem" className="mr-1" />
-                <span className="font-bold">
-                  {Math.round(game.playTime / 60)} hrs
-                </span>
+              <div className="overflow-hidden">
+                <div className="text-sm leading-none mb-1 truncate">
+                  {game.name}
+                </div>
+                <div className="flex items-center text-xs leading-tight text-gray-600">
+                  <MdTimer size=".75rem" className="mr-1" />
+                  <span className="">{Math.round(game.playTime / 60)} hrs</span>
+                </div>
               </div>
-            </div>
+            </a>
           </li>
         ))}
       </ul>

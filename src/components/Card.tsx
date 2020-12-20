@@ -26,16 +26,18 @@ export function CardContent({
   ...rest
 }: React.PropsWithChildren<Props & { padding?: boolean }>): JSX.Element {
   return (
-    <div
-      className={classNames(
-        {
-          'p-4 flex-grow flex flex-col overflow-hidden': padding,
-          'p-0': padding === false,
-        },
-        className,
-      )}
-      {...rest}
-    />
+    <div className="aspect-w-9 aspect-h-12">
+      <div
+        className={classNames(
+          {
+            'p-4 flex-grow flex flex-col overflow-hidden ': padding,
+            'p-0': padding === false,
+          },
+          className,
+        )}
+        {...rest}
+      />
+    </div>
   );
 }
 

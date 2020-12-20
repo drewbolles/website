@@ -1,5 +1,4 @@
 .col {
-  max-height: 450px;
   max-width: 350px;
   margin-right: auto;
   margin-left: auto;
@@ -7,15 +6,8 @@
 
 @screen md {
   .col {
-    max-height: 400px;
     max-width: 100%;
     margin-right: initial;
     margin-left: initial;
-  }
-}
-
-@screen 2xl {
-  .col {
-    max-height: 500px;
   }
 }

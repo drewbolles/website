@@ -35,11 +35,11 @@ export default function AmazonWishListCard(): JSX.Element {
                     <img src={list.picture} />
                   </div>
                   <div>
-                    <h3 className="line-clamp leading-tight mb-1 font-medium">
+                    <h3 className="line-clamp leading-tight mb-1">
                       {list.name}
                     </h3>
                     <div
-                      className="text-sm text-gray-700"
+                      className="text-sm text-gray-600"
                       dangerouslySetInnerHTML={{ __html: list['new-price'] }}
                     />
                   </div>

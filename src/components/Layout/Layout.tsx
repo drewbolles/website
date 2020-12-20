@@ -52,7 +52,7 @@ export default function Layout({
         openGraph={{ type: 'website', title, description }}
       />
       <div className="flex flex-col min-h-screen antialiased font-sans text-gray-900 pt-12 md:pt-16">
-        <header className="shadow fixed top-0 w-full bg-white">
+        <header className="shadow fixed top-0 z-50 w-full bg-white">
           <div className="container flex items-center justify-between h-12 md:h-16">
             <NextLink href="/">
               <a className="flex flex-col">
