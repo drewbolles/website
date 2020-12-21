@@ -44,11 +44,16 @@ const Resume: NextPage = () => {
         <div className="container max-w-prose">
           <PageTitle>Resume</PageTitle>
           <div className="mb-6">
-            <h2 className="text-xl mb-1 md:text-2xl lg:text-3xl">
-              {basics.name}
-            </h2>
-            <ul className="mb-4">
-              <li>{basics.email}</li>
+            <h2 className="mb-1 text-2xl lg:text-3xl">{basics.name}</h2>
+            <ul className="mb-3">
+              <li>
+                <a
+                  className="text-blue-700 underline"
+                  href={`mailto:${basics.email}`}
+                >
+                  {basics.email}
+                </a>
+              </li>
               <li>
                 <a href={basics.website} className="text-blue-700 underline">
                   {basics.website}
@@ -75,7 +80,7 @@ const Resume: NextPage = () => {
                 const endDate = endDateRaw ? formatDate(endDateRaw) : 'Current';
                 return (
                   <li key={`${job.company}-${idx}`}>
-                    <div className="flex items-center justify-between">
+                    <div className="md:flex items-center justify-between">
                       <div className="flex items-center">
                         <h3 className="text-xl font-medium">
                           {job.website ? (
