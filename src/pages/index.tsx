@@ -73,7 +73,12 @@ export default function Home({
             </div>
           </div>
         </div>
-        <div className="bg-gray-100 border-t border-b border-gray-200 py-8 pb-12 md:py-16">
+        <div
+          className="py-8 pb-12 md:py-16 bg-cover bg-fixed"
+          style={{
+            backgroundImage: `url(${require('../images/slice-bg.svg')})`,
+          }}
+        >
           <div className="container">
             <Row className="items-center">
               <Col className="w-full md:w-2/3 lg:w-1/2">
