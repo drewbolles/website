@@ -4,6 +4,7 @@ import '../styles/globals.css';
 import { useRouter } from 'next/router';
 import * as ga from '../utils/ga';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { Hydrate } from 'react-query/hydration';
 
 const queryClient = new QueryClient();
 
@@ -22,7 +23,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
+      <Hydrate state={pageProps.dehydratedState}>
+        <Component {...pageProps} />
+      </Hydrate>
     </QueryClientProvider>
   );
 }
