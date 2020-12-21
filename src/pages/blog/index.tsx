@@ -16,7 +16,9 @@ function Post({ attributes, slug }: Blog) {
     <div>
       <h2 className="md:text-2xl mb-2 font-semibold">
         <Link href={href}>
-          <a className="hover:text-blue-700">{title}</a>
+          <a data-testid="post-title" className="hover:text-blue-700">
+            {title}
+          </a>
         </Link>
       </h2>
       <div

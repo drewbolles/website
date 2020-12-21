@@ -6,7 +6,10 @@ it('loads the blog page', () => {
   });
   cy.findByText(/Blog/, { selector: 'h1' });
   cy.findByTestId('blog-list').get('li').should('have.length.gt', 5);
-  cy.findByTestId('blog-list').get('li:first-child h2 > a').click();
+  cy.findByTestId('blog-list')
+    .get('li:first-child')
+    .findByTestId('post-title')
+    .click();
   cy.url().should('not.eq', `${Cypress.config().baseUrl}/blog`);
   cy.findAllByLabelText('Share on Facebook').click();
   cy.get('@windowOpen').should(
