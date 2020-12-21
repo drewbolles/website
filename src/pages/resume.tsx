@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import * as React from 'react';
 import { QueryClient, useQuery } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
@@ -115,7 +115,7 @@ const Resume: NextPage = () => {
 
 export default Resume;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   try {
     const queryClient = new QueryClient();
     await queryClient.prefetchQuery('resume', fetchResume);
