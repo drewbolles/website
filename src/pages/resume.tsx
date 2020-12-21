@@ -20,9 +20,14 @@ const fetchResume = async () => {
   if (!res.ok) {
     throw new Error('Error fetching resume gist');
   }
-  const raw = await res.json();
-  const resumeRaw = raw?.files['resume.json'].content;
-  return JSON.parse(resumeRaw);
+
+  try {
+    const raw = await res.json();
+    const resumeRaw = raw?.files['resume.json'].content;
+    return JSON.parse(resumeRaw);
+  } catch (error) {
+    throw new Error('Error parsing response');
+  }
 };
 
 const useResume = () =>
@@ -111,17 +116,16 @@ const Resume: NextPage = () => {
 export default Resume;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  let queryClient;
   try {
-    queryClient = new QueryClient();
+    const queryClient = new QueryClient();
     await queryClient.prefetchQuery('resume', fetchResume);
+
+    return {
+      props: {
+        dehydratedState: dehydrate(queryClient),
+      },
+    };
   } catch (error) {
     console.error(error);
   }
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
 };
