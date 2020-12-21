@@ -23,14 +23,14 @@ export default function Work({
           <PageTitle>My Work</PageTitle>
           <ul
             data-testid="portfolio-list"
-            className="space-y-12 md:space-y-16 lg:space-y-24"
+            className="space-y-12 md:space-y-16 lg:space-y-32 mb-12 md:mb-16"
           >
             {portfolioItems.map((item, index) => {
               return (
                 <li key={item.attributes.title}>
-                  <Row className="items-center">
+                  <Row className="items-center lg:-mx-8">
                     <Col
-                      className={classNames('w-full md:w-1/2', {
+                      className={classNames('w-full md:w-1/2 lg:px-8', {
                         'md:order-2': index % 2 !== 0,
                       })}
                     >
@@ -69,7 +69,7 @@ export default function Work({
                       </a>
                     </Col>
                     <Col
-                      className={classNames('w-full md:w-1/2', {
+                      className={classNames('w-full md:w-1/2 lg:px-8', {
                         'md:order-1': index % 2 !== 0,
                       })}
                     >

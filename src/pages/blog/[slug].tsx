@@ -6,9 +6,13 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Layout from '../../components/Layout/Layout';
 import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
 import { Blog } from '../../types/blog';
+import Main from '../../components/Layout/Main';
 
 const ShareButton = props => (
-  <a className="inline-flex w-6 h-6 items-center justify-center" {...props} />
+  <a
+    className="inline-flex w-12 h-12 md:w-6 md:h-6 items-center justify-center text-5xl md:text-2xl"
+    {...props}
+  />
 );
 
 export default function BlogPage({
@@ -28,8 +32,8 @@ export default function BlogPage({
 
   return (
     <Layout title={title} description={description}>
-      <main className="flex-grow">
-        <div className="container prose prose-sm md:prose-lg pt-6 md:pt-12 pb-6">
+      <Main className="flex-grow">
+        <div className="container prose prose-sm md:prose-lg pb-6">
           <h1>{title}</h1>
           <div className="flex items-center justify-between">
             <div className="text-sm font-medium text-gray-500 m-0">{date}</div>
@@ -40,20 +44,37 @@ export default function BlogPage({
                 aria-label="Share on Facebook"
                 onClick={handleClick}
               >
-                <FaFacebookSquare size="1.5rem" fill="#4267B2" />
+                <FaFacebookSquare size="1em" fill="#4267B2" />
               </ShareButton>
               <ShareButton
                 href={`https://twitter.com/intent/tweet?original_referer=www.drewbolles.com&source=tweetbutton&text=${title}&url=https://www.drewbolles.com/${slug}&via=bollskis`}
                 aria-label="Share on Twitter"
                 onClick={handleClick}
               >
-                <FaTwitterSquare size="1.5rem" fill="#1DA1F2" />
+                <FaTwitterSquare size="1em" fill="#1DA1F2" />
               </ShareButton>
             </div>
           </div>
           <div dangerouslySetInnerHTML={{ __html: html }}></div>
+          <div className="border-t border-gray-200">
+            <h4>Share this article</h4>
+            <ShareButton
+              href={`http://www.facebook.com/share.php?u=https://www.drewbolles.com/blog/${slug}&t=${title}`}
+              aria-label="Share on Facebook"
+              onClick={handleClick}
+            >
+              <FaFacebookSquare size="1em" fill="#4267B2" />
+            </ShareButton>
+            <ShareButton
+              href={`https://twitter.com/intent/tweet?original_referer=www.drewbolles.com&source=tweetbutton&text=${title}&url=https://www.drewbolles.com/${slug}&via=bollskis`}
+              aria-label="Share on Twitter"
+              onClick={handleClick}
+            >
+              <FaTwitterSquare size="1em" fill="#1DA1F2" />
+            </ShareButton>
+          </div>
         </div>
-      </main>
+      </Main>
     </Layout>
   );
 }
