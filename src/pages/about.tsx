@@ -3,6 +3,7 @@ import Layout from '../components/Layout/Layout';
 import Main from '../components/Layout/Main';
 import PageTitle from '../components/PageTitle';
 import classNames from 'classnames';
+import Link from 'next/link';
 
 type IdentityProps = {
   className?: string;
@@ -50,12 +51,23 @@ function SecretIdentity() {
   );
 }
 
+const AboutNav = ({ href, title }: { href: string; title: string }) => (
+  <Link href={href}>
+    <a className="text-blue-700 underline text-lg hover:text-blue-900">
+      {title}
+    </a>
+  </Link>
+);
+
 export default function About(): JSX.Element {
   return (
     <Layout title="About Me">
       <Main>
         <div className="container max-w-prose">
           <PageTitle>About Me</PageTitle>
+          <nav className="mb-4 space-x-2">
+            <AboutNav title="Resume" href="/resume" />
+          </nav>
           <div className="prose mb-6 md:prose-xl">
             <p>
               Hi, I&apos;m Drew and I&apos;m a Software Engineer. I began my
