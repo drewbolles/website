@@ -111,8 +111,14 @@ const Resume: NextPage = () => {
 export default Resume;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery('resume', fetchResume);
+  let queryClient;
+  try {
+    queryClient = new QueryClient();
+    await queryClient.prefetchQuery('resume', fetchResume);
+  } catch (error) {
+    console.error(error);
+  }
+
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
