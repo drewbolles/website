@@ -57,10 +57,20 @@ export default function Home({
                 size="2rem"
               />
             </div>
-            <Button href="mailto:drewbolles@gmail.com">
-              <MdEmail size="1rem" className="mr-2" />
-              <span>Get in touch</span>
-            </Button>
+            <div className="flex flex-col">
+              <div>
+                <Button href="mailto:drewbolles@gmail.com">
+                  <MdEmail size="1rem" className="mr-2" />
+                  <span>Get in touch</span>
+                </Button>
+              </div>
+              <span className="font-xs font-bold mt-3 mb-2 leading-none">
+                or
+              </span>
+              <NextLink href="/resume">
+                <a className="underline">View my resume</a>
+              </NextLink>
+            </div>
           </div>
         </div>
         <div className="bg-gray-100 border-t border-b border-gray-200 py-8 pb-12 md:py-16">

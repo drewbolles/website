@@ -73,13 +73,21 @@ export default function Layout({
         {children}
         <footer className="py-6 bg-gray-100 text-center">
           <div className="container md:flex items-center justify-between">
-            <p className="text-xs mb-2 md:mb-0">
-              &copy; Copyright {new Date().getFullYear()}. All rights reserved.{' '}
-              <NextLink href="/privacy-policy">
-                <a className="underline">Privacy policy</a>
-              </NextLink>
-              .
-            </p>
+            <div className="flex flex-col md:flex-row space-x-2 items-center text-xs mb-2 md:mb-0">
+              <p className="mb-2 md:mb-0">
+                &copy; Copyright {new Date().getFullYear()}. All rights
+                reserved.
+              </p>
+              <nav className="flex items-center space-x-1">
+                <NextLink href="/privacy-policy">
+                  <a className="underline">Privacy policy</a>
+                </NextLink>
+                <span>/</span>
+                <NextLink href="/resume">
+                  <a className="underline">Resume</a>
+                </NextLink>
+              </nav>
+            </div>
             <ul className="inline-flex">
               <li>
                 <FooterIconLink
