@@ -15,6 +15,7 @@ export default function CircularProgress({
   return (
     <AiOutlineLoading
       size={size}
+      data-testid="circular-progress"
       className={classNames(
         'animate-spin text-gray-800',
         { 'text-center m-auto': center },

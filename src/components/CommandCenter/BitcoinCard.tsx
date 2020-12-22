@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FaBitcoin } from 'react-icons/fa';
 import { useQuery } from 'react-query';
 import Card, { CardContent, CardHeader } from '../Card';
-import RenderQuery from '../RenderQuery';
+import RenderQuery from '../RenderQuery/RenderQuery';
 
 const useBitcoinPrice = () =>
   useQuery(

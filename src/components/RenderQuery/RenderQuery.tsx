@@ -1,5 +1,5 @@
 import * as React from 'react';
-import CircularProgress from './CircularProgress';
+import CircularProgress from '../CircularProgress';
 
 type Props = {
   status: string;

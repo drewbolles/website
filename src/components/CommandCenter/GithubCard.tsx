@@ -3,7 +3,7 @@ import { FaGithub } from 'react-icons/fa';
 import { useQuery } from 'react-query';
 import AvatarBlock from '../AvatarBlock';
 import Card, { CardContent, CardHeader } from '../Card';
-import RenderQuery from '../RenderQuery';
+import RenderQuery from '../RenderQuery/RenderQuery';
 
 const StatItem = ({
   label,
