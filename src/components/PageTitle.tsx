@@ -10,6 +10,7 @@ export default function PageTitle({
 }>): JSX.Element {
   return (
     <h1
+      data-testid="page-title"
       className={classNames(
         'text-2xl font-bold mb-6 md:text-3xl lg:text-4xl',
         className,
