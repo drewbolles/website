@@ -50,6 +50,7 @@ const Resume: NextPage = () => {
                 <a
                   className="text-blue-700 underline"
                   href={`mailto:${basics.email}`}
+                  aria-label="Send me an email"
                 >
                   {basics.email}
                 </a>
@@ -73,7 +74,7 @@ const Resume: NextPage = () => {
           </div>
           <div className="mb-6">
             <h2 className="text-2xl font-bold mb-4">Experience</h2>
-            <ul className="space-y-6">
+            <ul className="space-y-6" data-testid="experience-list">
               {work.map((job, idx) => {
                 const startDate = formatDate(new Date(job.startDate));
                 const endDateRaw = job.endDate ? new Date(job.endDate) : null;
