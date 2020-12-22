@@ -2,6 +2,7 @@ backend:
   name: github
   repo: drewbolles/website # Path to your GitHub repository
   branch: main
+# local_backend: true
 media_folder: public/uploads
 public_folder: uploads
 publish_mode: editorial_workflow
@@ -67,7 +68,16 @@ collections:
     create: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Slides', name: 'slides', widget: 'string' }
+      - label: 'Slides'
+        name: 'slides'
+        widget: 'object'
+        fields: 
+        - label: 'Slides URL'
+          name: 'slides_url'
+          widget: 'string'
+        - label: 'Slides Embed Snippet'
+          name: 'slides_embed'
+          widget: 'text'
       - { label: 'Created at', name: 'date', widget: 'datetime' }
       - {
           label: 'Events',
