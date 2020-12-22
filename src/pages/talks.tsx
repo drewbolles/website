@@ -25,8 +25,16 @@ export default function Talks({ talks }: Props): JSX.Element {
                 <h2 className="text-xl md:text-2xl font-semibold mb-2 md:mb-3">
                   {attributes.title}
                 </h2>
+
+                <div
+                  className="mb-2"
+                  dangerouslySetInnerHTML={{
+                    __html: attributes.slides.slides_embed,
+                  }}
+                />
+
                 <a
-                  href={attributes.slides}
+                  href={attributes.slides.slides_url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-700 md:text-lg border-b border-dashed border-blue-700 inline-flex items-center mb-6"
