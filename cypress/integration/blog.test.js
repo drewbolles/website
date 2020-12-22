@@ -11,11 +11,11 @@ it('loads the blog page', () => {
     .findByTestId('post-title')
     .click();
   cy.url().should('not.eq', `${Cypress.config().baseUrl}/blog`);
-  cy.findAllByLabelText('Share on Facebook').click();
+  cy.findAllByLabelText('Share on Facebook').first().click();
   cy.get('@windowOpen').should(
     'be.calledWithMatch',
     /facebook.com\/share.php/gi,
   );
-  cy.findAllByLabelText('Share on Twitter').click();
+  cy.findAllByLabelText('Share on Twitter').first().click();
   cy.get('@windowOpen').should('be.calledWithMatch', /twitter.com\/intent/gi);
 });
