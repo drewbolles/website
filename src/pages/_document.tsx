@@ -20,6 +20,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
           <meta name="theme-color" content="#ffffff" />
           <link rel="manifest" href="/manifest.json" />
           <link

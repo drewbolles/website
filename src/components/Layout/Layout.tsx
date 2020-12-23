@@ -35,9 +35,18 @@ const FooterIconLink = props => (
   />
 );
 
-const FooterLink = props => (
-  <a className="underline h-12 inline-flex items-center sm:h-auto" {...props} />
-);
+const FooterLink = React.forwardRef<
+  HTMLAnchorElement,
+  React.PropsWithChildren<unknown>
+>((props, ref) => (
+  <a
+    ref={ref}
+    className="underline h-12 inline-flex items-center sm:h-auto"
+    {...props}
+  />
+));
+
+FooterLink.displayName = 'FooterLink';
 
 export default function Layout({
   children,
@@ -52,8 +61,14 @@ export default function Layout({
       <NextSeo
         title={title}
         description={description}
-        twitter={{ handle: 'bollskis' }}
-        openGraph={{ type: 'website', title, description }}
+        twitter={{ handle: '@bollskis', site: 'https://www.drewbolles.com' }}
+        openGraph={{ type: 'website', title, description, locale: 'en_US' }}
+        additionalMetaTags={[
+          {
+            name: 'author',
+            content: 'Drew Bolles',
+          },
+        ]}
       />
       <div className="flex flex-col min-h-screen antialiased font-sans text-gray-900 pt-12 md:pt-16">
         <header className="shadow fixed top-0 z-50 w-full bg-white">

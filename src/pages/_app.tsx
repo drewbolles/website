@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { AppProps } from 'next/app';
-import '../styles/globals.css';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
-import * as ga from '../utils/ga';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
+import * as ga from '../utils/ga';
+
+import '../styles/globals.css';
 
 const queryClient = new QueryClient();
 
@@ -22,11 +24,20 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   }, [router.events]);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <Component {...pageProps} />
-      </Hydrate>
-    </QueryClientProvider>
+    <>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+          key="viewport"
+        />
+      </Head>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <Component {...pageProps} />
+        </Hydrate>
+      </QueryClientProvider>
+    </>
   );
 }
 
