@@ -6,7 +6,7 @@ backend:
 #   name: git-gateway
 # local_backend: true
 media_folder: public/uploads
-public_folder: uploads
+public_folder: /uploads
 publish_mode: editorial_workflow
 collections:
   - label: 'Blog'
