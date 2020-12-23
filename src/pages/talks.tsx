@@ -31,11 +31,13 @@ export default function Talks({ talks }: Props): JSX.Element {
                     {attributes.title}
                   </h2>
 
-                  <span
-                    className="speakerdeck-embed"
-                    data-id={attributes.slides.slides_embed}
-                    data-ratio="1.77777777777778"
-                  />
+                  <div className="mb-2">
+                    <span
+                      className="speakerdeck-embed"
+                      data-id={attributes.slides.slides_embed}
+                      data-ratio="1.77777777777778"
+                    />
+                  </div>
 
                   <a
                     href={attributes.slides.slides_url}

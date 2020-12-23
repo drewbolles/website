@@ -35,6 +35,10 @@ const FooterIconLink = props => (
   />
 );
 
+const FooterLink = props => (
+  <a className="underline h-12 inline-flex items-center sm:h-auto" {...props} />
+);
+
 export default function Layout({
   children,
   title = `Drew Bolles | Software Engineer`,
@@ -73,18 +77,18 @@ export default function Layout({
         {children}
         <footer className="py-6 bg-gray-100 text-center">
           <div className="container md:flex items-center justify-between">
-            <div className="flex flex-col md:flex-row space-x-2 items-center text-xs mb-2 md:mb-0">
+            <div className="flex flex-col md:flex-row space-x-2 items-center text-xs mb-1 md:mb-0">
               <p className="mb-2 md:mb-0">
                 &copy; Copyright {new Date().getFullYear()}. All rights
                 reserved.
               </p>
               <nav className="flex items-center space-x-1">
-                <NextLink href="/privacy-policy">
-                  <a className="underline">Privacy policy</a>
+                <NextLink passHref href="/privacy-policy">
+                  <FooterLink>Privacy policy</FooterLink>
                 </NextLink>
                 <span>/</span>
-                <NextLink href="/resume">
-                  <a className="underline">Resume</a>
+                <NextLink passHref href="/resume">
+                  <FooterLink>Resume</FooterLink>
                 </NextLink>
               </nav>
             </div>
