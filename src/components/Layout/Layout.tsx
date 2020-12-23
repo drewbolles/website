@@ -4,6 +4,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
+import siteConfig from '../../../site.config';
 
 const links = [
   ['/about', 'About'],
@@ -51,7 +52,7 @@ FooterLink.displayName = 'FooterLink';
 export default function Layout({
   children,
   title = `Drew Bolles | Software Engineer`,
-  description = 'Software Engineer with over a decade of experience specializing in React, Node, and TypeScript',
+  description = siteConfig.description,
 }: React.PropsWithChildren<{
   title?: string;
   description?: string;
@@ -61,12 +62,12 @@ export default function Layout({
       <NextSeo
         title={title}
         description={description}
-        twitter={{ handle: '@bollskis', site: 'https://www.drewbolles.com' }}
+        twitter={{ handle: '@bollskis', site: siteConfig.baseUrl }}
         openGraph={{ type: 'website', title, description, locale: 'en_US' }}
         additionalMetaTags={[
           {
             name: 'author',
-            content: 'Drew Bolles',
+            content: siteConfig.author,
           },
         ]}
       />
