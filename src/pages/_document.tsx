@@ -44,6 +44,12 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#2d89ef" />
           <meta name="theme-color" content="#ffffff" />
           <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="Drew Bolles' Blog RSS Feed"
+            href="/rss.xml"
+          />
           <script
             dangerouslySetInnerHTML={{
               __html: `
