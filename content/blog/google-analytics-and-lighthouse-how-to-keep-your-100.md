@@ -32,4 +32,4 @@ I placed this snippet in my custom \`_document.js\` along with a prefetch link l
 <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 ```
 
-And voila! Google Analytics is successfully loaded, and I still maintained my 100's. Want the screenshot? Well was deceptive and the image above is **after** GA was successfully added.
+And voila! Google Analytics is successfully loaded, and I still maintained my 100's. Want the screenshot? You already got it! The image above is **after** GA was successfully added.
