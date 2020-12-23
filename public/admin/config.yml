@@ -2,6 +2,8 @@ backend:
   name: github
   repo: drewbolles/website # Path to your GitHub repository
   branch: main
+# backend:
+#   name: git-gateway
 # local_backend: true
 media_folder: public/uploads
 public_folder: uploads
@@ -75,9 +77,9 @@ collections:
         - label: 'Slides URL'
           name: 'slides_url'
           widget: 'string'
-        - label: 'Slides Embed Snippet'
+        - label: 'Slides Embed ID'
           name: 'slides_embed'
-          widget: 'text'
+          widget: 'string'
       - { label: 'Created at', name: 'date', widget: 'datetime' }
       - {
           label: 'Events',
