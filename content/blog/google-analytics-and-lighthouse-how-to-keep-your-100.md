@@ -7,7 +7,7 @@ comments: true
 ---
 I recently rebuilt this website, and as I neared the release I was pleasantly surprised that I had very little work to do to achieve all 100's on my Lighthouse audit.
 
-![](uploads/image.png)
+![Perfect Lighthouse score](/uploads/image.png)
 
 This was in large part to [NextJS](https://nextjs.org/) and the amount of optimization that is provided out of the box. This is also due to the simplicity of my website, I do not have complex features or large dependency requirements. Nonetheless I was still pleased by the level of effort necessary for 100's.
 
