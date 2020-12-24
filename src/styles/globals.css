@@ -14,8 +14,8 @@
 
   code[class*='language-'],
   pre[class*='language-'] {
-    font-size: initial !important;
-    background-color: #1f2937 !important;
+    @apply text-base !important;
+    @apply bg-gray-800 !important;
   }
   /*! purgecss end ignore */
 }
