@@ -31,7 +31,7 @@ export default function AmazonWishListCard(): JSX.Element {
                   rel="noopener noreferrer"
                 >
                   <div className="w-16 flex-none mr-4">
-                    <img src={list.picture} />
+                    <img src={list.picture} alt={list.name} width="64" />
                   </div>
                   <div>
                     <h3 className="line-clamp leading-tight mb-1">

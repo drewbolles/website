@@ -1,6 +1,6 @@
 import { NextSeo } from 'next-seo';
 import * as React from 'react';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaRssSquare, FaTwitter } from 'react-icons/fa';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
@@ -131,6 +131,14 @@ export default function Layout({
                   title="Connect with me on LinkedIn"
                 >
                   <FaLinkedin size="1.5rem" />
+                </FooterIconLink>
+              </li>
+              <li>
+                <FooterIconLink
+                  href="/rss.xml"
+                  title="Subscribe to my RSS Feed"
+                >
+                  <FaRssSquare size="1.5rem" />
                 </FooterIconLink>
               </li>
             </ul>

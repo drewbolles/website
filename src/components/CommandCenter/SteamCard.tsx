@@ -42,9 +42,11 @@ function GamesList() {
               >
                 <div className="mr-2 flex-none">
                   <img
-                    className="w-8 h-8 rounded"
+                    className="rounded"
                     src={game.iconURL}
                     alt={game.name}
+                    width="32"
+                    height="32"
                   />
                 </div>
                 <div className="overflow-hidden">

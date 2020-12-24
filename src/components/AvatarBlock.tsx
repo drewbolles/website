@@ -35,7 +35,7 @@ export default function AvatarBlock({
           {loading ? (
             <span className="w-full h-full rounded-full bg-gray-200" />
           ) : (
-            <img src={img} className="rounded-full" alt="" />
+            <img src={img} className="rounded-full" alt="" width="64" />
           )}
         </span>
 

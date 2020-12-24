@@ -14,6 +14,7 @@ export default function SpotifyCard(): JSX.Element {
             height="380"
             frameBorder="0"
             allow="encrypted-media"
+            title="Lil Wayne - No Ceilings Spotify Playlist"
           />
         </div>
       </CardContent>

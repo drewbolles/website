@@ -12,10 +12,10 @@ export function CardHeader({
 }: Props & { icon?: React.ElementType; title: string }): JSX.Element {
   return (
     <header className={classNames('bg-gray-100', className)}>
-      <h3 className="text-xl tracking-wide leading-none flex items-center h-12 py-2 px-4">
+      <h2 className="text-xl tracking-wide leading-none flex items-center h-12 py-2 px-4">
         {Icon ? <Icon className="mr-2" /> : null}
         <span>{title}</span>
-      </h3>
+      </h2>
     </header>
   );
 }
