@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/*! purgecss start ignore */
 @layer base {
+  /*! purgecss start ignore */
   a {
     @apply transition-colors;
   }
@@ -17,8 +17,8 @@
     font-size: initial !important;
     background-color: #1f2937 !important;
   }
+  /*! purgecss end ignore */
 }
-/*! purgecss end ignore */
 
 @layer utilities {
   .line-clamp {
