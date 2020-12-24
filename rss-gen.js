@@ -21,14 +21,13 @@ const feed = new RSS({
   ttl: '60',
 });
 
-const items = fs.readdirSync(blogPostDir).map(fileName => {
-  const fullPath = path.join(blogPostDir, fileName);
-  const file = fs.readFileSync(fullPath, 'utf8');
-  const { attributes } = frontMatter(file);
-  return { ...attributes, fileName };
-});
-
-items
+fs.readdirSync(blogPostDir)
+  .map(fileName => {
+    const fullPath = path.join(blogPostDir, fileName);
+    const file = fs.readFileSync(fullPath, 'utf8');
+    const { attributes } = frontMatter(file);
+    return { ...attributes, fileName };
+  })
   .sort((a, b) => +new Date(b.date) - +new Date(a.date))
   .forEach(({ title, description, date, fileName }) => {
     feed.item({

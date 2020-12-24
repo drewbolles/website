@@ -8,6 +8,8 @@ import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
 import { Blog } from '../../types/blog';
 import Main from '../../components/Layout/Main';
 
+import 'prismjs/themes/prism-okaidia.css';
+
 const ShareButton = props => (
   <a
     className="inline-flex w-12 h-12 md:w-6 md:h-6 items-center justify-center text-5xl md:text-2xl"

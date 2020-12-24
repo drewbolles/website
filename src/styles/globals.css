@@ -2,14 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/*! purgecss start ignore */
 @layer base {
   a {
     @apply transition-colors;
   }
+
   [aria-hidden='true'] {
     @apply sr-only;
   }
+
+  code[class*='language-'],
+  pre[class*='language-'] {
+    font-size: initial !important;
+  }
 }
+/*! purgecss end ignore */
 
 @layer utilities {
   .line-clamp {
