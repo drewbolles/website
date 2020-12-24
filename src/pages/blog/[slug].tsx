@@ -49,7 +49,7 @@ export default function BlogPage({
                 <FaFacebookSquare size="1em" fill="#4267B2" />
               </ShareButton>
               <ShareButton
-                href={`https://twitter.com/intent/tweet?original_referer=www.drewbolles.com&source=tweetbutton&text=${title}&url=https://www.drewbolles.com/${slug}&via=bollskis`}
+                href={`https://twitter.com/intent/tweet?original_referer=www.drewbolles.com&source=tweetbutton&text=${title}&url=https://www.drewbolles.com/blog/${slug}&via=bollskis`}
                 aria-label="Share on Twitter"
                 onClick={handleClick}
               >
