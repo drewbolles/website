@@ -1,5 +1,14 @@
 module.exports = {
-  presets: ['next/babel'],
+  presets: [
+    [
+      'next/babel',
+      {
+        'preset-env': {
+          targets: null,
+        },
+      },
+    ],
+  ],
   plugins: [],
   env: {
     test: {

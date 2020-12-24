@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap && npm run generate-rss-feed",
+    "postbuild": "next-sitemap && node rss-gen",
     "start": "next start",
     "analyze": "ANALYZE=true next build",
     "test": "jest",
@@ -13,8 +13,7 @@
     "cypress:run": "cypress run --browser chrome --headless --record --key 0edf7fce-9866-4c39-af61-616c9fbc7c63",
     "type-check": "tsc --pretty --noEmit",
     "lint": "eslint . --ext ts --ext tsx --ext js",
-    "lint:fix": "eslint . --ext ts --ext tsx --ext js --fix",
-    "generate-rss-feed": "node rss-gen"
+    "lint:fix": "npm run lint -- --fix"
   },
   "husky": {
     "hooks": {
@@ -28,6 +27,10 @@
       "pretty-quick --staged"
     ]
   },
+  "browserslist": [
+    "defaults",
+    "ie > 10"
+  ],
   "dependencies": {
     "classnames": "^2.2.6",
     "dayjs": "^1.9.7",
