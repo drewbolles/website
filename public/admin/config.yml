@@ -21,6 +21,7 @@ collections:
           widget: 'text',
           required: false,
         }
+      - { label: 'Image', name: 'image', widget: 'image', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown', required: false }
       - { label: 'Created at', name: 'date', widget: 'datetime' }
       - {
