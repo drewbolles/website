@@ -4,6 +4,7 @@ description: In this post I show you how to easily add an RSS feed for your
   NextJS site. There are a few examples of adding RSS feeds to your static
   NextJS site however they just weren't easy enough for me. Lots of html in
   template literals and string concatenation and that just won't do!
+image: /uploads/mitchell-luo-fwoq_ldwlnq-unsplash.jpg
 date: 2020-12-24T13:33:01.954Z
 comments: true
 ---
