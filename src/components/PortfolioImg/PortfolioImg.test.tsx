@@ -8,8 +8,15 @@ const imgStub = {
 };
 
 jest.mock('./requireImages.ts', () => ({
-  requireImg: () => imgStub,
-  requireImgWebp: () => imgStub,
+  responsiveImgs: {
+    base: [{ mq: '(min-width: 300px)', requireFn: jest.fn(() => imgStub) }],
+    webp: [
+      {
+        mq: '(max-width: 400px) and (min-width: 100px)',
+        requireFn: jest.fn(() => imgStub),
+      },
+    ],
+  },
 }));
 
 test('it renders with the correct picture syntax', () => {
@@ -22,14 +29,18 @@ test('it renders with the correct picture syntax', () => {
       data-testid="portfolio-img"
     >
       <source
+        media="(max-width: 400px) and (min-width: 100px)"
         srcset="test-src-set.png 1x, test-src-set-2.png 2x"
-        type="image/webp"
+        type="image/png"
+      />
+      <source
+        media="(min-width: 300px)"
+        srcset="test-src-set.png 1x, test-src-set-2.png 2x"
+        type="image/png"
       />
       <img
         alt="My Test Image"
-        sizes="(min-width: 768px) 50vw, 100vw"
         src="test-src.png"
-        srcset="test-src-set.png 1x, test-src-set-2.png 2x"
       />
     </picture>
   `);
