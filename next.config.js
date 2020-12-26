@@ -25,6 +25,7 @@ module.exports = withPlugins(
   ],
   {
     target: 'serverless',
+    reactStrictMode: true,
     async redirects() {
       return [
         {

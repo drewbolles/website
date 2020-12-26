@@ -33,6 +33,7 @@ const fetchResume = async () => {
 const useResume = () =>
   useQuery('resume', fetchResume, {
     refetchOnWindowFocus: false,
+    refetchOnMount: false,
   });
 
 const Resume: NextPage = () => {

@@ -17,7 +17,7 @@ Now that we have a (relatively) stable version of Drupal 8 released, I want to p
 
 The first thing I always do when starting a theme from scratch is create a folder and an .info file. Different from Drupal 7, your themes live in `/themes` instead of `/sites/all/themes`. You can create a new theme folder like so:
 
-```sh
+```shell
 $ cd /path/to/d8/site
 $ mkdir [MY_THEME]
 $ touch [MY_THEME]/[MY_THEME].theme
