@@ -21,6 +21,7 @@ export default function PortfolioImg({
         layout="fill"
         objectFit="cover"
         objectPosition="center top"
+        sizes="(min-width: 768px) 50vw, 100vw"
         data-testid="portfolio-img"
       />
     </div>

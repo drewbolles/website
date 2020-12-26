@@ -26,6 +26,9 @@ module.exports = withPlugins(
   {
     target: 'serverless',
     reactStrictMode: true,
+    images: {
+      deviceSizes: [768, 1024, 1280],
+    },
     async redirects() {
       return [
         {
