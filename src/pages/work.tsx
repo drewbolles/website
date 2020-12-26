@@ -28,11 +28,14 @@ export default function Work({
             {portfolioItems.map((item, index) => {
               return (
                 <li key={item.attributes.title}>
-                  <Row className="items-center lg:-mx-8">
+                  <Row className="items-stretch lg:-mx-8">
                     <Col
-                      className={classNames('w-full md:w-1/2 lg:px-8', {
-                        'md:order-2': index % 2 !== 0,
-                      })}
+                      className={classNames(
+                        'w-full md:w-1/2 lg:px-8 flex flex-col justify-center',
+                        {
+                          'md:order-2': index % 2 !== 0,
+                        },
+                      )}
                     >
                       <h2 className="text-2xl md:text-3xl font-semibold mb-2">
                         {item.attributes.title}
@@ -61,26 +64,21 @@ export default function Work({
                           ))}
                         </ul>
                       ) : null}
-                      <a
-                        href={item.attributes.url}
-                        className="text-blue-700 md:text-lg border-b border-dashed inline-flex items-center hover:text-blue-900"
-                      >
-                        View site <MdOpenInNew className="ml-1" />
-                      </a>
+                      <div>
+                        <a
+                          href={item.attributes.url}
+                          className="text-blue-700 md:text-lg border-b border-dashed inline-flex items-center hover:text-blue-900"
+                        >
+                          View site <MdOpenInNew className="ml-1" />
+                        </a>
+                      </div>
                     </Col>
                     <Col
-                      className={classNames('w-full md:w-1/2 lg:px-8', {
+                      className={classNames('w-full md:w-1/2 lg:px-8 ', {
                         'md:order-1': index % 2 !== 0,
                       })}
                     >
-                      <div className="mb-2 shadow-lg md:shadow-xl lg:shadow-2xl ">
-                        <div
-                          style={{ maxHeight: 500 }}
-                          className="overflow-hidden rounded"
-                        >
-                          <PortfolioImg src={item.attributes.image} />
-                        </div>
-                      </div>
+                      <PortfolioImg src={item.attributes.image} />
                     </Col>
                   </Row>
                 </li>

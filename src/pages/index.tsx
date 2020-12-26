@@ -80,8 +80,8 @@ export default function Home({
           }}
         >
           <div className="container">
-            <Row className="items-center">
-              <Col className="w-full md:w-2/3 lg:w-1/2">
+            <Row className="items-stretch">
+              <Col className="w-full md:w-2/3 lg:w-1/2 flex flex-col justify-center">
                 <h3 className="text-2xl font-medium mb-3 flex items-center">
                   Featured Project
                 </h3>
@@ -96,25 +96,21 @@ export default function Home({
                     __html: featuredPortfolio.attributes.description,
                   }}
                 />
-
-                <a
-                  href={featuredPortfolio.attributes.url}
-                  className="text-lg inline-flex pb-1 items-center leading-tight border-b border-dashed border-blue-700 text-blue-700"
-                >
-                  <span className="mr-1">View site</span>
-                  <MdOpenInNew className="leading-none" />
-                </a>
+                <div>
+                  <a
+                    href={featuredPortfolio.attributes.url}
+                    className="text-lg inline-flex pb-1 items-center leading-tight border-b border-dashed border-blue-700 text-blue-700"
+                  >
+                    <span className="mr-1">View site</span>
+                    <MdOpenInNew className="leading-none" />
+                  </a>
+                </div>
               </Col>
               <Col className="w-full md:w-1/3 lg:w-1/2">
-                <div
-                  style={{ maxHeight: 500 }}
-                  className="shadow rounded overflow-hidden"
-                >
-                  <PortfolioImg
-                    src={featuredPortfolio.attributes.image}
-                    alt={`${featuredPortfolio.attributes.title} website`}
-                  />
-                </div>
+                <PortfolioImg
+                  src={featuredPortfolio.attributes.image}
+                  alt={`${featuredPortfolio.attributes.title} website`}
+                />
               </Col>
             </Row>
           </div>

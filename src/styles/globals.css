@@ -8,10 +8,6 @@
     @apply transition-colors;
   }
 
-  [aria-hidden='true'] {
-    @apply sr-only;
-  }
-
   code[class*='language-'],
   pre[class*='language-'] {
     @apply text-base !important;
