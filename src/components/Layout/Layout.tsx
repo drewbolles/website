@@ -54,10 +54,12 @@ export default function Layout({
   title = `Drew Bolles | Software Engineer`,
   description = siteConfig.description,
   image,
+  type = 'website',
 }: React.PropsWithChildren<{
   title?: string;
   description?: string;
   image?: string;
+  type?: string;
 }>): JSX.Element {
   return (
     <>
@@ -66,7 +68,7 @@ export default function Layout({
         description={description}
         twitter={{ handle: '@bollskis', site: siteConfig.baseUrl }}
         openGraph={{
-          type: 'website',
+          type,
           title,
           description,
           locale: 'en_US',

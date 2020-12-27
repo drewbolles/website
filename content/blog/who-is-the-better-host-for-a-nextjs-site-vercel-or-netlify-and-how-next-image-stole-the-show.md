@@ -1,5 +1,5 @@
 ---
-title: Who is the better host for a NextJS site, Vercel or Netlify and how
+title: Who is the better host for a NextJS site, Vercel or Netlify, and how
   next/image stole the show
 description: In this post I talk about the differences between Vercel and
   Netlify hosting for a NextJS site, and why I eventually went with Vercel. Both
@@ -10,6 +10,7 @@ image: /uploads/jaime-spaniol-l0n74gwsq8-unsplash.jpg
 date: 2020-12-26T22:03:40.104Z
 comments: true
 ---
+
 When building a NextJS site or application, hosting on Vercel might seem like the natural best choice, however there are quite a few great hosting options these days. I recently battle tested Netlify after falling head-over-heals for their repository-based CMS, aptly named Netlify CMS, which currently powers this site. Their platform was great, intuitive, well designed, easy to use and powerful with very little configuration. Everything you would come to expect from a modern DX focused product. I had no complaints about Netlify at all, I would recommend them again to anyone with a project the was right for their platform.
 
 ## The Dilemma
@@ -22,12 +23,12 @@ Outside of hosting, however, I've been struggling to figure out the best way to 
 >
 > The Automatic Image Optimization allows for resizing, optimizing, and serving images in modern formats like [WebP](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) when the browser supports it. This avoids shipping large images to devices with a smaller viewport. It also allows Next.js to automatically adopt future image formats and serve them to browsers that support those formats.
 >
-> *\- nextjs.org docs*
+> _\- nextjs.org docs_
 
 Perfect! This reads like exactly what I've been looking for, the syntax is even very concise:
 
 ```javascript
-import Image from 'next/image'
+import Image from 'next/image';
 
 function Home() {
   return (
@@ -43,17 +44,17 @@ function Home() {
       />
       <p>Welcome to my homepage!</p>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
 ```
 
 Great, sign me up, seems like all my problems are solved. Alas, a catch: you need to be running `next start` which requires a node server, which Netlify does not provide. Netlify provides server-like functionality via functions, which next/image does not work with (yet?). Damn, my dreams were quickly slipping away.
 
 ## Enter Vercel
 
-I had known that Vercel hosting supported `next/image` out of the box, but that alone had never been enough of a reason to switch. However, after testing out the Image component from the Vercel team I'm mighty impressed. It's not *perfect*, I don't like that it automatically adds two divs to handle the layout requirements. I understand why, but wish it was configurable. Other than that, since it's a low-level component it doesn't handle cropping or any pre-processing of the image. That's fine, that really is the cherry on the top, effortless responsive images is what I'm really after. The Image component also works with external images, which is phenomenal, so much power with very little effort - *if* you drink the kool-aid.
+I had known that Vercel hosting supported `next/image` out of the box, but that alone had never been enough of a reason to switch. However, after testing out the Image component from the Vercel team I'm mighty impressed. It's not _perfect_, I don't like that it automatically adds two divs to handle the layout requirements. I understand why, but wish it was configurable. Other than that, since it's a low-level component it doesn't handle cropping or any pre-processing of the image. That's fine, that really is the cherry on the top, effortless responsive images is what I'm really after. The Image component also works with external images, which is phenomenal, so much power with very little effort - _if_ you drink the kool-aid.
 
 I poked around vercel.com, signed up, and had this site up and running in less than 5 minutes. So far so good. I spun up the Vercel-hosted site on its own git branch, so I went ahead and replaced my hand-strung responsive image solution with the Image component. I always enjoy deleting code while adding functionality, the refactor was quite simple. I did have to figure out exactly how to get the image to behave as I wanted responsively with the `layout="fill"` property, but that took all of 5 minutes as well.
 

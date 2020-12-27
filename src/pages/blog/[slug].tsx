@@ -48,7 +48,12 @@ export default function BlogPage({
         authorName="Drew Bolles"
         description={description}
       />
-      <Layout title={title} description={description} image={attributes.image}>
+      <Layout
+        title={title}
+        description={description}
+        image={attributes.image}
+        type="article"
+      >
         <Main className="flex-grow">
           <div className="container prose prose-sm md:prose-lg pb-6">
             <h1>{title}</h1>
