@@ -53,9 +53,11 @@ export default function Layout({
   children,
   title = `Drew Bolles | Software Engineer`,
   description = siteConfig.description,
+  image,
 }: React.PropsWithChildren<{
   title?: string;
   description?: string;
+  image?: string;
 }>): JSX.Element {
   return (
     <>
@@ -63,7 +65,17 @@ export default function Layout({
         title={title}
         description={description}
         twitter={{ handle: '@bollskis', site: siteConfig.baseUrl }}
-        openGraph={{ type: 'website', title, description, locale: 'en_US' }}
+        openGraph={{
+          type: 'website',
+          title,
+          description,
+          locale: 'en_US',
+          images: [
+            image && {
+              url: `https://www.drewbolles.com${image}`,
+            },
+          ].filter(Boolean),
+        }}
         additionalMetaTags={[
           {
             name: 'author',

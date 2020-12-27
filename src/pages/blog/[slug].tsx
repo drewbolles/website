@@ -8,6 +8,7 @@ import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
 import { Blog } from '../../types/blog';
 import Main from '../../components/Layout/Main';
 import Image from 'next/image';
+import { BlogJsonLd } from 'next-seo';
 
 import 'prismjs/themes/prism-okaidia.css';
 
@@ -35,27 +36,62 @@ export default function BlogPage({
   }
 
   return (
-    <Layout title={title} description={description}>
-      <Main className="flex-grow">
-        <div className="container prose prose-sm md:prose-lg pb-6">
-          <h1>{title}</h1>
-          {image ? (
-            <div className="-mx-6 md:-mx-16 mb-6">
-              <div className="aspect-w-16 aspect-h-9 overflow-hidden">
-                <Image
-                  src={image}
-                  layout="fill"
-                  objectPosition="center center"
-                  loading="eager"
-                  objectFit="cover"
-                />
+    <>
+      <BlogJsonLd
+        url={`https://www.drewbolles.com/blog/${slug}`}
+        title={title}
+        images={[
+          attributes.image && `https://www.drewbolles.com${attributes.image}`,
+        ].filter(Boolean)}
+        datePublished={date}
+        dateModified={date}
+        authorName="Drew Bolles"
+        description={description}
+      />
+      <Layout title={title} description={description} image={attributes.image}>
+        <Main className="flex-grow">
+          <div className="container prose prose-sm md:prose-lg pb-6">
+            <h1>{title}</h1>
+            {image ? (
+              <div className="-mx-6 md:-mx-16 mb-6">
+                <div className="aspect-w-16 aspect-h-9 overflow-hidden">
+                  <Image
+                    src={image}
+                    layout="fill"
+                    objectPosition="center center"
+                    loading="eager"
+                    objectFit="cover"
+                  />
+                </div>
+              </div>
+            ) : null}
+            <div className="flex items-center justify-between">
+              <div className="text-sm font-medium text-gray-500 m-0">
+                {date}
+              </div>
+              <div className="flex items-center">
+                <span className="text-sm text-gray-500 mr-2">
+                  Share Article
+                </span>
+                <ShareButton
+                  href={`http://www.facebook.com/share.php?u=https://www.drewbolles.com/blog/${slug}&t=${title}`}
+                  aria-label="Share on Facebook"
+                  onClick={handleClick}
+                >
+                  <FaFacebookSquare size="1em" fill="#4267B2" />
+                </ShareButton>
+                <ShareButton
+                  href={`https://twitter.com/intent/tweet?original_referer=www.drewbolles.com&source=tweetbutton&text=${title}&url=https://www.drewbolles.com/blog/${slug}&via=bollskis`}
+                  aria-label="Share on Twitter"
+                  onClick={handleClick}
+                >
+                  <FaTwitterSquare size="1em" fill="#1DA1F2" />
+                </ShareButton>
               </div>
             </div>
-          ) : null}
-          <div className="flex items-center justify-between">
-            <div className="text-sm font-medium text-gray-500 m-0">{date}</div>
-            <div className="flex items-center">
-              <span className="text-sm text-gray-500 mr-2">Share Article</span>
+            <div dangerouslySetInnerHTML={{ __html: html }}></div>
+            <div className="border-t border-gray-200">
+              <h4>Share this article</h4>
               <ShareButton
                 href={`http://www.facebook.com/share.php?u=https://www.drewbolles.com/blog/${slug}&t=${title}`}
                 aria-label="Share on Facebook"
@@ -64,7 +100,7 @@ export default function BlogPage({
                 <FaFacebookSquare size="1em" fill="#4267B2" />
               </ShareButton>
               <ShareButton
-                href={`https://twitter.com/intent/tweet?original_referer=www.drewbolles.com&source=tweetbutton&text=${title}&url=https://www.drewbolles.com/blog/${slug}&via=bollskis`}
+                href={`https://twitter.com/intent/tweet?original_referer=www.drewbolles.com&source=tweetbutton&text=${title}&url=https://www.drewbolles.com/${slug}&via=bollskis`}
                 aria-label="Share on Twitter"
                 onClick={handleClick}
               >
@@ -72,27 +108,9 @@ export default function BlogPage({
               </ShareButton>
             </div>
           </div>
-          <div dangerouslySetInnerHTML={{ __html: html }}></div>
-          <div className="border-t border-gray-200">
-            <h4>Share this article</h4>
-            <ShareButton
-              href={`http://www.facebook.com/share.php?u=https://www.drewbolles.com/blog/${slug}&t=${title}`}
-              aria-label="Share on Facebook"
-              onClick={handleClick}
-            >
-              <FaFacebookSquare size="1em" fill="#4267B2" />
-            </ShareButton>
-            <ShareButton
-              href={`https://twitter.com/intent/tweet?original_referer=www.drewbolles.com&source=tweetbutton&text=${title}&url=https://www.drewbolles.com/${slug}&via=bollskis`}
-              aria-label="Share on Twitter"
-              onClick={handleClick}
-            >
-              <FaTwitterSquare size="1em" fill="#1DA1F2" />
-            </ShareButton>
-          </div>
-        </div>
-      </Main>
-    </Layout>
+        </Main>
+      </Layout>
+    </>
   );
 }
 
