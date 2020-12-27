@@ -6,6 +6,7 @@ description: In this post I talk about the differences between Vercel and
   are awesome products that I would recommend to anyone trying to build a modern
   web site or application, but the one thing that set Vercel apart was the
   <Image /> component from the next/image package.
+image: /uploads/jaime-spaniol-l0n74gwsq8-unsplash.jpg
 date: 2020-12-26T22:03:40.104Z
 comments: true
 ---
