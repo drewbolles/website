@@ -2,6 +2,7 @@
 title: "Google Analytics and Lighthouse: How to keep your 100"
 description: In this post I show you how to keep your 100% performance score in
   Lighthouse while integrating the Google Analytics library.
+image: /uploads/giorgio-trovato-oxwmpne_7kw-unsplash.jpg
 date: 2020-12-23T19:34:55.318Z
 comments: true
 ---
