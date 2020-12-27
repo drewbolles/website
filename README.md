@@ -1,4 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/abd31064-dcb9-4593-8dda-bd5e37607545/deploy-status)](https://app.netlify.com/sites/drewbolles/deploys)
 [![drewbolles-ts](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/17pg29&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/17pg29/runs)
 
 # Personal Website

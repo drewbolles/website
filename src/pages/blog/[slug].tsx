@@ -7,6 +7,7 @@ import Layout from '../../components/Layout/Layout';
 import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
 import { Blog } from '../../types/blog';
 import Main from '../../components/Layout/Main';
+import Image from 'next/image';
 
 import 'prismjs/themes/prism-okaidia.css';
 
@@ -22,7 +23,8 @@ export default function BlogPage({
   attributes,
   slug,
 }: Blog): JSX.Element {
-  const { title, date, description } = attributes;
+  const { title, date, description, image } = attributes;
+
   function handleClick(ev: React.MouseEvent) {
     ev.preventDefault();
     window.open(
@@ -37,6 +39,19 @@ export default function BlogPage({
       <Main className="flex-grow">
         <div className="container prose prose-sm md:prose-lg pb-6">
           <h1>{title}</h1>
+          {image ? (
+            <div className="-mx-6 md:-mx-16 mb-6">
+              <div className="aspect-w-16 aspect-h-9 overflow-hidden">
+                <Image
+                  src={image}
+                  layout="fill"
+                  objectPosition="center center"
+                  loading="eager"
+                  objectFit="cover"
+                />
+              </div>
+            </div>
+          ) : null}
           <div className="flex items-center justify-between">
             <div className="text-sm font-medium text-gray-500 m-0">{date}</div>
             <div className="flex items-center">
@@ -106,11 +121,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const { attributes = {}, html } = blogpost?.default ?? {};
 
-  attributes.date = dayjs(attributes.date).format('MMM DD, YYYY');
+  const date = dayjs(attributes.date).format('MMM DD, YYYY');
 
   return {
     props: {
-      attributes,
+      attributes: {
+        ...attributes,
+        date,
+      },
       html,
       slug,
     },
