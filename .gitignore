@@ -20,6 +20,7 @@ workbox-*.js*
 rss.xml
 robots.txt
 sitemap.xml
+*.1200x630.*
 
 # production
 /build
