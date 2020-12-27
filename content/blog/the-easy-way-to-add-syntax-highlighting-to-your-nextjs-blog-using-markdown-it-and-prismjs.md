@@ -3,6 +3,7 @@ title: The easy way to add syntax highlighting to your NextJS blog using
   markdown-it and PrismJS
 description: I show you the easiest and most performant way to add syntax
   highlighting to your NextJS blog using the `markdown-it` plugin and `PrismJS`.
+image: /uploads/joshua-aragon-eab4ml7c7fe-unsplash.jpg
 date: 2020-12-24T17:59:01.708Z
 comments: true
 ---
