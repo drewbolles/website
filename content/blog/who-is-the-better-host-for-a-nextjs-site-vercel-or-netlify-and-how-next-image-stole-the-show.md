@@ -1,11 +1,7 @@
 ---
 title: Who is the better host for a NextJS site, Vercel or Netlify, and how
   next/image stole the show
-description: In this post I talk about the differences between Vercel and
-  Netlify hosting for a NextJS site, and why I eventually went with Vercel. Both
-  are awesome products that I would recommend to anyone trying to build a modern
-  web site or application, but the one thing that set Vercel apart was the
-  <Image /> component from the next/image package.
+description: I go over the differences between Vercel and Netlify hosting for a NextJS site, and why I went with Vercel.
 image: /uploads/jaime-spaniol-l0n74gwsq8-unsplash.jpg
 date: 2020-12-26T22:03:40.104Z
 comments: true

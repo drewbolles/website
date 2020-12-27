@@ -1,8 +1,7 @@
 ---
 title: Fixing "Current page does not respond with a 200 when offline" from
   Lighthouse Audit
-description: I recently ran into an issue where I had a valid Service Worker
-  installed, a valid Web Manifest file set up, yet lighthouse was telling me my
+description: I recently ran into an issue where lighthouse was telling me my
   site was not available when offline. Here's how I ended up fixing it.
 image: /uploads/jeshoots-com-2vd8lihdnw-unsplash.jpg
 date: 2020-01-29T09:23:42-0500

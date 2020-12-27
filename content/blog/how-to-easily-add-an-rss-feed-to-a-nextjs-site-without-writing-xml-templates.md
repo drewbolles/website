@@ -1,13 +1,12 @@
 ---
 title: How to easily add an RSS feed to a NextJS site without writing XML templates
-description: In this post I show you how to easily add an RSS feed for your
-  NextJS site. There are a few examples of adding RSS feeds to your static
-  NextJS site however they just weren't easy enough for me. Lots of html in
-  template literals and string concatenation and that just won't do!
+description: I show you how to easily add an RSS feed for your
+  NextJS site.
 image: /uploads/mitchell-luo-fwoq_ldwlnq-unsplash.jpg
 date: 2020-12-24T13:33:01.954Z
 comments: true
 ---
+
 I like providing an RSS feed for my blog posts, it's old school but still relevant as I know **quite a few people** who still use RSS feed readers to digest their news. One of the things I took for granted in my old PHP CMS days was how many little things it did for you under-the-hood. Sitemaps, RSS feeds, these small niceties that add professional touches to your projects are old school in relative terms, but still very important. I so much more enjoy building with today's tools than yesteryear's, but one of the few things NextJS does not do for you is generating an RSS feed. There is no `next-rss` (yet!) but I am going to show you an easy way to turn a directory of blog posts into an RSS feed **without** touch an XML template.
 
 ## Setup
@@ -34,8 +33,8 @@ Now before we forget, let's add the `postbuild` script to our `package.json`:
 {
   "scripts": {
     // ...
-    "postbuild": "node rss-gen",
-   }
+    "postbuild": "node rss-gen"
+  }
 }
 ```
 

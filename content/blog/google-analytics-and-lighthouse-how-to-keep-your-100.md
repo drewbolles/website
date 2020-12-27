@@ -1,11 +1,12 @@
 ---
-title: "Google Analytics and Lighthouse: How to keep your 100"
-description: In this post I show you how to keep your 100% performance score in
+title: 'Google Analytics and Lighthouse: How to keep your 100'
+description: I show you how to keep your 100% performance score in
   Lighthouse while integrating the Google Analytics library.
 image: /uploads/giorgio-trovato-oxwmpne_7kw-unsplash.jpg
 date: 2020-12-23T19:34:55.318Z
 comments: true
 ---
+
 I recently rebuilt this website, and as I neared the release I was pleasantly surprised that I had very little work to do to achieve all 100's on my Lighthouse audit.
 
 ![Perfect Lighthouse score](/uploads/image.png)
@@ -19,15 +20,20 @@ Even further, we want to use the alternate async syntax they provide as an examp
 ```html
 <!-- Google Analytics -->
 <script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-XXXXX-Y', 'auto');
-ga('send', 'pageview');
+  window.ga =
+    window.ga ||
+    function () {
+      (ga.q = ga.q || []).push(arguments);
+    };
+  ga.l = +new Date();
+  ga('create', 'UA-XXXXX-Y', 'auto');
+  ga('send', 'pageview');
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
 <!-- End Google Analytics -->
 ```
 
-I placed this snippet in my custom \`_document.js\` along with a prefetch link like so: 
+I placed this snippet in my custom \`\_document.js\` along with a prefetch link like so:
 
 ```html
 <link rel="dns-prefetch" href="https://www.google-analytics.com" />
