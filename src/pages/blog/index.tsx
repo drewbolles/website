@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
@@ -21,6 +22,17 @@ function Post({ attributes, slug }: Blog) {
           </a>
         </Link>
       </h2>
+      {attributes.image ? (
+        <div className="aspect-w-16 aspect-h-9 my-4">
+          <Image
+            src={attributes.image}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center center"
+            alt=""
+          />
+        </div>
+      ) : null}
       <div
         dangerouslySetInnerHTML={{ __html: description }}
         className="md:text-lg mb-4"
@@ -46,7 +58,7 @@ export default function BlogIndex({
           <PageTitle>Blog</PageTitle>
           <ul
             data-testid="blog-list"
-            className="space-y-6 md:space-y-8 lg:space-y-12"
+            className="space-y-6 md:space-y-8 lg:space-y-16"
           >
             {postsList.map(({ attributes, slug }: Blog) => (
               <li key={attributes.title}>

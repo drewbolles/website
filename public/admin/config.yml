@@ -29,6 +29,7 @@ collections:
           name: 'comments',
           widget: 'boolean',
           default: true,
+          required: false,
         }
       - {
           label: 'Canonical URL',
