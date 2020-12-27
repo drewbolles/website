@@ -146,9 +146,8 @@ function processImageFileName(file) {
 
 async function getOrGenerateOgImage(file) {
   const ogImageName = processImageFileName(file);
-  const ogImage = await Jimp.read(`./public${ogImageName}`);
 
-  if (ogImage) {
+  if (fs.existsSync(`./public${ogImageName}`)) {
     return ogImageName;
   }
 
@@ -179,9 +178,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       attributes: {
         ...attributes,
+        ogImage,
         date,
       },
-      ogImage,
       html,
       slug,
     },
