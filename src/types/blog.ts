@@ -4,6 +4,7 @@ export type Blog = {
     description: string;
     date: string;
     image?: string;
+    ogImage?: string;
   };
   html?: string;
   slug: string;

@@ -9,6 +9,7 @@ import { Blog } from '../../types/blog';
 import Main from '../../components/Layout/Main';
 import Image from 'next/image';
 import { BlogJsonLd } from 'next-seo';
+import Jimp from 'jimp';
 
 import 'prismjs/themes/prism-okaidia.css';
 
@@ -24,7 +25,7 @@ export default function BlogPage({
   attributes,
   slug,
 }: Blog): JSX.Element {
-  const { title, date, description, image } = attributes;
+  const { title, date, description, image, ogImage } = attributes;
 
   function handleClick(ev: React.MouseEvent) {
     ev.preventDefault();
@@ -51,7 +52,7 @@ export default function BlogPage({
       <Layout
         title={title}
         description={description}
-        image={attributes.image}
+        image={ogImage}
         type="article"
       >
         <Main className="flex-grow">
@@ -135,6 +136,31 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
+function processImageFileName(file) {
+  const raw = file.split('.');
+  const ext = raw.pop();
+  raw.push('1200x630');
+  raw.push(ext);
+  return raw.join('.');
+}
+
+async function getOrGenerateOgImage(file) {
+  const ogImageName = processImageFileName(file);
+  const ogImage = await Jimp.read(`./public${ogImageName}`);
+
+  if (ogImage) {
+    return ogImageName;
+  }
+
+  const image = await Jimp.read(`./public${file}`);
+  image.clone();
+  image.cover(1200, 630);
+  image.quality(75);
+  image.write(`./public/${ogImageName}`);
+
+  return ogImageName;
+}
+
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params;
 
@@ -145,6 +171,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { attributes = {}, html } = blogpost?.default ?? {};
 
   const date = dayjs(attributes.date).format('MMM DD, YYYY');
+  const ogImage = attributes.image
+    ? await getOrGenerateOgImage(attributes.image)
+    : null;
 
   return {
     props: {
@@ -152,6 +181,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         ...attributes,
         date,
       },
+      ogImage,
       html,
       slug,
     },
