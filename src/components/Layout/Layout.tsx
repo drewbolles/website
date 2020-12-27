@@ -61,16 +61,21 @@ export default function Layout({
   image?: string;
   type?: string;
 }>): JSX.Element {
+  // modern SEO best practices recommmend 120 character descriptions
+  const trimmedDescription =
+    description.length > 120
+      ? `${description.substring(0, 117)}...`
+      : description;
   return (
     <>
       <NextSeo
         title={title}
-        description={description}
+        description={trimmedDescription}
         twitter={{ handle: '@bollskis', site: siteConfig.baseUrl }}
         openGraph={{
           type,
           title,
-          description,
+          description: trimmedDescription,
           locale: 'en_US',
           images: [
             image && {
