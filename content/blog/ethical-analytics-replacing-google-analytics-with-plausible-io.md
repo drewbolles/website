@@ -12,16 +12,16 @@ One of the best things we as individuals can do is to vote with our pockets and 
 
 ## Replacing Google Analytics
 
-Ironically, I began my search by using google.com to search for "Ethical web analytics". I stumbled a bit to find the right wording for what I was looking for, but that was more-or-less it. I quickly found this excellent mini-series on [mentalpivot.com](https://mentalpivot.com/), if you're reading this post, I would really recommend these posts:
+Ironically, I began my search by using google.com to search for "Ethical web analytics". I stumbled a bit to find the right wording for what I was looking for, but that was more-or-less it. I quickly found this excellent mini-series on [mentalpivot.com](https://mentalpivot.com/), if you're interesting in this topic, I would really recommend these posts:
 
 1. [Ethical Web Analytics: Alternatives to Google](https://mentalpivot.com/ethical-web-analytics-alternatives-google)
 2. [A Plausible Choice: An Ethical Web Analytics Followup](https://mentalpivot.com/pleased-with-plausible-a-followup-on-ethical-web-analytics)
 
-This was exactly the process I was going through. Their eventual choice was [plausible.io](https://plausible.io/), and this was actually a service I had briefly ran into before. Truly the only thing standing in my way for signing up when I first encountered it was the price tag. $48 USD at the time was just enough to keep me using the free Google Analytics product, but I was ready to pay what I felt was a reasonable price.
+This was exactly the process I went through. Their eventual choice was [plausible.io](https://plausible.io/), and this was actually a service I had briefly ran into before. Truly the only thing standing in my way for signing up when I first encountered it was the price tag. $48 USD at the time was just enough to keep me using the free Google Analytics product, but I was ready to pay what I felt was a reasonable price.
 
 ## What I even want analytics for
 
-I really don't care about my users' data, I care about my content. I want to know how popular my content is, how it performs, and some high-level funnels. I want to know how people find me, and what they do when they're on my site. I don't want to know anything about them at all, and I don't want to monetize them. Maybe one day if I were trying to make content creation a side gig I would investigate ethical advertisements, but until then I want to see what kind of organic traction my content might have.
+I really don't care about my users' data, I care about my content. I want to know how popular my content is, how it performs, and some high-level funnels. I want to know how people find me, and what they do when they're on my site. I don't want to know anything about them at all, and I don't want to monetize them. Maybe one day if I try to make content creation a side gig I would investigate ethical advertisements, but until then I want to see what kind of organic traction my content might have.
 
 Google Analytics might do that, but behind the scenes it does so much more. Essentially I'm forwarding my traffic to Google servers for them to do with what they please. I don't like this, and I don't need this. Replacing GA with a product that provides me insight into my website without abusing my users is a very easy decision to make.
 
