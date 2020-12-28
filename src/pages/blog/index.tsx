@@ -23,7 +23,7 @@ function Post({ attributes, slug }: Blog) {
         </Link>
       </h2>
       {attributes.image ? (
-        <div className="aspect-w-16 aspect-h-9 my-4">
+        <div className="aspect-w-16 aspect-h-9 my-3 md:my-4">
           <Image
             src={attributes.image}
             layout="fill"
@@ -35,10 +35,10 @@ function Post({ attributes, slug }: Blog) {
       ) : null}
       <div
         dangerouslySetInnerHTML={{ __html: description }}
-        className="md:text-lg mb-4"
+        className="md:text-lg mb-3 md:mb-4"
       />
       <Link href={href}>
-        <a className="flex items-center text-blue-700 hover:underline">
+        <a className="flex items-center text-blue-700 text-sm md:text-base hover:underline">
           Read <FaArrowRight className="ml-1" />
         </a>
       </Link>
@@ -56,10 +56,7 @@ export default function BlogIndex({
       <Main>
         <div className="container max-w-prose">
           <PageTitle>Blog</PageTitle>
-          <ul
-            data-testid="blog-list"
-            className="space-y-6 md:space-y-8 lg:space-y-16"
-          >
+          <ul data-testid="blog-list" className="space-y-8 lg:space-y-16">
             {postsList.map(({ attributes, slug }: Blog) => (
               <li key={attributes.title}>
                 <Post attributes={attributes} slug={slug} />

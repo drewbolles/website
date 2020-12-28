@@ -7,7 +7,7 @@ date: 2020-12-26T22:03:40.104Z
 comments: true
 ---
 
-When building a NextJS site or application, hosting on Vercel might seem like the natural best choice, however there are quite a few great hosting options these days. I recently battle tested Netlify after falling head-over-heals for their repository-based CMS, aptly named Netlify CMS, which currently powers this site. Their platform was great, intuitive, well designed, easy to use and powerful with very little configuration. Everything you would come to expect from a modern DX focused product. I had no complaints about Netlify at all, I would recommend them again to anyone with a project the was right for their platform.
+When building a NextJS site or application, hosting on Vercel might seem like the natural best choice, however there are quite a few great hosting options these days. I recently battle tested Netlify after falling head-over-heels for their repository-based CMS, aptly named Netlify CMS, which currently powers this site. Their platform was great, intuitive, well designed, easy to use and powerful with very little configuration. Everything you would come to expect from a modern DX focused product. I had no complaints about Netlify at all, I would recommend them again to anyone with a project the was right for their platform.
 
 ## The Dilemma
 
