@@ -48,12 +48,14 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           title="Drew Bolles' Blog RSS Feed"
           href="/rss.xml"
         />
-        <script
-          async
-          defer
-          data-domain="drewbolles.com"
-          src="https://stats.drewbolles.com/js/index.js"
-        />
+        {process.env.APP_ENV === 'production' ? (
+          <script
+            async
+            defer
+            data-domain="drewbolles.com"
+            src="https://stats.drewbolles.com/js/index.js"
+          />
+        ) : null}
       </Head>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
