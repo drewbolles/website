@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#333333" />
         <meta name="msapplication-TileColor" content="#2d89ef" />
         <meta name="theme-color" content="#ffffff" />
-        <link rel="dns-prefetch" href="https://plausible.io" />
+        <link rel="dns-prefetch" href="https://stats.drewbolles.com" />
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -52,7 +52,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           async
           defer
           data-domain="drewbolles.com"
-          src="https://plausible.io/js/plausible.js"
+          src="https://stats.drewbolles.com/js/index.js"
         />
       </Head>
       <QueryClientProvider client={queryClient}>
