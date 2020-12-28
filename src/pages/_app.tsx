@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#333333" />
         <meta name="msapplication-TileColor" content="#2d89ef" />
         <meta name="theme-color" content="#ffffff" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://plausible.io" />
         <link
           rel="alternate"
           type="application/rss+xml"
