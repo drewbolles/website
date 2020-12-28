@@ -1,7 +1,8 @@
 ---
-title: "I'm joining Chapter Three!"
-description: "I've taken a new job in San Francisco joining Chapter Three"
-date: '2014-09-01T12:00:00Z'
+title: I'm joining Chapter Three!
+description: I've taken a new job in San Francisco joining Chapter Three
+image: /uploads/ray-hennessy-gdtxvsae5sk-unsplash.jpg
+date: 2014-09-01T12:00:00Z
 comments: true
 ---
 
