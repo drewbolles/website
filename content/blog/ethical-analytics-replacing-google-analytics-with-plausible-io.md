@@ -12,12 +12,12 @@ One of the best things we as individuals can do is to vote with our pocket and *
 
 ## Replacing Google Analytics
 
-Ironically, I began my search by using google.com to search for "Ethical web analytics". I stumbled a bit to find the right wording for what I was looking for, but that was more-or-less it. I quickly found this excellent mini-series on mentalpivot.com, if you're reading this post, I would really recommend these posts:
+Ironically, I began my search by using google.com to search for "Ethical web analytics". I stumbled a bit to find the right wording for what I was looking for, but that was more-or-less it. I quickly found this excellent mini-series on [mentalpivot.com](https://mentalpivot.com/), if you're reading this post, I would really recommend these posts:
 
 1. [Ethical Web Analytics: Alternatives to Google](https://mentalpivot.com/ethical-web-analytics-alternatives-google)
 2. [A Plausible Choice: An Ethical Web Analytics Followup](https://mentalpivot.com/pleased-with-plausible-a-followup-on-ethical-web-analytics)
 
-This was exactly the process I was going through. Their eventual choice was plausible.io, and this was actually a service I had briefly ran into before. Truly the only thing standing in my way for signing up when I first encountered it was the price tag. $48 USD at the time was just enough to keep me using the free Google Analytics product, but I was ready to pay what I felt was a reasonable price.
+This was exactly the process I was going through. Their eventual choice was [plausible.io](https://plausible.io/), and this was actually a service I had briefly ran into before. Truly the only thing standing in my way for signing up when I first encountered it was the price tag. $48 USD at the time was just enough to keep me using the free Google Analytics product, but I was ready to pay what I felt was a reasonable price.
 
 ## What I even want analytics for
 
