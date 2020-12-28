@@ -1,7 +1,11 @@
 ---
-title: 'How to structure your next Sass project'
-description: "I wanted to write a quick post about how I'm structuring my projects recently. I develop in Sass, so this is what this article will focus on, but the core can be applied to any preprocessor or even sites using basic CSS. (gasp!)"
-date: '2013-12-22T12:00:00Z'
+title: How to structure your next Sass project
+description: I wanted to write a quick post about how I'm structuring my
+  projects recently. I develop in Sass, so this is what this article will focus
+  on, but the core can be applied to any preprocessor or even sites using basic
+  CSS. (gasp!)
+image: /uploads/alain-pham-p_qvsf7yodw-unsplash.jpg
+date: 2013-12-22T12:00:00Z
 comments: true
 ---
 
