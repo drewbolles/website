@@ -39,11 +39,6 @@ export default function PrivacyPolicy(): JSX.Element {
               parties.
             </p>
 
-            <p>
-              E-mail may be sent to inform you of news of our services or offers
-              by us or our affiliates.
-            </p>
-
             <h2>Visitor Options</h2>
             <p>
               If you have subscribed to one of our services, you may unsubscribe
@@ -55,32 +50,6 @@ export default function PrivacyPolicy(): JSX.Element {
               You may be able to block cookies via your browser settings but
               this may prevent you from access to certain features of the
               website.
-            </p>
-
-            <h2>Cookies</h2>
-            <p>
-              Cookies are small digital signature files that are stored by your
-              web browser that allow your preferences to be recorded when
-              visiting the website. Also they may be used to track your return
-              visits to the website.
-            </p>
-
-            <p>
-              3rd party advertising companies may also use cookies for tracking
-              purposes.
-            </p>
-
-            <h2>Google Ads</h2>
-            <p>Google, as a third party vendor, uses cookies to serve ads.</p>
-
-            <p>
-              Google&apos;s use of the DART cookie enables it to serve ads to
-              visitors based on their visit to sites they visit on the Internet.
-            </p>
-
-            <p>
-              Website visitors may opt out of the use of the DART cookie by
-              visiting the Google ad and content network privacy policy.
             </p>
           </div>
         </div>
