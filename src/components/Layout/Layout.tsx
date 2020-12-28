@@ -71,7 +71,11 @@ export default function Layout({
       <NextSeo
         title={title}
         description={trimmedDescription}
-        twitter={{ handle: '@bollskis', site: siteConfig.baseUrl }}
+        twitter={{
+          handle: '@bollskis',
+          site: siteConfig.baseUrl,
+          cardType: 'summary_large_image',
+        }}
         openGraph={{
           type,
           title,
