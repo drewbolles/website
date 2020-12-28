@@ -104,7 +104,7 @@ export default function Layout({
                 </span>
               </a>
             </NextLink>
-            <nav className="space-x-2 py-1 flex items-center h-full">
+            <nav className="space-x-2 py-2 flex items-center h-full">
               {links.map(([path, title]) => (
                 <Link href={path} key={path}>
                   {title}
@@ -117,7 +117,7 @@ export default function Layout({
         <footer className="py-6 bg-gray-100 text-center">
           <div className="container md:flex items-center justify-between">
             <div className="flex flex-col md:flex-row space-x-2 items-center text-xs mb-1 md:mb-0">
-              <p className="mb-2 md:mb-0">
+              <p className="">
                 &copy; Copyright {new Date().getFullYear()}. All rights
                 reserved.
               </p>

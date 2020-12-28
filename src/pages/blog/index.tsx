@@ -35,7 +35,7 @@ function Post({ attributes, slug }: Blog) {
       ) : null}
       <div
         dangerouslySetInnerHTML={{ __html: description }}
-        className="md:text-lg mb-3 md:mb-4"
+        className="md:text-lg mb-3"
       />
       <Link href={href}>
         <a className="flex items-center text-blue-700 text-sm md:text-base hover:underline">
@@ -56,7 +56,7 @@ export default function BlogIndex({
       <Main>
         <div className="container max-w-prose">
           <PageTitle>Blog</PageTitle>
-          <ul data-testid="blog-list" className="space-y-8 lg:space-y-16">
+          <ul data-testid="blog-list" className="space-y-10 lg:space-y-16">
             {postsList.map(({ attributes, slug }: Blog) => (
               <li key={attributes.title}>
                 <Post attributes={attributes} slug={slug} />

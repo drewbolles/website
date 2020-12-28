@@ -38,11 +38,11 @@ export default function Work({
                         },
                       )}
                     >
-                      <h2 className="text-2xl md:text-3xl font-semibold mb-2">
+                      <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2">
                         {item.attributes.title}
                       </h2>
                       {item.attributes.role ? (
-                        <h3 className="text-lg md:text-2xl mb-2">
+                        <h3 className="sm:text-lg md:text-2xl mb-2">
                           <span className="font-semibold">Role:</span>{' '}
                           {item.attributes.role}
                         </h3>
@@ -57,7 +57,7 @@ export default function Work({
                         <ul className="flex flex-wrap mb-3">
                           {item.attributes.technologies.map(tech => (
                             <li
-                              className="inline-flex items-center rounded-sm h-6 md:h-8 px-4 text-sm mb-2 mr-2 last:mr-0 bg-blue-50"
+                              className="inline-flex items-center rounded-sm h-6 md:h-8 px-2 sm:px-4 text-xs sm:text-sm mb-2 mr-2 last:mr-0 bg-blue-50"
                               key={tech}
                             >
                               {tech}
@@ -68,7 +68,7 @@ export default function Work({
                       <div>
                         <a
                           href={item.attributes.url}
-                          className="text-blue-700 md:text-lg border-b border-dashed inline-flex items-center hover:text-blue-900"
+                          className="text-blue-700 text-sm sm:text-base md:text-lg border-b border-dashed inline-flex items-center hover:text-blue-900"
                         >
                           View site <MdOpenInNew className="ml-1" />
                         </a>
@@ -87,7 +87,7 @@ export default function Work({
             })}
           </ul>
           <div className="py-8 md:py-12 lg:py-16 text-center">
-            <h3 className="text-2xl font-bold md:text-3xl mb-3 md:mb-6">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-6">
               Interested in working with me?
             </h3>
             <Button href="mailto:drewbolles@gmail.com">

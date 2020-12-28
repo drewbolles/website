@@ -74,7 +74,7 @@ export default function Home({
           </div>
         </div>
         <div
-          className="py-8 pb-12 md:py-16 bg-cover bg-fixed"
+          className="pt-8 pb-12 md:py-16 bg-cover bg-fixed"
           style={{
             backgroundImage: `url(${require('../images/slice-bg.svg')})`,
           }}
@@ -115,12 +115,12 @@ export default function Home({
             </Row>
           </div>
         </div>
-        <div className="py-8 md:py-16">
+        <div className="py-10 md:py-16">
           <div className="container max-w-prose">
             <h2 className="text-2xl font-bold mb-6 lg:mb-10 md:text-3xl lg:text-4xl text-center">
               Recent Blog Posts
             </h2>
-            <ul className="space-y-6 md:space-y-10 lg:space-y-12 mb-6">
+            <ul className="space-y-10 md:space-y-12 mb-6">
               {postsList.map(({ attributes, slug }: Blog) => (
                 <li key={attributes.title}>
                   <h3 className="text-lg md:text-2xl mb-2 font-semibold">

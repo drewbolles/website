@@ -84,7 +84,7 @@ const Resume: NextPage = () => {
                   <li key={`${job.company}-${idx}`}>
                     <div className="md:flex items-center justify-between">
                       <div className="flex items-center">
-                        <h3 className="text-xl font-medium">
+                        <h3 className="text-xl mb-1 font-medium">
                           {job.website ? (
                             <a
                               href={job.website}
@@ -97,13 +97,13 @@ const Resume: NextPage = () => {
                           )}
                         </h3>
                       </div>
-                      <div className="flex text-sm text-gray-700 italic">
+                      <div className="flex text-xs sm:text-sm mb-1 md:mb-0 text-gray-700 italic">
                         <div>{startDate}</div>
                         <div className="mx-2">-</div>
                         <div>{endDate || 'Current'}</div>
                       </div>
                     </div>
-                    <h3 className="mb-1">{job.position}</h3>
+                    <h3 className="mb-2 font-medium">{job.position}</h3>
                     <p className="text-sm md:w-2/3 text-gray-800">
                       {job.summary}
                     </p>

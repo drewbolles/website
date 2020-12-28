@@ -12,7 +12,7 @@ export default function PageTitle({
     <h1
       data-testid="page-title"
       className={classNames(
-        'text-2xl font-bold mb-6 lg:mb-8 md:text-3xl lg:text-4xl',
+        'text-2xl font-bold mb-4 lg:mb-8 md:text-3xl lg:text-4xl',
         className,
       )}
       {...rest}
