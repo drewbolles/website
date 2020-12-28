@@ -1,28 +1,14 @@
 import * as React from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
-import * as ga from '../utils/ga';
 
 import '../styles/globals.css';
 
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  const router = useRouter();
-
-  React.useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      ga.pageview(url);
-    };
-    router.events.on('routeChangeComplete', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router.events]);
-
   return (
     <>
       <Head>
@@ -63,14 +49,11 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           href="/rss.xml"
         />
         <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-            ga('create', '${ga.GA_TRACKING_ID}', 'auto');
-            ga('send', 'pageview');`,
-          }}
+          async
+          defer
+          data-domain="drewbolles.com"
+          src="https://plausible.io/js/plausible.js"
         />
-        <script async src="https://www.google-analytics.com/analytics.js" />
       </Head>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
