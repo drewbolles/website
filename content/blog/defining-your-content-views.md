@@ -1,7 +1,10 @@
 ---
-title: 'Defining your content views'
-description: "When approaching responsive web design, it's incredibly important to define your content views. I explain what that means and how to go about doing so in this post."
-date: '2013-12-27T12:00:00Z'
+title: Defining your content views
+description: When approaching responsive web design, it's incredibly important
+  to define your content views. I explain what that means and how to go about
+  doing so in this post.
+image: /uploads/scott-graham-5fnmwej4taa-unsplash.jpg
+date: 2013-12-27T12:00:00Z
 comments: true
 ---
 
