@@ -6,10 +6,11 @@ import Main from '../components/Layout/Main';
 import PageTitle from '../components/PageTitle';
 import { importPortfolioItems } from '../utils/content';
 import classNames from 'classnames';
-import { MdOpenInNew } from 'react-icons/md';
+import { MdEmail, MdOpenInNew } from 'react-icons/md';
 import { Portfolio } from '../types/portfolio';
 import sortByDate from '../utils/sortByDate';
 import PortfolioImg from '../components/PortfolioImg/PortfolioImg';
+import Button from '../components/Button';
 
 export default function Work({
   portfolioItems,
@@ -85,6 +86,15 @@ export default function Work({
               );
             })}
           </ul>
+          <div className="py-8 md:py-12 lg:py-16 text-center">
+            <h3 className="text-2xl font-bold md:text-3xl mb-3 md:mb-6">
+              Interested in working with me?
+            </h3>
+            <Button href="mailto:drewbolles@gmail.com">
+              <MdEmail className="mr-1" />
+              Send me an email
+            </Button>
+          </div>
         </div>
       </Main>
     </Layout>

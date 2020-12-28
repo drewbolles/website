@@ -132,7 +132,7 @@ export default function Home({
                     dangerouslySetInnerHTML={{
                       __html: attributes.description,
                     }}
-                    className="mb-3"
+                    className="mb-3 md:text-lg"
                   />
                   <NextLink href={`/blog/${slug}`}>
                     <a className="flex items-center text-blue-700">

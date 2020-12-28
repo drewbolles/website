@@ -19,6 +19,8 @@ const Identity = ({ className, reveal, ...rest }: IdentityProps) => (
       { 'opacity-100 block': reveal },
       className,
     )}
+    width="254"
+    height="306"
     alt=""
     {...rest}
   />
