@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           title="Drew Bolles' Blog RSS Feed"
           href="/rss.xml"
         />
-        {process.env.APP_ENV === 'production' ? (
+        {process.env.NEXT_PUBLIC_APP_ENV === 'production' ? (
           <script
             async
             defer
