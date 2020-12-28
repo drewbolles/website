@@ -1,7 +1,9 @@
 ---
-title: "I was featured in Lullabot's recent Drupal 8 podcast!"
-description: 'Lullabot produces a Drupal podcast, and I was featured on the episode talking about include a client-side framework in core.'
-date: '2016-01-14T17:53:00Z'
+title: I was featured in Lullabot's recent Drupal 8 podcast!
+description: Lullabot produces a Drupal podcast, and I was featured on the
+  episode talking about include a client-side framework in core.
+image: /uploads/matt-botsford-oklqgsct8qs-unsplash.jpg
+date: 2016-01-14T17:53:00Z
 comments: true
 ---
 
