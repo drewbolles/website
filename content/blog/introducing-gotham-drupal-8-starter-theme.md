@@ -1,7 +1,8 @@
 ---
-title: 'Introducing Gotham, a Drupal 8 starter theme'
-description: 'Gotham is a Drupal 8 starter theme aimed at giving developers a clean slate'
-date: '2016-01-14T12:58:00Z'
+title: Introducing Gotham, a Drupal 8 starter theme
+description: Gotham is a Drupal 8 starter theme aimed at giving developers a clean slate
+image: /uploads/andre-benz-jbkwaymuhdc-unsplash.jpg
+date: 2016-01-14T12:58:00Z
 comments: true
 ---
 
