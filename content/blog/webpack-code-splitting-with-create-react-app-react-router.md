@@ -1,11 +1,14 @@
 ---
 title: Webpack code splitting with Create React App and React Router
-description:
-  Learn how to leverage Webpack's native code splitting ability with Create
-  React App and React Router
-date: '2016-11-14T11:00:00Z'
+description: Learn how to leverage Webpack's native code splitting ability with
+  Create React App and React Router
+image: /uploads/kevin-schmid-65es-iljvvo-unsplash.jpg
+date: 2016-11-14T11:00:00Z
 comments: true
 ---
+**This post is outdated, please read the [react-router docs](https://reactrouter.com/web/guides/code-splitting) for information on code splitting.** 
+
+\---
 
 When building a modern [React](https://facebook.github.io/react/) application, the sanest starting point is Facebook's official [Create React App](https://github.com/facebookincubator/create-react-app). It's well documented, well built, and makes getting started building with React simple and streamlined. Their custom [Webpack](https://webpack.github.io/) configuration is everything you need to get started, from Hot Module Reloading, to production minification and gzipping. One of the things they don't outline, however, and is super vital to production-quality applications is **code splitting**. This is the process of breaking up your JavaScript to only load what is necessary, and async load in the rest.
 
@@ -46,7 +49,6 @@ The rest of your folder structure would look something like this:
   /routes
     /Calendar
       index.js
-
 ```
 
 An example individual route index file looks like:
