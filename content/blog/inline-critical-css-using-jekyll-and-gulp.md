@@ -1,10 +1,13 @@
 ---
-title: 'Inline your critical CSS using Jekyll and Gulp'
-description: 'Learn how to set up a Jekyll installation so that it inlines critical CSS in the head of the document while asynchronously loading the rest.'
-date: '2015-04-23T16:43:00Z'
+title: Inline your critical CSS using Jekyll and Gulp
+description: Learn how to set up a Jekyll installation so that it inlines
+  critical CSS in the head of the document while asynchronously loading the
+  rest.
+date: 2015-04-23T16:43:00Z
 comments: true
 redirect_from:
   - /blog/2015/04/23/using-critical-with-jekyll-and-gulp/
+image: /uploads/c-dustin-91aqt9p4mo8-unsplash.jpg
 ---
 
 If you're familiar with critical CSS and its impact on web performance, you also know it's not the simpliest thing to work with. [Google's pagespeed insights](https://developers.google.com/speed/pagespeed/insights/) recommends that you inline any critical, render blocking content to increase performance, which can be tricky. I've managed to set up this up using Jekyll and Gulp to generate and include my critical CSS, and in this post I'll walk you through how I did that.
