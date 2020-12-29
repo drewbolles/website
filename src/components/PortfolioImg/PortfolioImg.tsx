@@ -5,10 +5,12 @@ export default function PortfolioImg({
   src,
   alt = '',
   minHeight = 500,
+  loading = 'lazy',
 }: {
   src: string;
   alt?: string;
   minHeight?: number;
+  loading?: 'lazy' | 'eager';
 }): JSX.Element {
   return (
     <div
@@ -23,6 +25,7 @@ export default function PortfolioImg({
         objectPosition="center top"
         sizes="(min-width: 768px) 50vw, 100vw"
         data-testid="portfolio-img"
+        loading={loading}
       />
     </div>
   );

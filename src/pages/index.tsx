@@ -110,6 +110,7 @@ export default function Home({
                 <PortfolioImg
                   src={featuredPortfolio.attributes.image}
                   alt={`${featuredPortfolio.attributes.title} website`}
+                  loading="eager"
                 />
               </Col>
             </Row>
