@@ -3,10 +3,8 @@ title: Inline your critical CSS using Jekyll and Gulp
 description: Learn how to set up a Jekyll installation so that it inlines
   critical CSS in the head of the document while asynchronously loading the
   rest.
-date: 2015-04-23T16:43:00Z
+date: 2015-04-23T16:43:00.000Z
 comments: true
-redirect_from:
-  - /blog/2015/04/23/using-critical-with-jekyll-and-gulp/
 image: /uploads/c-dustin-91aqt9p4mo8-unsplash.jpg
 ---
 

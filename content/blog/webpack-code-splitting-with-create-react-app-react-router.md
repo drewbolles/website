@@ -3,10 +3,11 @@ title: Webpack code splitting with Create React App and React Router
 description: Learn how to leverage Webpack's native code splitting ability with
   Create React App and React Router
 image: /uploads/kevin-schmid-65es-iljvvo-unsplash.jpg
-date: 2016-11-14T11:00:00Z
+date: 2016-11-14T11:00:00.000Z
 comments: true
 ---
-**This post is outdated, please read the [react-router docs](https://reactrouter.com/web/guides/code-splitting) for information on code splitting.** 
+
+**This post is outdated, please read the [react-router docs](https://reactrouter.com/web/guides/code-splitting) for information on code splitting.**
 
 \---
 

@@ -2,7 +2,7 @@
 title: Decoupled Drupal 8 Tips
 description: Tips for developing a decoupled application with Drupal 8 as your backend
 image: /uploads/sam-dan-truong-rf4kuvghhu-unsplash.jpg
-date: 2020-01-11T11:47:26.00Z
+date: 2020-01-11T11:47:26.000Z
 ---
 
 I've been developing a decoupled Drupal 8 site for a while now, and I've gone through my shares of trials and tribulations. I've learned a few tips and tricks throughout the process that I'd like to share.

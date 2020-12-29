@@ -1,13 +1,12 @@
 ---
 title: Printing an Entity Reference field programmatically in Drupal 8
 description: Learn how to output the entity view of an Entity Reference field in Drupal 8.
-date: 2016-01-14T11:33:00Z
+date: 2016-01-14T11:33:00.000Z
 comments: true
 canonical_url: https://www.chapterthree.com/blog/printing-entity-reference-field-programmatically-drupal-8
-redirect_from:
-  - /blog/2016/01/15/printing-entity-reference-field-programmatically-drupal-8/
 image: /uploads/amador-loureiro-bvynlchwqzs-unsplash.jpg
 ---
+
 **This post is outdated. Please see the Drupal documentation for updated reference.**
 
 \---

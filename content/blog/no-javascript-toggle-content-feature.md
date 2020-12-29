@@ -1,10 +1,8 @@
 ---
 title: A no-javascript toggle content feature
 description: A way to show and hide content without using javascript.
-date: 2013-12-28T12:00:00.00Z
+date: 2013-12-28T12:00:00.000Z
 comments: true
-redirect_from:
-  - /tutorials/2013/12/28/no-javascript-toggle-content-feature/
 image: /uploads/jens-johnsson-ltn47bewywa-unsplash.jpg
 ---
 

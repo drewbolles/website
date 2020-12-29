@@ -2,7 +2,7 @@
 title: I'm joining Chapter Three!
 description: I've taken a new job in San Francisco joining Chapter Three
 image: /uploads/ray-hennessy-gdtxvsae5sk-unsplash.jpg
-date: 2014-09-01T12:00:00Z
+date: 2014-09-01T12:00:00.000Z
 comments: true
 ---
 

@@ -2,7 +2,7 @@
 title: The Hiatus Ends
 description: My moratorium on blogging has come to an end
 image: /uploads/ethan-robertson-syx3uchzjlo-unsplash.jpg
-date: 2020-01-09T09:35:41-0500
+date: 2020-01-09T09:35:41.000Z
 ---
 
 These past 3 years have been filled with monumental change for me, both personally and professionally. I went from developing solely in Drupal - which I had done for nearly a decade — to JavaScript. I went from living and working in San Francisco, to an apartment in downtown Indianapolis, to now living in my own home in Sanford, Florida. I went from being a single guy to family man with a young son and beautiful partner.

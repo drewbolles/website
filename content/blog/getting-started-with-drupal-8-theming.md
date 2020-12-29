@@ -2,7 +2,7 @@
 title: Getting started with Drupal 8 Theming
 description: Learn how to set up custom Drupal 8 theme, and the new Twig system behind it.
 image: /uploads/russn_fckr-krv5as4jdja-unsplash.jpg
-date: 2016-01-13T18:05:00Z
+date: 2016-01-13T18:05:00.000Z
 comments: true
 ---
 

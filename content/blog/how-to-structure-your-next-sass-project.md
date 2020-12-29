@@ -5,7 +5,7 @@ description: I wanted to write a quick post about how I'm structuring my
   on, but the core can be applied to any preprocessor or even sites using basic
   CSS. (gasp!)
 image: /uploads/alain-pham-p_qvsf7yodw-unsplash.jpg
-date: 2013-12-22T12:00:00.00Z
+date: 2013-12-22T12:00:00.000Z
 comments: true
 ---
 
