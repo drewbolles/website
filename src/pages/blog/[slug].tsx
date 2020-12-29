@@ -37,7 +37,7 @@ function FooterLink({
   className?: string;
 }): JSX.Element {
   return (
-    <Col className={classNames('flex flex-col w-1/2', className)}>
+    <Col className={classNames('flex flex-col w-full md:w-1/2', className)}>
       <span className="text-gray-600 font-medium">{label}</span>
       <Link href={href}>
         <a className="text-gray-900">{title}</a>
@@ -155,7 +155,7 @@ export default function BlogPage({
                     href={`/blog/${nextPost.slug}`}
                     label="Next"
                     title={nextPost.attributes.title}
-                    className="text-right"
+                    className="md:text-right"
                   />
                 ) : null}
               </Row>
