@@ -10,7 +10,11 @@ import { Blog } from '../../types/blog';
 import { importBlogPosts } from '../../utils/content';
 import sortByDate from '../../utils/sortByDate';
 
-function Post({ attributes, slug }: Blog) {
+function Post({
+  attributes,
+  slug,
+  imageLoading = 'lazy',
+}: Blog & { imageLoading?: 'lazy' | 'eager' }) {
   const { title, description } = attributes;
   const href = `/blog/${slug}`;
   return (
@@ -29,6 +33,7 @@ function Post({ attributes, slug }: Blog) {
             layout="fill"
             objectFit="cover"
             objectPosition="center center"
+            loading={imageLoading}
             alt=""
           />
         </div>
@@ -57,9 +62,13 @@ export default function BlogIndex({
         <div className="container max-w-prose">
           <PageTitle>Blog</PageTitle>
           <ul data-testid="blog-list" className="space-y-10 lg:space-y-16">
-            {postsList.map(({ attributes, slug }: Blog) => (
+            {postsList.map(({ attributes, slug }: Blog, index) => (
               <li key={attributes.title}>
-                <Post attributes={attributes} slug={slug} />
+                <Post
+                  attributes={attributes}
+                  slug={slug}
+                  imageLoading={index === 0 ? 'eager' : 'lazy'}
+                />
               </li>
             ))}
           </ul>
