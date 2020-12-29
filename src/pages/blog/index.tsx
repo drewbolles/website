@@ -61,6 +61,22 @@ export default function BlogIndex({
       <Main>
         <div className="container max-w-prose">
           <PageTitle>Blog</PageTitle>
+          <div className="prose md:prose-lg mb-6">
+            <p>
+              I mostly blog about technical topics that are relevant to me at
+              the time. If you would like to stay up-to-date with my content,
+              feel free to <a href="/rss.xml">subscribe to my RSS feed</a> or{' '}
+              <a
+                href="https://www.twitter.com/bollskis"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                follow me on twitter
+              </a>
+              .
+            </p>
+          </div>
+          <div className="bg-gray-200 h-px mb-6"></div>
           <ul data-testid="blog-list" className="space-y-10 lg:space-y-16">
             {postsList.map(({ attributes, slug }: Blog, index) => (
               <li key={attributes.title}>

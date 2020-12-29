@@ -9,7 +9,7 @@ const { baseUrl, description, author } = require('./site.config');
 const blogPostDir = path.resolve(__dirname, 'content', 'blog');
 
 const feed = new RSS({
-  title: `${author}'s Blog RSS Feed`,
+  title: `${author}'s blog`,
   description: description,
   feed_url: `${baseUrl}/rss.xml`,
   site_url: baseUrl,
