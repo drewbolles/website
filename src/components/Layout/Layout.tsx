@@ -38,7 +38,7 @@ const FooterIconLink = props => (
 
 const FooterLink = React.forwardRef<
   HTMLAnchorElement,
-  React.PropsWithChildren<unknown>
+  React.PropsWithChildren<{ href?: string }>
 >((props, ref) => (
   <a
     ref={ref}
@@ -116,7 +116,7 @@ export default function Layout({
         {children}
         <footer className="py-6 bg-gray-100 text-center">
           <div className="container md:flex items-center justify-between">
-            <div className="flex flex-col md:flex-row space-x-2 items-center text-xs mb-1 md:mb-0">
+            <div className="flex flex-col space-y-1 items-center text-xs mb-1 md:mb-0">
               <p className="">
                 &copy; Copyright {new Date().getFullYear()}. All rights
                 reserved.
@@ -129,6 +129,10 @@ export default function Layout({
                 <NextLink passHref href="/resume">
                   <FooterLink>Resume</FooterLink>
                 </NextLink>
+                <span>/</span>
+                <FooterLink href="mailto:contact@drewbolles.com">
+                  Contact Me
+                </FooterLink>
               </nav>
             </div>
             <ul className="inline-flex">
