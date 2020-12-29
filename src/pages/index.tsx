@@ -59,7 +59,7 @@ export default function Home({
             </div>
             <div className="flex flex-col">
               <div>
-                <Button href="mailto:drewbolles@gmail.com">
+                <Button href="mailto:contact@drewbolles.com">
                   <MdEmail size="1rem" className="mr-2" />
                   <span>Get in touch</span>
                 </Button>

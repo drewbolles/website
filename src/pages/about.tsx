@@ -90,7 +90,7 @@ export default function About(): JSX.Element {
             </p>
             <p className="border-t border-gray-200 pt-6">
               <a
-                href="mailto:drewbolles@gmail.com"
+                href="mailto:contact@drewbolles.com"
                 className="inline-flex items-center"
               >
                 Get in touch with me

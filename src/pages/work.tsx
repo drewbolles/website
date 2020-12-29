@@ -90,7 +90,7 @@ export default function Work({
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-6">
               Interested in working with me?
             </h3>
-            <Button href="mailto:drewbolles@gmail.com">
+            <Button href="mailto:contact@drewbolles.com">
               <MdEmail className="mr-1" />
               Send me an email
             </Button>
