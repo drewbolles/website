@@ -1,5 +1,6 @@
 import * as React from 'react';
 import fs from 'fs';
+import classNames from 'classnames';
 import path from 'path';
 import dayjs from 'dayjs';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -10,6 +11,10 @@ import Main from '../../components/Layout/Main';
 import Image from 'next/image';
 import { BlogJsonLd } from 'next-seo';
 import Jimp from 'jimp';
+import { importBlogPosts } from '../../utils/content';
+import sortByDate from '../../utils/sortByDate';
+import Link from 'next/link';
+import { Col, Row } from '../../components/Grid';
 
 import 'prismjs/themes/prism-okaidia.css';
 
@@ -20,11 +25,34 @@ const ShareButton = props => (
   />
 );
 
+function FooterLink({
+  href,
+  label,
+  title,
+  className,
+}: {
+  href: string;
+  label: string;
+  title: string;
+  className?: string;
+}): JSX.Element {
+  return (
+    <Col className={classNames('flex flex-col w-1/2', className)}>
+      <span className="text-gray-600 font-medium">{label}</span>
+      <Link href={href}>
+        <a className="text-gray-900">{title}</a>
+      </Link>
+    </Col>
+  );
+}
+
 export default function BlogPage({
   html,
   attributes,
   slug,
-}: Blog): JSX.Element {
+  nextPost,
+  prevPost,
+}: Blog & { prevPost: Blog; nextPost: Blog }): JSX.Element {
   const { title, date, description, image, ogImage } = attributes;
 
   function handleClick(ev: React.MouseEvent) {
@@ -97,21 +125,40 @@ export default function BlogPage({
             </div>
             <div dangerouslySetInnerHTML={{ __html: html }}></div>
             <div className="border-t border-gray-200">
-              <h4>Share this article</h4>
-              <ShareButton
-                href={`http://www.facebook.com/share.php?u=https://www.drewbolles.com/blog/${slug}&t=${title}`}
-                aria-label="Share on Facebook"
-                onClick={handleClick}
-              >
-                <FaFacebookSquare size="1em" fill="#4267B2" />
-              </ShareButton>
-              <ShareButton
-                href={`https://twitter.com/intent/tweet?original_referer=www.drewbolles.com&source=tweetbutton&text=${title}&url=https://www.drewbolles.com/${slug}&via=bollskis`}
-                aria-label="Share on Twitter"
-                onClick={handleClick}
-              >
-                <FaTwitterSquare size="1em" fill="#1DA1F2" />
-              </ShareButton>
+              <Row className="text-sm pt-8 pb-4">
+                {prevPost ? (
+                  <FooterLink
+                    href={`/blog/${prevPost.slug}`}
+                    label="Previous"
+                    title={prevPost.attributes.title}
+                  />
+                ) : null}
+                {nextPost ? (
+                  <FooterLink
+                    href={`/blog/${nextPost.slug}`}
+                    label="Next"
+                    title={nextPost.attributes.title}
+                    className="text-right"
+                  />
+                ) : null}
+              </Row>
+              <div className="text-center">
+                <h4>If you liked this article please share with others!</h4>
+                <ShareButton
+                  href={`http://www.facebook.com/share.php?u=https://www.drewbolles.com/blog/${slug}&t=${title}`}
+                  aria-label="Share on Facebook"
+                  onClick={handleClick}
+                >
+                  <FaFacebookSquare size="1em" fill="#4267B2" />
+                </ShareButton>
+                <ShareButton
+                  href={`https://twitter.com/intent/tweet?original_referer=www.drewbolles.com&source=tweetbutton&text=${title}&url=https://www.drewbolles.com/${slug}&via=bollskis`}
+                  aria-label="Share on Twitter"
+                  onClick={handleClick}
+                >
+                  <FaTwitterSquare size="1em" fill="#1DA1F2" />
+                </ShareButton>
+              </div>
             </div>
           </div>
         </Main>
@@ -136,7 +183,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-function processImageFileName(file) {
+function processImageFileName(file: string) {
   const raw = file.split('.');
   const ext = raw.pop();
   raw.push('1200x630');
@@ -144,7 +191,7 @@ function processImageFileName(file) {
   return raw.join('.');
 }
 
-async function getOrGenerateOgImage(file) {
+async function getOrGenerateOgImage(file: string) {
   const ogImageName = processImageFileName(file);
 
   if (fs.existsSync(`./public${ogImageName}`)) {
@@ -163,9 +210,15 @@ async function getOrGenerateOgImage(file) {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params;
 
-  const blogpost = await import(`../../../content/blog/${slug}.md`).catch(
-    () => null,
-  );
+  const [blogpost, allPosts] = await Promise.all([
+    import(`../../../content/blog/${slug}.md`).catch(() => null),
+    importBlogPosts(),
+  ]);
+  const sortedPosts = allPosts.sort(sortByDate).reverse();
+  const currentIndex = sortedPosts.findIndex(post => post.slug === slug);
+  const prevPost = currentIndex !== 0 ? sortedPosts[currentIndex - 1] : null;
+  const nextPost =
+    currentIndex + 1 !== allPosts.length ? sortedPosts[currentIndex + 1] : null;
 
   const { attributes = {}, html } = blogpost?.default ?? {};
 
@@ -183,6 +236,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       },
       html,
       slug,
+      nextPost,
+      prevPost,
     },
   };
 };
