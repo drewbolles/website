@@ -125,23 +125,6 @@ export default function BlogPage({
             </div>
             <div dangerouslySetInnerHTML={{ __html: html }}></div>
             <div className="border-t border-gray-200">
-              <Row className="text-sm pt-8 pb-4">
-                {prevPost ? (
-                  <FooterLink
-                    href={`/blog/${prevPost.slug}`}
-                    label="Previous"
-                    title={prevPost.attributes.title}
-                  />
-                ) : null}
-                {nextPost ? (
-                  <FooterLink
-                    href={`/blog/${nextPost.slug}`}
-                    label="Next"
-                    title={nextPost.attributes.title}
-                    className="text-right"
-                  />
-                ) : null}
-              </Row>
               <div className="text-center">
                 <h4>If you liked this article please share with others!</h4>
                 <ShareButton
@@ -159,6 +142,23 @@ export default function BlogPage({
                   <FaTwitterSquare size="1em" fill="#1DA1F2" />
                 </ShareButton>
               </div>
+              <Row className="text-sm pt-8">
+                {prevPost ? (
+                  <FooterLink
+                    href={`/blog/${prevPost.slug}`}
+                    label="Previous"
+                    title={prevPost.attributes.title}
+                  />
+                ) : null}
+                {nextPost ? (
+                  <FooterLink
+                    href={`/blog/${nextPost.slug}`}
+                    label="Next"
+                    title={nextPost.attributes.title}
+                    className="text-right"
+                  />
+                ) : null}
+              </Row>
             </div>
           </div>
         </Main>
