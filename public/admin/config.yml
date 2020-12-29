@@ -2,8 +2,6 @@ backend:
   name: github
   repo: drewbolles/website # Path to your GitHub repository
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
   site_domain: drewbolles.netlify.app
 media_folder: public/uploads
 public_folder: /uploads
