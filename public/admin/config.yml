@@ -1,10 +1,6 @@
 backend:
   name: github
   repo: drewbolles/website # Path to your GitHub repository
-  branch: main
-# backend:
-#   name: git-gateway
-# local_backend: true
 media_folder: public/uploads
 public_folder: /uploads
 publish_mode: editorial_workflow
