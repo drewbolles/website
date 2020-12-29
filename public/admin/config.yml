@@ -3,7 +3,7 @@ backend:
   repo: drewbolles/website # Path to your GitHub repository
   branch: main
   base_url: https://api.netlify.com
-  site_domain: https://cms.netlify.com
+  site_id: drewbolles
 media_folder: public/uploads
 public_folder: /uploads
 publish_mode: editorial_workflow
