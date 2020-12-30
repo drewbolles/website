@@ -81,6 +81,11 @@ module.exports = withPlugins(
           destination: '/blog/i-was-featured-in-lullabots-drupal-8-podcast',
           permanent: true,
         },
+        {
+          source: '/portfolio',
+          destination: '/work',
+          permanent: true,
+        },
       ];
     },
     webpack: configuration => {
