@@ -1,22 +1,24 @@
 import * as React from 'react';
-import Button from '../components/Button';
-import { MdEmail, MdOpenInNew } from 'react-icons/md';
+
+import { Col, Row } from '../components/Grid';
 import {
   FaArrowRight,
   FaNodeJs,
   FaReact,
   FaRegHandPointDown,
 } from 'react-icons/fa';
-import { SiTypescript } from 'react-icons/si';
-import { Row, Col } from '../components/Grid';
-import { GetStaticProps } from 'next';
-import NextLink from 'next/link';
-import Layout from '../components/Layout/Layout';
+import { MdEmail, MdOpenInNew } from 'react-icons/md';
 import { importBlogPosts, importPortfolioItems } from '../utils/content';
+
 import { Blog } from '../types/blog';
-import sortByDate from '../utils/sortByDate';
+import Button from '../components/Button';
+import { GetStaticProps } from 'next';
+import Layout from '../components/Layout/Layout';
+import NextLink from 'next/link';
 import { Portfolio } from '../types/portfolio';
 import PortfolioImg from '../components/PortfolioImg/PortfolioImg';
+import { SiTypescript } from 'react-icons/si';
+import sortByDate from '../utils/sortByDate';
 
 const Icon = ({ icon: IconEl }: { icon: React.ElementType }) => (
   <IconEl className="inline mr-1 align-middle" />
@@ -110,7 +112,6 @@ export default function Home({
                 <PortfolioImg
                   src={featuredPortfolio.attributes.image}
                   alt={`${featuredPortfolio.attributes.title} website`}
-                  loading="eager"
                 />
               </Col>
             </Row>
