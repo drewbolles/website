@@ -1,16 +1,18 @@
 import * as React from 'react';
+
 import CircularProgress from '../CircularProgress';
 
 type Props = {
   status: string;
   fallback?: React.ReactElement;
+  children: React.ReactNode;
 };
 
 export default function RenderQuery({
   children,
   status,
   fallback = <CircularProgress center />,
-}: React.PropsWithChildren<Props>): JSX.Element {
+}: Props): JSX.Element {
   if (status === 'loading') {
     return fallback;
   }

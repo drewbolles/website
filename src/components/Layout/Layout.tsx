@@ -1,10 +1,12 @@
-import { NextSeo } from 'next-seo';
 import * as React from 'react';
+
 import { FaGithub, FaLinkedin, FaRssSquare, FaTwitter } from 'react-icons/fa';
+
 import NextLink from 'next/link';
-import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 import classNames from 'classnames';
 import siteConfig from '../../../site.config';
+import { useRouter } from 'next/router';
 
 const links = [
   ['/about', 'About'],
@@ -55,12 +57,13 @@ export default function Layout({
   description = siteConfig.description,
   image,
   type = 'website',
-}: React.PropsWithChildren<{
+}: {
   title?: string;
   description?: string;
   image?: string;
   type?: string;
-}>): JSX.Element {
+  children: React.ReactNode;
+}): JSX.Element {
   // modern SEO best practices recommmend 120 character descriptions
   const trimmedDescription =
     description.length > 120
