@@ -1,26 +1,22 @@
 import * as React from 'react';
-import { render } from '@testing-library/react';
+
+import { render, screen } from '@testing-library/react';
+
 import RenderQuery from './RenderQuery';
 
 test('renders loading element for loading status', () => {
-  const { queryByText, getByTestId } = render(
-    <RenderQuery status="loading">child</RenderQuery>,
-  );
-  expect(getByTestId('circular-progress')).toBeInTheDocument();
-  expect(queryByText(/child/i)).toBeNull();
+  render(<RenderQuery status="loading">child</RenderQuery>);
+  expect(screen.getByTestId('circular-progress')).toBeInTheDocument();
+  expect(screen.queryByText(/child/i)).toBeNull();
 });
 
 test('renders error element for error status', () => {
-  const { queryByText, getByText } = render(
-    <RenderQuery status="error">child</RenderQuery>,
-  );
-  expect(getByText(/Opps/i)).toBeInTheDocument();
-  expect(queryByText(/child/i)).toBeNull();
+  render(<RenderQuery status="error">child</RenderQuery>);
+  expect(screen.getByText(/Opps/i)).toBeInTheDocument();
+  expect(screen.queryByText(/child/i)).toBeNull();
 });
 
 test('renders child element for success status', () => {
-  const { getByText } = render(
-    <RenderQuery status="success">child</RenderQuery>,
-  );
-  expect(getByText(/child/i)).toBeInTheDocument();
+  render(<RenderQuery status="success">child</RenderQuery>);
+  expect(screen.getByText(/child/i)).toBeInTheDocument();
 });
