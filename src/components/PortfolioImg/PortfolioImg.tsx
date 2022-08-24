@@ -1,4 +1,5 @@
-import React from 'react';
+import * as React from 'react';
+
 import Image from 'next/image';
 
 export default function PortfolioImg({
@@ -11,7 +12,7 @@ export default function PortfolioImg({
   alt?: string;
   minHeight?: number;
   loading?: 'lazy' | 'eager';
-}): JSX.Element {
+}) {
   return (
     <div
       className="h-full overflow-hidden relative rounded shadow-lg md:shadow-xl lg:shadow-2xl"

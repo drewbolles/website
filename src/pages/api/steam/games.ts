@@ -1,4 +1,5 @@
 import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
+
 import { steamClient } from '../../../utils/steam';
 
 const handler: NextApiHandler = async (
@@ -6,12 +7,15 @@ const handler: NextApiHandler = async (
   res: NextApiResponse,
 ) => {
   try {
-    const games = await steamClient.getUserOwnedGames(
-      process.env.NEXT_PUBLIC_STEAM_ID,
-    );
+    const steamId = process.env.NEXT_PUBLIC_STEAM_ID;
+    if (!steamId) {
+      throw new Error('Error: Missing steam id');
+    }
+    const games = await steamClient.getUserOwnedGames(steamId);
     res.status(200).json(games);
   } catch (err) {
-    res.status(500).json({ statusCode: 500, message: err.message });
+    const error = err as Error;
+    res.status(500).json({ statusCode: 500, message: error.message });
   }
 };
 

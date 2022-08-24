@@ -1,20 +1,22 @@
 import * as React from 'react';
+
+import { importEvents, importTalks } from '../utils/content';
+
+import type { Event } from '../types/event';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import { MdOpenInNew } from 'react-icons/md';
 import Layout from '../components/Layout/Layout';
 import Main from '../components/Layout/Main';
+import { MdOpenInNew } from 'react-icons/md';
 import PageTitle from '../components/PageTitle';
-import { Event } from '../types/event';
 import { Talk } from '../types/talk';
-import { importTalks, importEvents } from '../utils/content';
 import sortByDate from '../utils/sortByDate';
 
 type Props = {
   talks: Array<Talk & { events: Event[] }>;
 };
 
-export default function Talks({ talks }: Props): JSX.Element {
+export default function Talks({ talks }: Props) {
   return (
     <>
       <Head>
@@ -73,7 +75,7 @@ export const getStaticProps: GetStaticProps = async () => {
       talks: talks.sort(sortByDate).map(talk => ({
         ...talk,
         events: events
-          .filter(({ slug }) => talk.attributes.events.includes(slug))
+          .filter(({ slug }) => talk.attributes.events?.includes(slug))
           .sort(sortByDate),
       })),
     }, // will be passed to the page component as props

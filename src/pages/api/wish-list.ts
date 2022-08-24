@@ -11,7 +11,8 @@ const handler: NextApiHandler = async (
     const wishList = await response.json();
     res.status(200).json(wishList);
   } catch (err) {
-    res.status(500).json({ statusCode: 500, message: err.message });
+    const error = err as Error;
+    res.status(500).json({ statusCode: 500, message: error.message });
   }
 };
 

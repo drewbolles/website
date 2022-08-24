@@ -1,22 +1,24 @@
-import { GetStaticProps } from 'next';
 import * as React from 'react';
-import { Row, Col } from '../components/Grid';
+
+import { Col, Row } from '../components/Grid';
+import { MdEmail, MdOpenInNew } from 'react-icons/md';
+
+import Button from '../components/Button';
+import type { GetStaticProps } from 'next';
 import Layout from '../components/Layout/Layout';
 import Main from '../components/Layout/Main';
 import PageTitle from '../components/PageTitle';
-import { importPortfolioItems } from '../utils/content';
-import classNames from 'classnames';
-import { MdEmail, MdOpenInNew } from 'react-icons/md';
 import { Portfolio } from '../types/portfolio';
-import sortByDate from '../utils/sortByDate';
 import PortfolioImg from '../components/PortfolioImg/PortfolioImg';
-import Button from '../components/Button';
+import classNames from 'classnames';
+import { importPortfolioItems } from '../utils/content';
+import sortByDate from '../utils/sortByDate';
 
 export default function Work({
   portfolioItems,
 }: {
   portfolioItems: Portfolio[];
-}): JSX.Element {
+}) {
   return (
     <Layout title="My Work">
       <Main>

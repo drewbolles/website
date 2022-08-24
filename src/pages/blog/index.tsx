@@ -1,12 +1,13 @@
-import { GetStaticProps } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
 import * as React from 'react';
+
+import type { Blog } from '../../types/blog';
 import { FaArrowRight } from 'react-icons/fa';
+import type { GetStaticProps } from 'next';
+import Image from 'next/image';
 import Layout from '../../components/Layout/Layout';
+import Link from 'next/link';
 import Main from '../../components/Layout/Main';
 import PageTitle from '../../components/PageTitle';
-import { Blog } from '../../types/blog';
 import { importBlogPosts } from '../../utils/content';
 import sortByDate from '../../utils/sortByDate';
 
@@ -51,11 +52,7 @@ function Post({
   );
 }
 
-export default function BlogIndex({
-  postsList,
-}: {
-  postsList: Blog[];
-}): JSX.Element {
+export default function BlogIndex({ postsList }: { postsList: Blog[] }) {
   return (
     <Layout title="Blog">
       <Main>

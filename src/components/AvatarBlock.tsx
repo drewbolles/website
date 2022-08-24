@@ -1,8 +1,9 @@
 import React, { ReactNode } from 'react';
+
 import classNames from 'classnames';
 
 type Props = {
-  img: string;
+  img?: string;
   href?: string;
   primary: ReactNode;
   secondary?: ReactNode;
@@ -21,7 +22,7 @@ export default function AvatarBlock({
   secondary,
   tertiary,
   loading,
-}: Props): JSX.Element {
+}: Props) {
   const El = href ? 'a' : 'span';
   return (
     <h4 className="mb-4">
@@ -34,9 +35,9 @@ export default function AvatarBlock({
         <span className="inline-flex w-16 h-16 mr-4">
           {loading ? (
             <span className="w-full h-full rounded-full bg-gray-200" />
-          ) : (
+          ) : img ? (
             <img src={img} className="rounded-full" alt="" width="64" />
-          )}
+          ) : null}
         </span>
 
         {loading ? (

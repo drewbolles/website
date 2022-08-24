@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import classNames from 'classnames';
 
 type Props = {
@@ -9,7 +10,7 @@ export function CardHeader({
   icon: Icon,
   title,
   className,
-}: Props & { icon?: React.ElementType; title: string }): JSX.Element {
+}: Props & { icon?: React.ElementType; title: string }) {
   return (
     <header className={classNames('bg-gray-100', className)}>
       <h2 className="text-xl tracking-wide leading-none flex items-center h-12 py-2 px-4">
@@ -24,7 +25,7 @@ export function CardContent({
   className,
   padding = true,
   ...rest
-}: React.PropsWithChildren<Props & { padding?: boolean }>): JSX.Element {
+}: React.PropsWithChildren<Props & { padding?: boolean }>) {
   return (
     <div className="aspect-w-9 aspect-h-12">
       <div
@@ -44,7 +45,7 @@ export function CardContent({
 export default function Card({
   className,
   ...rest
-}: React.PropsWithChildren<Props>): JSX.Element {
+}: React.PropsWithChildren<Props>) {
   return (
     <article
       className={classNames(

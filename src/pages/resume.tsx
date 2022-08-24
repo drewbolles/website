@@ -1,19 +1,22 @@
-import { GetStaticProps, NextPage } from 'next';
 import * as React from 'react';
+
 import { QueryClient, useQuery } from 'react-query';
-import { dehydrate } from 'react-query/hydration';
+
+import type { GetStaticProps } from 'next';
 import Layout from '../components/Layout/Layout';
 import Main from '../components/Layout/Main';
 import PageTitle from '../components/PageTitle';
+import { Resume } from '../types/resume';
+import { dehydrate } from 'react-query/hydration';
 
-const dateFormatOptions = {
-  month: 'short',
-  year: 'numeric',
-};
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    year: 'numeric',
+  });
+}
 
-const formatDate = date => date.toLocaleDateString('en-US', dateFormatOptions);
-
-const fetchResume = async () => {
+async function fetchResume(): Promise<Resume> {
   const res = await fetch(
     'https://api.github.com/gists/5406b3b998f8596a6bb9a8383568bcb1',
   );
@@ -28,72 +31,82 @@ const fetchResume = async () => {
   } catch (error) {
     throw new Error('Error parsing response');
   }
-};
+}
 
-const useResume = () =>
-  useQuery('resume', fetchResume, {
+function useResume() {
+  return useQuery('resume', fetchResume, {
     refetchOnWindowFocus: false,
     refetchOnMount: false,
   });
+}
 
-const Resume: NextPage = () => {
-  const { data } = useResume();
+export default function ResumePage() {
+  const { data = {} } = useResume();
   const { basics, work } = data;
+
   return (
     <Layout title="Resume">
       <Main>
         <div className="container max-w-prose">
           <PageTitle>Resume</PageTitle>
           <div className="mb-6">
-            <h2 className="mb-1 text-2xl lg:text-3xl">{basics.name}</h2>
+            <h2 className="mb-1 text-2xl lg:text-3xl">{basics?.name}</h2>
             <ul className="mb-3">
               <li>
                 <a
                   className="text-blue-700 underline"
-                  href={`mailto:${basics.email}`}
+                  href={`mailto:${basics?.email}`}
                   aria-label="Send me an email"
                 >
-                  {basics.email}
+                  {basics?.email}
                 </a>
               </li>
               <li>
-                <a href={basics.website} className="text-blue-700 underline">
-                  {basics.website}
+                <a
+                  href={basics?.url?.toString()}
+                  className="text-blue-700 underline"
+                >
+                  {basics?.url}
                 </a>
               </li>
-              {(basics.profiles || []).map(profile => (
-                <li key={profile.url}>
-                  <a href={profile.url} className="text-blue-700 underline">
+              {(basics?.profiles || []).map(profile => (
+                <li key={profile.url?.toString()}>
+                  <a
+                    href={profile.url?.toString()}
+                    className="text-blue-700 underline"
+                  >
                     {profile.network}
                   </a>
                 </li>
               ))}
             </ul>
             <div className="prose lg:prose-lg">
-              <p>{basics.summary}</p>
+              <p>{basics?.summary}</p>
             </div>
           </div>
           <div className="mb-6">
             <h2 className="text-2xl font-bold mb-4">Experience</h2>
             <ul className="space-y-6" data-testid="experience-list">
-              {work.map((job, idx) => {
-                const startDate = formatDate(new Date(job.startDate));
+              {work?.map((job, idx) => {
+                const startDate = job.startDate
+                  ? formatDate(new Date(job.startDate))
+                  : null;
                 const endDateRaw = job.endDate ? new Date(job.endDate) : null;
                 const endDate = endDateRaw ? formatDate(endDateRaw) : 'Current';
                 return (
-                  <li key={`${job.company}-${idx}`}>
+                  <li key={`${job.name}-${idx}`}>
                     <div className="md:flex items-center justify-between">
                       <div className="flex items-center">
                         <h3 className="text-xl mb-1 font-medium">
-                          {job.website ? (
+                          {job.url ? (
                             <a
-                              href={job.website}
+                              href={job.url.toString()}
                               className="hover:text-blue-700"
                             >
-                              {job.company}
+                              {job.name}
                             </a>
                           ) : (
-                            job.company
+                            job.name
                           )}
                         </h3>
                       </div>
@@ -118,9 +131,7 @@ const Resume: NextPage = () => {
       </Main>
     </Layout>
   );
-};
-
-export default Resume;
+}
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
@@ -134,5 +145,6 @@ export const getStaticProps: GetStaticProps = async () => {
     };
   } catch (error) {
     console.error(error);
+    return { notFound: true };
   }
 };

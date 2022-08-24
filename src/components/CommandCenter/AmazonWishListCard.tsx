@@ -1,11 +1,28 @@
 import * as React from 'react';
-import { FaAmazon } from 'react-icons/fa';
-import { useQuery } from 'react-query';
+
 import Card, { CardContent, CardHeader } from '../Card';
+
+import { FaAmazon } from 'react-icons/fa';
 import RenderQuery from '../RenderQuery/RenderQuery';
+import { useQuery } from 'react-query';
+
+type AmazonWishList = {
+  num: number;
+  name: string;
+  link: string;
+  'old-price': string;
+  'new-price': string;
+  'date-added': string;
+  priority: string;
+  rating: string;
+  'total-ratings': string;
+  comment: string;
+  picture: string;
+  page: number;
+}[];
 
 const useWishList = () =>
-  useQuery('amazonWishList', async () => {
+  useQuery('amazonWishList', async (): Promise<AmazonWishList> => {
     const res = await fetch('/api/wish-list');
     if (!res.ok) {
       throw new Error('Error fetching Amazon wish list');
@@ -13,7 +30,7 @@ const useWishList = () =>
     return await res.json();
   });
 
-export default function AmazonWishListCard(): JSX.Element {
+export default function AmazonWishListCard() {
   const { data: wishList = [], status } = useWishList();
 
   return (

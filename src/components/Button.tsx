@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import classNames from 'classnames';
 
 export default function Button({
@@ -8,7 +9,7 @@ export default function Button({
 }: React.PropsWithChildren<{
   href?: string;
   className?: string;
-}>): JSX.Element {
+}>) {
   const El = href ? 'a' : 'button';
   return (
     <El
