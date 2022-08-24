@@ -20,5 +20,11 @@
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
-  "rules": {}
+  "rules": { "@typescript-eslint/explicit-module-boundary-types": "off" },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": { "@typescript-eslint/no-var-requires": "off" }
+    }
+  ]
 }
