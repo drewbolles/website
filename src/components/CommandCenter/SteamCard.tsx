@@ -35,13 +35,13 @@ function GamesList() {
 
   return (
     <RenderQuery status={status}>
-      <div className="flex flex-col flex-grow border-gray-200 overflow-scroll px-4 -mx-4">
+      <div className="-mx-4 flex flex-grow flex-col overflow-scroll border-gray-200 px-4">
         <ul className="space-y-1">
           {sortedGames.map(game => (
             <li key={game.appID}>
               <a
                 href={`https://store.steampowered.com/app/${game.appID}`}
-                className="flex items-center hover:bg-gray-100 rounded py-2 px-2 -mx-2"
+                className="-mx-2 flex items-center rounded py-2 px-2 hover:bg-gray-100"
               >
                 <div className="mr-2 flex-none">
                   <img
@@ -53,7 +53,7 @@ function GamesList() {
                   />
                 </div>
                 <div className="overflow-hidden">
-                  <div className="text-sm leading-none mb-1 truncate">
+                  <div className="mb-1 truncate text-sm leading-none">
                     {game.name}
                   </div>
                   <div className="flex items-center text-xs leading-tight text-gray-600">

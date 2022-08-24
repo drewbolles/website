@@ -13,7 +13,7 @@ export function CardHeader({
 }: Props & { icon?: React.ElementType; title: string }) {
   return (
     <header className={classNames('bg-gray-100', className)}>
-      <h2 className="text-xl tracking-wide leading-none flex items-center h-12 py-2 px-4">
+      <h2 className="flex h-12 items-center py-2 px-4 text-xl leading-none tracking-wide">
         {Icon ? <Icon className="mr-2" /> : null}
         <span>{title}</span>
       </h2>
@@ -31,7 +31,7 @@ export function CardContent({
       <div
         className={classNames(
           {
-            'p-4 flex-grow flex flex-col overflow-hidden ': padding,
+            'flex flex-grow flex-col overflow-hidden p-4 ': padding,
             'p-0': padding === false,
           },
           className,
@@ -49,7 +49,7 @@ export default function Card({
   return (
     <article
       className={classNames(
-        'rounded overflow-hidden flex-grow shadow flex flex-col',
+        'flex flex-grow flex-col overflow-hidden rounded shadow',
         className,
       )}
       {...rest}

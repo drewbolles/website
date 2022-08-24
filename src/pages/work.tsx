@@ -26,7 +26,7 @@ export default function Work({
           <PageTitle>My Work</PageTitle>
           <ul
             data-testid="portfolio-list"
-            className="space-y-12 md:space-y-16 lg:space-y-32 mb-12 md:mb-16"
+            className="mb-12 space-y-12 md:mb-16 md:space-y-16 lg:space-y-32"
           >
             {portfolioItems.map((item, index) => {
               return (
@@ -34,17 +34,17 @@ export default function Work({
                   <Row className="items-stretch lg:-mx-8">
                     <Col
                       className={classNames(
-                        'w-full md:w-1/2 lg:px-8 flex flex-col justify-center',
+                        'flex w-full flex-col justify-center md:w-1/2 lg:px-8',
                         {
                           'md:order-2': index % 2 !== 0,
                         },
                       )}
                     >
-                      <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2">
+                      <h2 className="mb-2 text-xl font-semibold sm:text-2xl md:text-3xl">
                         {item.attributes.title}
                       </h2>
                       {item.attributes.role ? (
-                        <h3 className="sm:text-lg md:text-2xl mb-2">
+                        <h3 className="mb-2 sm:text-lg md:text-2xl">
                           <span className="font-semibold">Role:</span>{' '}
                           {item.attributes.role}
                         </h3>
@@ -53,13 +53,13 @@ export default function Work({
                         dangerouslySetInnerHTML={{
                           __html: item.attributes.description,
                         }}
-                        className="md:text-lg mb-4 max-w-prose"
+                        className="mb-4 max-w-prose md:text-lg"
                       />
                       {item.attributes.technologies ? (
-                        <ul className="flex flex-wrap mb-3">
+                        <ul className="mb-3 flex flex-wrap">
                           {item.attributes.technologies.map(tech => (
                             <li
-                              className="inline-flex items-center rounded-sm h-6 md:h-8 px-2 sm:px-4 text-xs sm:text-sm mb-2 mr-2 last:mr-0 bg-blue-50"
+                              className="mb-2 mr-2 inline-flex h-6 items-center rounded-sm bg-blue-50 px-2 text-xs last:mr-0 sm:px-4 sm:text-sm md:h-8"
                               key={tech}
                             >
                               {tech}
@@ -71,7 +71,7 @@ export default function Work({
                         <div>
                           <a
                             href={item.attributes.url}
-                            className="text-blue-700 text-sm sm:text-base md:text-lg border-b border-dashed inline-flex items-center hover:text-blue-900"
+                            className="inline-flex items-center border-b border-dashed text-sm text-blue-700 hover:text-blue-900 sm:text-base md:text-lg"
                           >
                             View site <MdOpenInNew className="ml-1" />
                           </a>
@@ -90,8 +90,8 @@ export default function Work({
               );
             })}
           </ul>
-          <div className="py-8 md:py-12 lg:py-16 text-center">
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-6">
+          <div className="py-8 text-center md:py-12 lg:py-16">
+            <h3 className="mb-3 text-xl font-bold sm:text-2xl md:mb-6 md:text-3xl">
               Interested in working with me?
             </h3>
             <Button href="mailto:contact@drewbolles.com">

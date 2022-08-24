@@ -15,7 +15,7 @@ const StatItem = ({
   label: string;
   value: string | number;
 }) => (
-  <li className="w-1/3 flex flex-col items-center">
+  <li className="flex w-1/3 flex-col items-center">
     <span className="text-xs uppercase">{label}</span>
     <span className="text-sm font-semibold">{value}</span>
   </li>
@@ -63,7 +63,7 @@ function GitHubRepos() {
             <div>
               <a
                 href={repo.html_url}
-                className="border-b border-blue-700 border-dashed text-blue-700 leading-relaxed"
+                className="border-b border-dashed border-blue-700 leading-relaxed text-blue-700"
               >
                 {repo.name}
               </a>
@@ -91,7 +91,7 @@ export default function GithubCard() {
           loading={userStatus === 'loading'}
         />
         <RenderQuery status={userStatus}>
-          <ul className="mb-3 lg:mb-6 lg:pt-2 flex justify-center">
+          <ul className="mb-3 flex justify-center lg:mb-6 lg:pt-2">
             {userData?.public_repos ? (
               <StatItem label="Repos" value={userData.public_repos} />
             ) : null}

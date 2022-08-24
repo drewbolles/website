@@ -29,7 +29,7 @@ export default function Talks({ talks }: Props) {
             <ul data-testid="talks-list" className="space-y-8 md:space-y-16">
               {talks.map(({ attributes, events }) => (
                 <li key={attributes.title}>
-                  <h2 className="md:text-xl font-semibold mb-2 md:mb-3">
+                  <h2 className="mb-2 font-semibold md:mb-3 md:text-xl">
                     {attributes.title}
                   </h2>
 
@@ -45,14 +45,14 @@ export default function Talks({ talks }: Props) {
                     href={attributes.slides.slides_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-700 md:text-lg border-b border-dashed border-blue-700 inline-flex items-center mb-6"
+                    className="mb-6 inline-flex items-center border-b border-dashed border-blue-700 text-blue-700 md:text-lg"
                   >
                     View slides <MdOpenInNew className="ml-1" />
                   </a>
-                  <p className="mb-1 text-lg md:text-xl font-medium">
+                  <p className="mb-1 text-lg font-medium md:text-xl">
                     Presented at:
                   </p>
-                  <ul className="list-disc pl-6 space-y-1">
+                  <ul className="list-disc space-y-1 pl-6">
                     {events.map(event => (
                       <li key={event.slug}>{event.attributes.title}</li>
                     ))}

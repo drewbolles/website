@@ -16,7 +16,7 @@ function CommandCol(props: React.ComponentProps<'div'>) {
   return (
     <Col
       className={classNames(
-        'flex flex-col w-full md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5',
+        'flex w-full flex-col md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5',
         styles.col,
       )}
       {...props}
@@ -30,7 +30,7 @@ export default function CommandCenter() {
       title="Command Center"
       description="The command center is a dashboard for my digital footprint"
     >
-      <div className="p-6 pb-12 lg:p-10 lg:pb-16 flex-grow">
+      <div className="flex-grow p-6 pb-12 lg:p-10 lg:pb-16">
         <PageTitle className="text-center lg:mb-8">Command Center</PageTitle>
         <Row>
           <CommandCol>

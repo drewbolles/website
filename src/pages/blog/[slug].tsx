@@ -23,7 +23,7 @@ import sortByDate from '../../utils/sortByDate';
 function ShareButton(props: React.ComponentProps<'a'>) {
   return (
     <a
-      className="inline-flex w-12 h-12 md:w-6 md:h-6 items-center justify-center text-5xl md:text-2xl"
+      className="inline-flex h-12 w-12 items-center justify-center text-5xl md:h-6 md:w-6 md:text-2xl"
       {...props}
     />
   );
@@ -41,8 +41,8 @@ function FooterLink({
   className?: string;
 }) {
   return (
-    <Col className={classNames('flex flex-col w-full md:w-1/2', className)}>
-      <span className="text-gray-600 font-medium">{label}</span>
+    <Col className={classNames('flex w-full flex-col md:w-1/2', className)}>
+      <span className="font-medium text-gray-600">{label}</span>
       <Link href={href}>
         <a className="text-gray-900">{title}</a>
       </Link>
@@ -89,10 +89,10 @@ export default function BlogPage({
         type="article"
       >
         <Main className="flex-grow">
-          <div className="container prose prose-sm md:prose-lg pb-6">
+          <div className="container prose prose-sm pb-6 md:prose-lg">
             <h1>{title}</h1>
             {image ? (
-              <div className="-mx-6 md:-mx-16 mb-6">
+              <div className="-mx-6 mb-6 md:-mx-16">
                 <div className="aspect-w-16 aspect-h-9 overflow-hidden">
                   <Image
                     src={image}
@@ -105,11 +105,11 @@ export default function BlogPage({
               </div>
             ) : null}
             <div className="flex items-center justify-between">
-              <div className="text-sm font-medium text-gray-500 m-0">
+              <div className="m-0 text-sm font-medium text-gray-500">
                 {date}
               </div>
               <div className="flex items-center">
-                <span className="text-sm text-gray-500 mr-2">
+                <span className="mr-2 text-sm text-gray-500">
                   Share Article
                 </span>
                 <ShareButton
@@ -147,7 +147,7 @@ export default function BlogPage({
                   <FaTwitterSquare size="1em" fill="#1DA1F2" />
                 </ShareButton>
               </div>
-              <Row className="text-sm pt-8">
+              <Row className="pt-8 text-sm">
                 {prevPost ? (
                   <FooterLink
                     href={`/blog/${prevPost.slug}`}

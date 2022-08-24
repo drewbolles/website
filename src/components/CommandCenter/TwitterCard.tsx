@@ -13,7 +13,7 @@ export default function TwitterCard() {
         <div className="aspect-w-9 aspect-h-12">
           <div className="overflow-scroll">
             <a
-              className="twitter-timeline h-full flex"
+              className="twitter-timeline flex h-full"
               href="https://twitter.com/bollskis?ref_src=twsrc%5Etfw"
             >
               <CircularProgress center />

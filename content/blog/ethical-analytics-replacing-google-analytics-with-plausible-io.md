@@ -1,11 +1,12 @@
 ---
-title: "Ethical Analytics: Replacing Google Analytics with Plausible.io"
+title: 'Ethical Analytics: Replacing Google Analytics with Plausible.io'
 description: The web should be more than just Google and I'm ditching Google
   Analytics for Plausible, an excellent and ethical alternative.
 image: /uploads/mike-petrucci-c9fqyqiecds-unsplash.jpg
 date: 2020-12-28T17:12:57.537Z
 comments: true
 ---
+
 I'm [not](https://nomoregoogle.com/) [alone](https://dev.to/goatandsheep/stop-donating-your-customers-data-to-google-analytics-191) in the sentiment, in fact I'm late, that Google should not own the web. Their products and tools have become so ubiquitous that the monopoly they have created has caused irreparable harm to small businesses. Creating a digital _anything_ company essentially means competing with a Google product backed by one of the wealthiest companies on the planet, or at the very least spending your early capital on their SaaS.
 
 One of the best things we as individuals can do is to vote with our pockets and **stop using Google products**. This can be easy, or challenging, depending on your level of integration with Google, but we can start small. My first step is to stop using Google Analytics to track my visitors on this website.

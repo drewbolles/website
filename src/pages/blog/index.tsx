@@ -20,7 +20,7 @@ function Post({
   const href = `/blog/${slug}`;
   return (
     <div>
-      <h2 className="md:text-2xl mb-2 font-semibold">
+      <h2 className="mb-2 font-semibold md:text-2xl">
         <Link href={href}>
           <a data-testid="post-title" className="hover:text-blue-700">
             {title}
@@ -41,10 +41,10 @@ function Post({
       ) : null}
       <div
         dangerouslySetInnerHTML={{ __html: description }}
-        className="md:text-lg mb-3"
+        className="mb-3 md:text-lg"
       />
       <Link href={href}>
-        <a className="flex items-center text-blue-700 text-sm md:text-base hover:underline">
+        <a className="flex items-center text-sm text-blue-700 hover:underline md:text-base">
           Read <FaArrowRight className="ml-1" />
         </a>
       </Link>
@@ -58,7 +58,7 @@ export default function BlogIndex({ postsList }: { postsList: Blog[] }) {
       <Main>
         <div className="container max-w-prose">
           <PageTitle>Blog</PageTitle>
-          <div className="prose md:prose-lg mb-6">
+          <div className="prose mb-6 md:prose-lg">
             <p>
               I mostly blog about technical topics that are relevant to me at
               the time. If you would like to stay up-to-date with my content,
@@ -73,7 +73,7 @@ export default function BlogIndex({ postsList }: { postsList: Blog[] }) {
               .
             </p>
           </div>
-          <div className="bg-gray-200 h-px mb-6"></div>
+          <div className="mb-6 h-px bg-gray-200"></div>
           <ul data-testid="blog-list" className="space-y-10 lg:space-y-16">
             {postsList.map(({ attributes, slug }: Blog, index) => (
               <li key={attributes.title}>

@@ -21,11 +21,11 @@ import { SiTypescript } from 'react-icons/si';
 import sortByDate from '../utils/sortByDate';
 
 function Icon({ icon: IconEl }: { icon: React.ElementType }) {
-  return <IconEl className="inline mr-1 align-middle" />;
+  return <IconEl className="mr-1 inline align-middle" />;
 }
 
 function Divider() {
-  return <div className="w-12 h-px bg-gray-700 mb-4 bg-opacity-25" />;
+  return <div className="mb-4 h-px w-12 bg-gray-700 bg-opacity-25" />;
 }
 
 export default function Home({
@@ -38,13 +38,13 @@ export default function Home({
   return (
     <Layout>
       <main className="flex-grow">
-        <div className="text-center py-10 lg:py-16">
+        <div className="py-10 text-center lg:py-16">
           <div className="container">
-            <h2 className="text-2xl mb-3 md:text-3xl">
+            <h2 className="mb-3 text-2xl md:text-3xl">
               <span className="font-semibold">Software Engineer</span> with over
               a <span className="font-semibold">decade</span> of experience.
             </h2>
-            <h3 className="flex flex-col justify-center sm:flex-row text-base md:text-2xl mb-6">
+            <h3 className="mb-6 flex flex-col justify-center text-base sm:flex-row md:text-2xl">
               <span className="mb-1 sm:mb-0">Currently working with&nbsp;</span>
               <span>
                 <Icon icon={FaReact} />
@@ -66,7 +66,7 @@ export default function Home({
                   <span>Get in touch</span>
                 </Button>
               </div>
-              <span className="font-xs font-bold mt-3 mb-2 leading-none">
+              <span className="font-xs mt-3 mb-2 font-bold leading-none">
                 or
               </span>
               <NextLink href="/resume">
@@ -76,19 +76,19 @@ export default function Home({
           </div>
         </div>
         <div
-          className="pt-8 pb-12 md:py-16 bg-cover bg-fixed"
+          className="bg-cover bg-fixed pt-8 pb-12 md:py-16"
           style={{
             backgroundImage: `url(${require('../images/slice-bg.svg')})`,
           }}
         >
           <div className="container">
             <Row className="items-stretch">
-              <Col className="w-full md:w-2/3 lg:w-1/2 flex flex-col justify-center">
-                <h3 className="text-2xl font-medium mb-3 flex items-center">
+              <Col className="flex w-full flex-col justify-center md:w-2/3 lg:w-1/2">
+                <h3 className="mb-3 flex items-center text-2xl font-medium">
                   Featured Project
                 </h3>
                 <Divider />
-                <h2 className="text-2xl font-bold md:text-3xl lg:text-4xl mb-3">
+                <h2 className="mb-3 text-2xl font-bold md:text-3xl lg:text-4xl">
                   {featuredPortfolio.attributes.title}
                 </h2>
 
@@ -100,10 +100,10 @@ export default function Home({
                 />
 
                 {featuredPortfolio.attributes.technologies ? (
-                  <ul className="flex flex-wrap mt-4">
+                  <ul className="mt-4 flex flex-wrap">
                     {featuredPortfolio.attributes.technologies.map(tech => (
                       <li
-                        className="inline-flex items-center rounded-sm h-6 md:h-8 px-2 sm:px-4 text-xs sm:text-sm mb-2 mr-2 last:mr-0 bg-white"
+                        className="mb-2 mr-2 inline-flex h-6 items-center rounded-sm bg-white px-2 text-xs last:mr-0 sm:px-4 sm:text-sm md:h-8"
                         key={tech}
                       >
                         {tech}
@@ -115,7 +115,7 @@ export default function Home({
                   <div className="mt-4">
                     <a
                       href={featuredPortfolio.attributes.url}
-                      className="text-lg inline-flex pb-1 items-center leading-tight border-b border-dashed border-blue-700 text-blue-700"
+                      className="inline-flex items-center border-b border-dashed border-blue-700 pb-1 text-lg leading-tight text-blue-700"
                     >
                       <span className="mr-1">View site</span>
                       <MdOpenInNew className="leading-none" />
@@ -134,13 +134,13 @@ export default function Home({
         </div>
         <div className="py-10 md:py-16 lg:py-20">
           <div className="container max-w-prose">
-            <h2 className="text-2xl font-bold mb-6 lg:mb-10 md:text-3xl lg:text-4xl text-center">
+            <h2 className="mb-6 text-center text-2xl font-bold md:text-3xl lg:mb-10 lg:text-4xl">
               Recent Blog Posts
             </h2>
-            <ul className="space-y-10 md:space-y-12 mb-6">
+            <ul className="mb-6 space-y-10 md:space-y-12">
               {postsList.map(({ attributes, slug }: Blog) => (
                 <li key={attributes.title}>
-                  <h3 className="text-lg md:text-2xl mb-2 font-semibold">
+                  <h3 className="mb-2 text-lg font-semibold md:text-2xl">
                     <NextLink href={`/blog/${slug}`}>
                       <a className="text-gray-900">{attributes.title}</a>
                     </NextLink>

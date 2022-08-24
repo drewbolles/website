@@ -15,7 +15,7 @@ export default function Button({
     <El
       className={classNames(
         className,
-        'inline-flex items-center px-4 h-12 bg-blue-700 text-white font-semibold rounded hover:bg-blue-900 transition-colors',
+        'inline-flex h-12 items-center rounded bg-blue-700 px-4 font-semibold text-white transition-colors hover:bg-blue-900',
       )}
       href={href}
       {...rest}

@@ -15,7 +15,7 @@ export default function PortfolioImg({
 }) {
   return (
     <div
-      className="h-full overflow-hidden relative rounded shadow-lg md:shadow-xl lg:shadow-2xl"
+      className="relative h-full overflow-hidden rounded shadow-lg md:shadow-xl lg:shadow-2xl"
       style={{ minHeight }}
     >
       <Image

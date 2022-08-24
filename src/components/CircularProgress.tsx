@@ -19,7 +19,7 @@ export default function CircularProgress({
       data-testid="circular-progress"
       className={classNames(
         'animate-spin text-gray-800',
-        { 'text-center m-auto': center },
+        { 'm-auto text-center': center },
         className,
       )}
       {...rest}

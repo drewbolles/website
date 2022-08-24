@@ -30,7 +30,7 @@ export default function BitcoinCard() {
       <CardHeader icon={FaBitcoin} title="Bitcoin" />
       <CardContent>
         <RenderQuery status={status}>
-          <h3 className="text-2xl py-6 pb-10 lg:py-12 lg:pb-14 text-center">
+          <h3 className="py-6 pb-10 text-center text-2xl lg:py-12 lg:pb-14">
             <span dangerouslySetInnerHTML={{ __html: data.bpi.USD.symbol }} />
             {data.bpi.USD.rate}
           </h3>

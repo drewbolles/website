@@ -13,7 +13,7 @@ type Props = {
 
 function LoadingBar({ className, ...rest }: React.ComponentProps<'div'>) {
   return (
-    <div className={classNames('bg-gray-200 rounded', className)} {...rest} />
+    <div className={classNames('rounded bg-gray-200', className)} {...rest} />
   );
 }
 
@@ -34,9 +34,9 @@ export default function AvatarBlock({
           'animate-pulse': loading,
         })}
       >
-        <span className="inline-flex w-16 h-16 mr-4">
+        <span className="mr-4 inline-flex h-16 w-16">
           {loading ? (
-            <span className="w-full h-full rounded-full bg-gray-200" />
+            <span className="h-full w-full rounded-full bg-gray-200" />
           ) : img ? (
             <img src={img} className="rounded-full" alt="" width="64" />
           ) : null}

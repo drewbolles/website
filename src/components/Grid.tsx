@@ -6,7 +6,7 @@ export function Row({ className, ...rest }: React.ComponentProps<'div'>) {
   return (
     <div
       className={classNames(
-        'flex flex-col md:flex-row flex-wrap -mx-3 -mb-6',
+        '-mx-3 -mb-6 flex flex-col flex-wrap md:flex-row',
         className,
       )}
       {...rest}
@@ -15,5 +15,5 @@ export function Row({ className, ...rest }: React.ComponentProps<'div'>) {
 }
 
 export function Col({ className, ...rest }: React.ComponentProps<'div'>) {
-  return <div className={classNames('px-3 mb-6', className)} {...rest} />;
+  return <div className={classNames('mb-6 px-3', className)} {...rest} />;
 }

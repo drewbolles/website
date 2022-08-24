@@ -22,7 +22,7 @@ function Link({ href, ...rest }: React.PropsWithChildren<{ href: string }>) {
     <NextLink href={href}>
       <a
         className={classNames(
-          'text-sm h-full inline-flex items-center px-1 rounded-sm transition-colors text-gray-700 font-semibold hover:bg-blue-50 md:px-4 md:text-base',
+          'inline-flex h-full items-center rounded-sm px-1 text-sm font-semibold text-gray-700 transition-colors hover:bg-blue-50 md:px-4 md:text-base',
           { 'bg-blue-50': asPath.includes(href) },
         )}
         {...rest}
@@ -34,7 +34,7 @@ function Link({ href, ...rest }: React.PropsWithChildren<{ href: string }>) {
 function FooterIconLink(props: React.ComponentProps<'a'>) {
   return (
     <a
-      className="inline-flex w-12 h-12 items-center justify-center text-gray-600 hover:text-gray-900"
+      className="inline-flex h-12 w-12 items-center justify-center text-gray-600 hover:text-gray-900"
       {...props}
     />
   );
@@ -46,7 +46,7 @@ const FooterLink = React.forwardRef<
 >((props, ref) => (
   <a
     ref={ref}
-    className="underline h-12 inline-flex items-center sm:h-auto"
+    className="inline-flex h-12 items-center underline sm:h-auto"
     {...props}
   />
 ));
@@ -101,17 +101,17 @@ export default function Layout({
           },
         ]}
       />
-      <div className="flex flex-col min-h-screen antialiased font-sans text-gray-900 pt-12 md:pt-16">
-        <header className="shadow fixed top-0 z-50 w-full bg-white">
-          <div className="container flex items-center justify-between h-12 md:h-16">
+      <div className="flex min-h-screen flex-col pt-12 font-sans text-gray-900 antialiased md:pt-16">
+        <header className="fixed top-0 z-50 w-full bg-white shadow">
+          <div className="container flex h-12 items-center justify-between md:h-16">
             <NextLink href="/">
               <a className="flex flex-col">
-                <span className="font-semibold tracking-wide md:text-lg leading-snug md:leading-snug">
+                <span className="font-semibold leading-snug tracking-wide md:text-lg md:leading-snug">
                   Drew Bolles
                 </span>
               </a>
             </NextLink>
-            <nav className="space-x-2 py-2 flex items-center h-full">
+            <nav className="flex h-full items-center space-x-2 py-2">
               {links.map(([path, title]) => (
                 <Link href={path} key={path}>
                   {title}
@@ -121,9 +121,9 @@ export default function Layout({
           </div>
         </header>
         {children}
-        <footer className="py-6 bg-gray-100 text-center">
-          <div className="container md:flex items-center justify-between">
-            <div className="flex flex-col space-y-1 items-center text-xs mb-1 md:mb-0">
+        <footer className="bg-gray-100 py-6 text-center">
+          <div className="container items-center justify-between md:flex">
+            <div className="mb-1 flex flex-col items-center space-y-1 text-xs md:mb-0">
               <p className="">
                 &copy; Copyright {new Date().getFullYear()}. All rights
                 reserved.

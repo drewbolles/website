@@ -17,8 +17,8 @@ function Identity({ className, reveal, ...rest }: IdentityProps) {
     <img
       className={classNames(
         'transition-opacity',
-        { 'opacity-0 hidden': reveal === false },
-        { 'opacity-100 block': reveal },
+        { 'hidden opacity-0': reveal === false },
+        { 'block opacity-100': reveal },
         className,
       )}
       width="254"
@@ -44,7 +44,7 @@ function SecretIdentity() {
           src={require('../../public/images/drew.svg')}
         />
         <Identity
-          className="transform translate-y-1 translate-x-2"
+          className="translate-y-1 translate-x-2 transform"
           reveal={hovered}
           src={require('../../public/images/batman.svg')}
         />
@@ -59,7 +59,7 @@ function SecretIdentity() {
 function AboutNav({ href, title }: { href: string; title: string }) {
   return (
     <Link href={href}>
-      <a className="text-blue-700 underline text-lg hover:text-blue-900">
+      <a className="text-lg text-blue-700 underline hover:text-blue-900">
         {title}
       </a>
     </Link>

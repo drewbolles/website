@@ -52,10 +52,10 @@ export default function ResumePage() {
           <PageTitle>Resume</PageTitle>
           <div className="mb-6 md:mb-8">
             <h2 className="mb-4 text-2xl lg:text-3xl">{basics?.name}</h2>
-            <ul className="mb-4 flex flex-col leading-none space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3 sm:items-center ">
+            <ul className="mb-4 flex flex-col space-y-3 leading-none sm:flex-row sm:items-center sm:space-y-0 sm:space-x-3 ">
               <li>
                 <a
-                  className="text-blue-700 flex items-center"
+                  className="flex items-center text-blue-700"
                   href={`mailto:${basics?.email}`}
                   aria-label="Send me an email"
                 >
@@ -67,7 +67,7 @@ export default function ResumePage() {
               <li>
                 <a
                   href={basics?.url?.toString()}
-                  className="text-blue-700 flex items-center"
+                  className="flex items-center text-blue-700"
                 >
                   <FaLink />
                   <span className="ml-2">{basics?.url}</span>
@@ -78,7 +78,7 @@ export default function ResumePage() {
                 <li key={profile.url?.toString()}>
                   <a
                     href={profile.url?.toString()}
-                    className="text-blue-700 flex items-center"
+                    className="flex items-center text-blue-700"
                   >
                     <FaLinkedin />
                     <span className="ml-2">{profile.network}</span>
@@ -91,7 +91,7 @@ export default function ResumePage() {
             </div>
           </div>
           <div className="mb-6 md:mb-8">
-            <h2 className="text-2xl font-bold mb-4 md:mb-6">Experience</h2>
+            <h2 className="mb-4 text-2xl font-bold md:mb-6">Experience</h2>
             <ul className="divide-y" data-testid="experience-list">
               {work?.map((job, idx) => {
                 const startDate = job.startDate
@@ -104,8 +104,8 @@ export default function ResumePage() {
                     key={`${job.name}-${idx}`}
                     className="py-6 first:pt-0 last:pb-0 md:py-8"
                   >
-                    <div className="md:flex items-center justify-between">
-                      <div className="flex items-center mb-2">
+                    <div className="items-center justify-between md:flex">
+                      <div className="mb-2 flex items-center">
                         <h3 className="text-xl font-semibold">
                           {job.url ? (
                             <a
@@ -119,7 +119,7 @@ export default function ResumePage() {
                           )}
                         </h3>
                       </div>
-                      <div className="flex text-xs sm:text-sm mb-1 md:mb-0 text-gray-700 italic">
+                      <div className="mb-1 flex text-xs italic text-gray-700 sm:text-sm md:mb-0">
                         <div>{startDate}</div>
                         <div className="mx-2">-</div>
                         <div>{endDate || 'Current'}</div>
@@ -134,7 +134,7 @@ export default function ResumePage() {
               })}
             </ul>
           </div>
-          <h2 className="text-2xl font-bold mb-2">References</h2>
+          <h2 className="mb-2 text-2xl font-bold">References</h2>
           <p>Available upon request</p>
         </div>
       </Main>

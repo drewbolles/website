@@ -38,7 +38,7 @@ export default function AmazonWishListCard() {
       <CardHeader icon={FaAmazon} title="Wish List" />
       <CardContent>
         <RenderQuery status={status}>
-          <ul className="divide-y-2 space-y-3">
+          <ul className="space-y-3 divide-y-2">
             {wishList.map(list => (
               <li key={list.link} className="pt-3 first:pt-0">
                 <a
@@ -47,11 +47,11 @@ export default function AmazonWishListCard() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className="w-16 flex-none mr-4">
+                  <div className="mr-4 w-16 flex-none">
                     <img src={list.picture} alt={list.name} width="64" />
                   </div>
                   <div>
-                    <h3 className="line-clamp leading-tight mb-1">
+                    <h3 className="line-clamp mb-1 leading-tight">
                       {list.name}
                     </h3>
                     <div
