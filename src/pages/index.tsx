@@ -20,13 +20,13 @@ import PortfolioImg from '../components/PortfolioImg/PortfolioImg';
 import { SiTypescript } from 'react-icons/si';
 import sortByDate from '../utils/sortByDate';
 
-const Icon = ({ icon: IconEl }: { icon: React.ElementType }) => (
-  <IconEl className="inline mr-1 align-middle" />
-);
+function Icon({ icon: IconEl }: { icon: React.ElementType }) {
+  return <IconEl className="inline mr-1 align-middle" />;
+}
 
-const Divider = () => (
-  <div className="w-12 h-px bg-gray-700 mb-4 bg-opacity-25" />
-);
+function Divider() {
+  return <div className="w-12 h-px bg-gray-700 mb-4 bg-opacity-25" />;
+}
 
 export default function Home({
   postsList,

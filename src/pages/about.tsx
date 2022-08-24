@@ -12,20 +12,22 @@ type IdentityProps = {
   src: string;
 };
 
-const Identity = ({ className, reveal, ...rest }: IdentityProps) => (
-  <img
-    className={classNames(
-      'transition-opacity',
-      { 'opacity-0 hidden': reveal === false },
-      { 'opacity-100 block': reveal },
-      className,
-    )}
-    width="254"
-    height="306"
-    alt=""
-    {...rest}
-  />
-);
+function Identity({ className, reveal, ...rest }: IdentityProps) {
+  return (
+    <img
+      className={classNames(
+        'transition-opacity',
+        { 'opacity-0 hidden': reveal === false },
+        { 'opacity-100 block': reveal },
+        className,
+      )}
+      width="254"
+      height="306"
+      alt=""
+      {...rest}
+    />
+  );
+}
 
 function SecretIdentity() {
   const [hovered, setHovered] = React.useState(false);
@@ -54,13 +56,15 @@ function SecretIdentity() {
   );
 }
 
-const AboutNav = ({ href, title }: { href: string; title: string }) => (
-  <Link href={href}>
-    <a className="text-blue-700 underline text-lg hover:text-blue-900">
-      {title}
-    </a>
-  </Link>
-);
+function AboutNav({ href, title }: { href: string; title: string }) {
+  return (
+    <Link href={href}>
+      <a className="text-blue-700 underline text-lg hover:text-blue-900">
+        {title}
+      </a>
+    </Link>
+  );
+}
 
 export default function About() {
   return (

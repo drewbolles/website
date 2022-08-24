@@ -3,7 +3,7 @@ import * as React from 'react';
 import { importEvents, importTalks } from '../utils/content';
 
 import type { Event } from '../types/event';
-import { GetStaticProps } from 'next';
+import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Layout from '../components/Layout/Layout';
 import Main from '../components/Layout/Main';
