@@ -1,6 +1,5 @@
 module.exports = {
-  purge: ['src/**/*.tsx'],
-  darkMode: false, // or 'media' or 'class'
+  content: ['src/**/*.tsx'],
   theme: {
     container: {
       center: true,
@@ -10,11 +9,6 @@ module.exports = {
       animation: {
         'bounce-slow': 'bounce 1.5s infinite',
       },
-    },
-  },
-  variants: {
-    extend: {
-      padding: ['first'],
     },
   },
   plugins: [

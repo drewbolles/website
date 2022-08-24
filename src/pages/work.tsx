@@ -8,7 +8,7 @@ import type { GetStaticProps } from 'next';
 import Layout from '../components/Layout/Layout';
 import Main from '../components/Layout/Main';
 import PageTitle from '../components/PageTitle';
-import { Portfolio } from '../types/portfolio';
+import type { Portfolio } from '../types/portfolio';
 import PortfolioImg from '../components/PortfolioImg/PortfolioImg';
 import classNames from 'classnames';
 import { importPortfolioItems } from '../utils/content';

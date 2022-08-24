@@ -1,19 +1,21 @@
-import React, { ReactNode } from 'react';
+import * as React from 'react';
 
 import classNames from 'classnames';
 
 type Props = {
   img?: string;
   href?: string;
-  primary: ReactNode;
-  secondary?: ReactNode;
-  tertiary?: ReactNode;
+  primary: React.ReactNode;
+  secondary?: React.ReactNode;
+  tertiary?: React.ReactNode;
   loading?: boolean;
 };
 
-const LoadingBar = ({ className, ...rest }: { className: string }) => (
-  <div className={classNames('bg-gray-200 rounded', className)} {...rest} />
-);
+function LoadingBar({ className, ...rest }: React.ComponentProps<'div'>) {
+  return (
+    <div className={classNames('bg-gray-200 rounded', className)} {...rest} />
+  );
+}
 
 export default function AvatarBlock({
   img,

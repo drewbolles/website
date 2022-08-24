@@ -20,7 +20,6 @@ const pwaOpts = {
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  target: 'serverless',
   reactStrictMode: true,
   images: {
     deviceSizes: [768, 1024, 1280],
