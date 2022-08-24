@@ -1,10 +1,11 @@
-import * as React from 'react';
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { Hydrate } from 'react-query/hydration';
-
 import '../styles/globals.css';
+
+import * as React from 'react';
+
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+import { AppProps } from 'next/app';
+import { Hydrate } from 'react-query/hydration';
 
 const queryClient = new QueryClient();
 
