@@ -1,22 +1,24 @@
-import * as React from 'react';
-import fs from 'fs';
-import classNames from 'classnames';
-import path from 'path';
-import dayjs from 'dayjs';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import Layout from '../../components/Layout/Layout';
-import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
-import { Blog } from '../../types/blog';
-import Main from '../../components/Layout/Main';
-import Image from 'next/image';
-import { BlogJsonLd } from 'next-seo';
-import Jimp from 'jimp';
-import { importBlogPosts } from '../../utils/content';
-import sortByDate from '../../utils/sortByDate';
-import Link from 'next/link';
-import { Col, Row } from '../../components/Grid';
-
 import 'prismjs/themes/prism-okaidia.css';
+
+import * as React from 'react';
+
+import { Col, Row } from '../../components/Grid';
+import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
+import { GetStaticPaths, GetStaticProps } from 'next';
+
+import { ArticleJsonLd } from 'next-seo';
+import { Blog } from '../../types/blog';
+import Image from 'next/image';
+import Jimp from 'jimp';
+import Layout from '../../components/Layout/Layout';
+import Link from 'next/link';
+import Main from '../../components/Layout/Main';
+import classNames from 'classnames';
+import dayjs from 'dayjs';
+import fs from 'fs';
+import { importBlogPosts } from '../../utils/content';
+import path from 'path';
+import sortByDate from '../../utils/sortByDate';
 
 const ShareButton = props => (
   <a
@@ -66,7 +68,7 @@ export default function BlogPage({
 
   return (
     <>
-      <BlogJsonLd
+      <ArticleJsonLd
         url={`https://www.drewbolles.com/blog/${slug}`}
         title={title}
         images={[
