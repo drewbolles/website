@@ -1,9 +1,10 @@
 import * as React from 'react';
+
 import Layout from '../components/Layout/Layout';
+import Link from 'next/link';
 import Main from '../components/Layout/Main';
 import PageTitle from '../components/PageTitle';
 import classNames from 'classnames';
-import Link from 'next/link';
 
 type IdentityProps = {
   className?: string;
@@ -61,7 +62,7 @@ const AboutNav = ({ href, title }: { href: string; title: string }) => (
   </Link>
 );
 
-export default function About(): JSX.Element {
+export default function About() {
   return (
     <Layout title="About Me">
       <Main>

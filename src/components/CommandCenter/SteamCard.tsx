@@ -1,10 +1,13 @@
 import * as React from 'react';
+
+import Card, { CardContent, CardHeader } from '../Card';
+
+import AvatarBlock from '../AvatarBlock';
 import { FaSteam } from 'react-icons/fa';
 import { MdTimer } from 'react-icons/md';
-import { useQuery } from 'react-query';
-import AvatarBlock from '../AvatarBlock';
-import Card, { CardContent, CardHeader } from '../Card';
 import RenderQuery from '../RenderQuery/RenderQuery';
+import SteamAPI from 'steamapi';
+import { useQuery } from 'react-query';
 
 const useSteamProfile = () =>
   useQuery('steamProfile', async () => {
@@ -16,7 +19,7 @@ const useSteamProfile = () =>
   });
 
 const useSteamGames = () =>
-  useQuery('steamGames', async () => {
+  useQuery('steamGames', async (): Promise<SteamAPI.Game[]> => {
     const res = await fetch('/api/steam/games');
     if (!res.ok) {
       throw new Error('Error fectching Steam games');
@@ -69,7 +72,7 @@ function GamesList() {
   );
 }
 
-export default function SteamCard(): JSX.Element {
+export default function SteamCard() {
   const { data = {}, status } = useSteamProfile();
 
   return (

@@ -1,27 +1,30 @@
 import * as React from 'react';
-import GithubCard from '../components/CommandCenter/GithubCard';
-import TwitterCard from '../components/CommandCenter/TwitterCard';
+
 import { Col, Row } from '../components/Grid';
+
+import AmazonWishListCard from '../components/CommandCenter/AmazonWishListCard';
+import GithubCard from '../components/CommandCenter/GithubCard';
 import Layout from '../components/Layout/Layout';
 import PageTitle from '../components/PageTitle';
-import SteamCard from '../components/CommandCenter/SteamCard';
-import AmazonWishListCard from '../components/CommandCenter/AmazonWishListCard';
 import SpotifyCard from '../components/CommandCenter/SpotifyCard';
+import SteamCard from '../components/CommandCenter/SteamCard';
+import TwitterCard from '../components/CommandCenter/TwitterCard';
 import classNames from 'classnames';
-
 import styles from '../styles/command-center.module.css';
 
-const CommandCol = props => (
-  <Col
-    className={classNames(
-      'flex flex-col w-full md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5',
-      styles.col,
-    )}
-    {...props}
-  />
-);
+function CommandCol(props: React.ComponentProps<'div'>) {
+  return (
+    <Col
+      className={classNames(
+        'flex flex-col w-full md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5',
+        styles.col,
+      )}
+      {...props}
+    />
+  );
+}
 
-export default function CommandCenter(): JSX.Element {
+export default function CommandCenter() {
   return (
     <Layout
       title="Command Center"

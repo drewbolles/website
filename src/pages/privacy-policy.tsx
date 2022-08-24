@@ -1,9 +1,10 @@
 import * as React from 'react';
+
 import Layout from '../components/Layout/Layout';
 import Main from '../components/Layout/Main';
 import PageTitle from '../components/PageTitle';
 
-export default function PrivacyPolicy(): JSX.Element {
+export default function PrivacyPolicy() {
   return (
     <Layout title="Privacy Policy">
       <Main>

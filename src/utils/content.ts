@@ -3,7 +3,10 @@ import { Event } from '../types/event';
 import { Portfolio } from '../types/portfolio';
 import { Talk } from '../types/talk';
 
-async function getFileContent(files, type) {
+async function getFileContent(
+  files: ReturnType<typeof require.context>,
+  type: string,
+) {
   const fileContentMap = files
     .keys()
     .map(relativePath => relativePath.substring(2))

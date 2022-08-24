@@ -20,12 +20,14 @@ import { importBlogPosts } from '../../utils/content';
 import path from 'path';
 import sortByDate from '../../utils/sortByDate';
 
-const ShareButton = props => (
-  <a
-    className="inline-flex w-12 h-12 md:w-6 md:h-6 items-center justify-center text-5xl md:text-2xl"
-    {...props}
-  />
-);
+function ShareButton(props: React.ComponentProps<'a'>) {
+  return (
+    <a
+      className="inline-flex w-12 h-12 md:w-6 md:h-6 items-center justify-center text-5xl md:text-2xl"
+      {...props}
+    />
+  );
+}
 
 function FooterLink({
   href,
@@ -37,7 +39,7 @@ function FooterLink({
   label: string;
   title: string;
   className?: string;
-}): JSX.Element {
+}) {
   return (
     <Col className={classNames('flex flex-col w-full md:w-1/2', className)}>
       <span className="text-gray-600 font-medium">{label}</span>
@@ -54,16 +56,15 @@ export default function BlogPage({
   slug,
   nextPost,
   prevPost,
-}: Blog & { prevPost: Blog; nextPost: Blog }): JSX.Element {
+}: Blog & { prevPost: Blog; nextPost: Blog }) {
   const { title, date, description, image, ogImage } = attributes;
 
   function handleClick(ev: React.MouseEvent) {
+    const url = ev.currentTarget.getAttribute('href');
     ev.preventDefault();
-    window.open(
-      ev.currentTarget.getAttribute('href'),
-      '',
-      'width=600,height=300',
-    );
+    if (url) {
+      window.open(url, '', 'width=600,height=300');
+    }
   }
 
   return (
@@ -72,8 +73,10 @@ export default function BlogPage({
         url={`https://www.drewbolles.com/blog/${slug}`}
         title={title}
         images={[
-          attributes.image && `https://www.drewbolles.com${attributes.image}`,
-        ].filter(Boolean)}
+          attributes.image
+            ? `https://www.drewbolles.com${attributes.image}`
+            : '',
+        ]}
         datePublished={date}
         dateModified={date}
         authorName="Drew Bolles"
@@ -125,7 +128,7 @@ export default function BlogPage({
                 </ShareButton>
               </div>
             </div>
-            <div dangerouslySetInnerHTML={{ __html: html }}></div>
+            {html ? <div dangerouslySetInnerHTML={{ __html: html }} /> : null}
             <div className="border-t border-gray-200">
               <div className="text-center">
                 <h4>If you liked this article please share with others!</h4>
@@ -189,7 +192,9 @@ function processImageFileName(file: string) {
   const raw = file.split('.');
   const ext = raw.pop();
   raw.push('1200x630');
-  raw.push(ext);
+  if (ext) {
+    raw.push(ext);
+  }
   return raw.join('.');
 }
 
@@ -210,7 +215,7 @@ async function getOrGenerateOgImage(file: string) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { slug } = params;
+  const slug = params?.slug;
 
   const [blogpost, allPosts] = await Promise.all([
     import(`../../../content/blog/${slug}.md`).catch(() => null),

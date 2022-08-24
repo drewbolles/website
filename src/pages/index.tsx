@@ -34,7 +34,7 @@ export default function Home({
 }: {
   postsList: Blog[];
   featuredPortfolio: Portfolio;
-}): JSX.Element {
+}) {
   return (
     <Layout>
       <main className="flex-grow">

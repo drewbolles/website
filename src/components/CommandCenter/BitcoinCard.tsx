@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { FaBitcoin } from 'react-icons/fa';
-import { useQuery } from 'react-query';
+
 import Card, { CardContent, CardHeader } from '../Card';
+
+import { FaBitcoin } from 'react-icons/fa';
 import RenderQuery from '../RenderQuery/RenderQuery';
+import { useQuery } from 'react-query';
 
 const useBitcoinPrice = () =>
   useQuery(
@@ -21,7 +23,7 @@ const useBitcoinPrice = () =>
     },
   );
 
-export default function BitcoinCard(): JSX.Element {
+export default function BitcoinCard() {
   const { data, status } = useBitcoinPrice();
   return (
     <Card>

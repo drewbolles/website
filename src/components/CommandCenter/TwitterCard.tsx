@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { FaTwitter } from 'react-icons/fa';
-import Card, { CardContent, CardHeader } from '../Card';
-import CircularProgress from '../CircularProgress';
 
-export default function TwitterCard(): JSX.Element {
+import Card, { CardContent, CardHeader } from '../Card';
+
+import CircularProgress from '../CircularProgress';
+import { FaTwitter } from 'react-icons/fa';
+
+export default function TwitterCard() {
   return (
     <Card>
       <CardHeader icon={FaTwitter} title="Twitter" />

@@ -12,7 +12,7 @@ export default function RenderQuery({
   children,
   status,
   fallback = <CircularProgress center />,
-}: Props): JSX.Element {
+}: Props) {
   if (status === 'loading') {
     return fallback;
   }
@@ -22,4 +22,5 @@ export default function RenderQuery({
   if (status === 'error') {
     return <>Opps! Something went wrong</>;
   }
+  return <></>;
 }

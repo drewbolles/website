@@ -1,9 +1,12 @@
 import * as React from 'react';
-import { FaGithub } from 'react-icons/fa';
-import { useQuery } from 'react-query';
-import AvatarBlock from '../AvatarBlock';
+
 import Card, { CardContent, CardHeader } from '../Card';
+
+import AvatarBlock from '../AvatarBlock';
+import type { Endpoints } from '@octokit/types';
+import { FaGithub } from 'react-icons/fa';
 import RenderQuery from '../RenderQuery/RenderQuery';
+import { useQuery } from 'react-query';
 
 const StatItem = ({
   label,
@@ -19,33 +22,43 @@ const StatItem = ({
 );
 
 const useGitHubUserInfo = () =>
-  useQuery('githubUserInfo', async () => {
-    const res = await fetch('https://api.github.com/users/drewbolles');
-    if (!res.ok) {
-      throw new Error('Error while fetching GitHub user info');
-    }
-    return await res.json();
-  });
+  useQuery(
+    'githubUserInfo',
+    async (): Promise<
+      Endpoints['GET /users/{username}']['response']['data']
+    > => {
+      const res = await fetch('https://api.github.com/users/drewbolles');
+      if (!res.ok) {
+        throw new Error('Error while fetching GitHub user info');
+      }
+      return await res.json();
+    },
+  );
 
 const useGitHubRepos = () =>
-  useQuery('githubRepos', async () => {
-    const res = await fetch(
-      'https://api.github.com/users/drewbolles/repos?sort=updated',
-    );
-    if (!res.ok) {
-      throw new Error('Error while fetching GitHub user info');
-    }
-    return await res.json();
-  });
+  useQuery(
+    'githubRepos',
+    async (): Promise<
+      Endpoints['GET /users/{username}/repos']['response']['data']
+    > => {
+      const res = await fetch(
+        'https://api.github.com/users/drewbolles/repos?sort=updated',
+      );
+      if (!res.ok) {
+        throw new Error('Error while fetching GitHub user info');
+      }
+      return await res.json();
+    },
+  );
 
 function GitHubRepos() {
-  const { data = [], status } = useGitHubRepos();
+  const { data, status } = useGitHubRepos();
 
   return (
     <RenderQuery status={status}>
       <h3 className="font-semibold lg:text-lg">Projects:</h3>
       <ul className="text-sm lg:text-base">
-        {data.slice(0, 5).map(repo => (
+        {data?.slice(0, 5).map(repo => (
           <li key={repo.id}>
             <div>
               <a
@@ -62,26 +75,32 @@ function GitHubRepos() {
   );
 }
 
-export default function GithubCard(): JSX.Element {
-  const { data: userData = {}, status: userStatus } = useGitHubUserInfo();
+export default function GithubCard() {
+  const { data: userData, status: userStatus } = useGitHubUserInfo();
 
   return (
     <Card>
       <CardHeader icon={FaGithub} title="GitHub" />
       <CardContent>
         <AvatarBlock
-          href={userData.html_url}
-          img={userData.avatar_url}
-          primary={userData.login}
-          secondary={userData.name}
-          tertiary={userData.location}
+          href={userData?.html_url}
+          img={userData?.avatar_url}
+          primary={userData?.login}
+          secondary={userData?.name}
+          tertiary={userData?.location}
           loading={userStatus === 'loading'}
         />
         <RenderQuery status={userStatus}>
           <ul className="mb-3 lg:mb-6 lg:pt-2 flex justify-center">
-            <StatItem label="Repos" value={userData.public_repos} />
-            <StatItem label="Followers" value={userData.followers} />
-            <StatItem label="Following" value={userData.following} />
+            {userData?.public_repos ? (
+              <StatItem label="Repos" value={userData.public_repos} />
+            ) : null}
+            {userData?.followers ? (
+              <StatItem label="Followers" value={userData.followers} />
+            ) : null}
+            {userData?.following ? (
+              <StatItem label="Following" value={userData.following} />
+            ) : null}
           </ul>
         </RenderQuery>
 

@@ -1,6 +1,7 @@
 import * as React from 'react';
-import classNames from 'classnames';
+
 import { AiOutlineLoading } from 'react-icons/ai';
+import classNames from 'classnames';
 
 export default function CircularProgress({
   className,
@@ -11,7 +12,7 @@ export default function CircularProgress({
   className?: string;
   size?: string | number;
   center?: boolean;
-}>): JSX.Element {
+}>) {
   return (
     <AiOutlineLoading
       size={size}

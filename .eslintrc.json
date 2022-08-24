@@ -20,7 +20,10 @@
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
-  "rules": { "@typescript-eslint/explicit-module-boundary-types": "off" },
+  "rules": {
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react/prop-types": 1
+  },
   "overrides": [
     {
       "files": ["*.js"],

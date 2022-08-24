@@ -31,12 +31,14 @@ function Link({ href, ...rest }: React.PropsWithChildren<{ href: string }>) {
   );
 }
 
-const FooterIconLink = props => (
-  <a
-    className="inline-flex w-12 h-12 items-center justify-center text-gray-600 hover:text-gray-900"
-    {...props}
-  />
-);
+function FooterIconLink(props: React.ComponentProps<'a'>) {
+  return (
+    <a
+      className="inline-flex w-12 h-12 items-center justify-center text-gray-600 hover:text-gray-900"
+      {...props}
+    />
+  );
+}
 
 const FooterLink = React.forwardRef<
   HTMLAnchorElement,
@@ -63,7 +65,7 @@ export default function Layout({
   image?: string;
   type?: string;
   children: React.ReactNode;
-}): JSX.Element {
+}) {
   // modern SEO best practices recommmend 120 character descriptions
   const trimmedDescription =
     description.length > 120
@@ -84,11 +86,13 @@ export default function Layout({
           title,
           description: trimmedDescription,
           locale: 'en_US',
-          images: [
-            image && {
-              url: `https://www.drewbolles.com${image}`,
-            },
-          ].filter(Boolean),
+          ...(image && {
+            images: [
+              {
+                url: `https://www.drewbolles.com${image}`,
+              },
+            ],
+          }),
         }}
         additionalMetaTags={[
           {
@@ -144,7 +148,7 @@ export default function Layout({
                   href="https://twitter.com/bollskis"
                   title="Follow me on Twitter"
                 >
-                  <FaTwitter size="1.5rem" />
+                  <FaTwitter size="24" />
                 </FooterIconLink>
               </li>
               <li>
@@ -152,7 +156,7 @@ export default function Layout({
                   href="https://github.com/drewbolles"
                   title="Check me out on GitHub"
                 >
-                  <FaGithub size="1.5rem" />
+                  <FaGithub size="24" />
                 </FooterIconLink>
               </li>
               <li>
@@ -160,7 +164,7 @@ export default function Layout({
                   href="https://www.linkedin.com/in/drew-bolles/"
                   title="Connect with me on LinkedIn"
                 >
-                  <FaLinkedin size="1.5rem" />
+                  <FaLinkedin size="24" />
                 </FooterIconLink>
               </li>
               <li>
@@ -168,7 +172,7 @@ export default function Layout({
                   href="/rss.xml"
                   title="Subscribe to my RSS Feed"
                 >
-                  <FaRssSquare size="1.5rem" />
+                  <FaRssSquare size="24" />
                 </FooterIconLink>
               </li>
             </ul>

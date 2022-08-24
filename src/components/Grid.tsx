@@ -1,14 +1,8 @@
 import * as React from 'react';
+
 import classNames from 'classnames';
 
-type Props = {
-  className?: string;
-};
-
-export function Row({
-  className,
-  ...rest
-}: React.PropsWithChildren<Props>): JSX.Element {
+export function Row({ className, ...rest }: React.ComponentProps<'div'>) {
   return (
     <div
       className={classNames(
@@ -20,9 +14,6 @@ export function Row({
   );
 }
 
-export function Col({
-  className,
-  ...rest
-}: React.PropsWithChildren<Props>): JSX.Element {
+export function Col({ className, ...rest }: React.ComponentProps<'div'>) {
   return <div className={classNames('px-3 mb-6', className)} {...rest} />;
 }
