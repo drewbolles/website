@@ -70,7 +70,7 @@ export default function Home({
                 or
               </span>
               <NextLink href="/resume">
-                <a className="underline">View my resume</a>
+                <a className="underline hover:text-blue-700">View my resume</a>
               </NextLink>
             </div>
           </div>
@@ -93,20 +93,35 @@ export default function Home({
                 </h2>
 
                 <p
-                  className="md:text-2xl mb-4"
+                  className="md:text-2xl"
                   dangerouslySetInnerHTML={{
                     __html: featuredPortfolio.attributes.description,
                   }}
                 />
-                <div>
-                  <a
-                    href={featuredPortfolio.attributes.url}
-                    className="text-lg inline-flex pb-1 items-center leading-tight border-b border-dashed border-blue-700 text-blue-700"
-                  >
-                    <span className="mr-1">View site</span>
-                    <MdOpenInNew className="leading-none" />
-                  </a>
-                </div>
+
+                {featuredPortfolio.attributes.technologies ? (
+                  <ul className="flex flex-wrap mt-4">
+                    {featuredPortfolio.attributes.technologies.map(tech => (
+                      <li
+                        className="inline-flex items-center rounded-sm h-6 md:h-8 px-2 sm:px-4 text-xs sm:text-sm mb-2 mr-2 last:mr-0 bg-white"
+                        key={tech}
+                      >
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+                {featuredPortfolio.attributes.url ? (
+                  <div className="mt-4">
+                    <a
+                      href={featuredPortfolio.attributes.url}
+                      className="text-lg inline-flex pb-1 items-center leading-tight border-b border-dashed border-blue-700 text-blue-700"
+                    >
+                      <span className="mr-1">View site</span>
+                      <MdOpenInNew className="leading-none" />
+                    </a>
+                  </div>
+                ) : null}
               </Col>
               <Col className="w-full md:w-1/3 lg:w-1/2">
                 <PortfolioImg
@@ -117,7 +132,7 @@ export default function Home({
             </Row>
           </div>
         </div>
-        <div className="py-10 md:py-16">
+        <div className="py-10 md:py-16 lg:py-20">
           <div className="container max-w-prose">
             <h2 className="text-2xl font-bold mb-6 lg:mb-10 md:text-3xl lg:text-4xl text-center">
               Recent Blog Posts

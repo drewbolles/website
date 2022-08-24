@@ -73,9 +73,9 @@ export default function About() {
         <div className="container max-w-prose">
           <PageTitle>About Me</PageTitle>
           <nav className="mb-4 space-x-2">
-            <AboutNav title="Resume" href="/resume" />
+            <AboutNav title="View my resume" href="/resume" />
           </nav>
-          <div className="prose mb-6 md:prose-xl">
+          <div className="prose md:prose-xl">
             <p>
               Hi, I&apos;m Drew and I&apos;m a Software Engineer. I began my
               voyage into web development when I was about 10, building sites
@@ -85,7 +85,6 @@ export default function About() {
               favorite shows. I pride myself on being a responsible web
               developer, and striving to solve problems by putting people first.
             </p>
-            <SecretIdentity />
             <p>
               My primary areas of interest lie in front-end development,
               performance, and JavaScript applications. All sites and

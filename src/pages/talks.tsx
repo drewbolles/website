@@ -29,7 +29,7 @@ export default function Talks({ talks }: Props) {
             <ul data-testid="talks-list" className="space-y-8 md:space-y-16">
               {talks.map(({ attributes, events }) => (
                 <li key={attributes.title}>
-                  <h2 className="md:text-2xl font-semibold mb-2 md:mb-3">
+                  <h2 className="md:text-xl font-semibold mb-2 md:mb-3">
                     {attributes.title}
                   </h2>
 

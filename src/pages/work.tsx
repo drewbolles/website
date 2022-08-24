@@ -67,14 +67,16 @@ export default function Work({
                           ))}
                         </ul>
                       ) : null}
-                      <div>
-                        <a
-                          href={item.attributes.url}
-                          className="text-blue-700 text-sm sm:text-base md:text-lg border-b border-dashed inline-flex items-center hover:text-blue-900"
-                        >
-                          View site <MdOpenInNew className="ml-1" />
-                        </a>
-                      </div>
+                      {item.attributes.url ? (
+                        <div>
+                          <a
+                            href={item.attributes.url}
+                            className="text-blue-700 text-sm sm:text-base md:text-lg border-b border-dashed inline-flex items-center hover:text-blue-900"
+                          >
+                            View site <MdOpenInNew className="ml-1" />
+                          </a>
+                        </div>
+                      ) : null}
                     </Col>
                     <Col
                       className={classNames('w-full md:w-1/2 lg:px-8 ', {

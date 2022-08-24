@@ -22,7 +22,7 @@ function Link({ href, ...rest }: React.PropsWithChildren<{ href: string }>) {
     <NextLink href={href}>
       <a
         className={classNames(
-          'text-sm md:text-base h-full inline-flex items-center px-1 md:px-4 rounded-sm transition-colors text-gray-700 hover:bg-blue-50',
+          'text-sm h-full inline-flex items-center px-1 rounded-sm transition-colors text-gray-700 font-semibold hover:bg-blue-50 md:px-4 md:text-base',
           { 'bg-blue-50': asPath.includes(href) },
         )}
         {...rest}

@@ -6,13 +6,13 @@ description: I co-founded a startup focusing on delivering competitive video
   news articles about the biggest esports titles. It allows users to follow
   their favorite games, teams, and players, and get notifications for upcoming
   matches.
-url: https://www.finalround.gg
 technologies:
   - ReactJS
   - Redux
   - NextJS
   - Heroku
   - GraphQL
+  - TypeScript
 role: Co-Founder & CTO
 image: /uploads/screenshots/final-round.jpg
 date: 2020-01-01

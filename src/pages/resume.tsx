@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { FaEnvelope, FaLink, FaLinkedin } from 'react-icons/fa';
 import { QueryClient, useQuery } from 'react-query';
 
 import type { GetStaticProps } from 'next';
@@ -49,44 +50,49 @@ export default function ResumePage() {
       <Main>
         <div className="container max-w-prose">
           <PageTitle>Resume</PageTitle>
-          <div className="mb-6">
-            <h2 className="mb-1 text-2xl lg:text-3xl">{basics?.name}</h2>
-            <ul className="mb-3">
+          <div className="mb-6 md:mb-8">
+            <h2 className="mb-4 text-2xl lg:text-3xl">{basics?.name}</h2>
+            <ul className="mb-4 flex flex-col leading-none space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3 sm:items-center ">
               <li>
                 <a
-                  className="text-blue-700 underline"
+                  className="text-blue-700 flex items-center"
                   href={`mailto:${basics?.email}`}
                   aria-label="Send me an email"
                 >
-                  {basics?.email}
+                  <FaEnvelope />
+                  <span className="ml-2">{basics?.email}</span>
                 </a>
               </li>
+              <li className="hidden sm:block">/</li>
               <li>
                 <a
                   href={basics?.url?.toString()}
-                  className="text-blue-700 underline"
+                  className="text-blue-700 flex items-center"
                 >
-                  {basics?.url}
+                  <FaLink />
+                  <span className="ml-2">{basics?.url}</span>
                 </a>
               </li>
+              <li className="hidden sm:block">/</li>
               {(basics?.profiles || []).map(profile => (
                 <li key={profile.url?.toString()}>
                   <a
                     href={profile.url?.toString()}
-                    className="text-blue-700 underline"
+                    className="text-blue-700 flex items-center"
                   >
-                    {profile.network}
+                    <FaLinkedin />
+                    <span className="ml-2">{profile.network}</span>
                   </a>
                 </li>
               ))}
             </ul>
-            <div className="prose lg:prose-lg">
+            <div className="text-gray-700 md:text-lg">
               <p>{basics?.summary}</p>
             </div>
           </div>
-          <div className="mb-6">
-            <h2 className="text-2xl font-bold mb-4">Experience</h2>
-            <ul className="space-y-6" data-testid="experience-list">
+          <div className="mb-6 md:mb-8">
+            <h2 className="text-2xl font-bold mb-4 md:mb-6">Experience</h2>
+            <ul className="divide-y" data-testid="experience-list">
               {work?.map((job, idx) => {
                 const startDate = job.startDate
                   ? formatDate(new Date(job.startDate))
@@ -94,14 +100,17 @@ export default function ResumePage() {
                 const endDateRaw = job.endDate ? new Date(job.endDate) : null;
                 const endDate = endDateRaw ? formatDate(endDateRaw) : 'Current';
                 return (
-                  <li key={`${job.name}-${idx}`}>
+                  <li
+                    key={`${job.name}-${idx}`}
+                    className="py-6 first:pt-0 last:pb-0 md:py-8"
+                  >
                     <div className="md:flex items-center justify-between">
-                      <div className="flex items-center">
-                        <h3 className="text-xl mb-1 font-medium">
+                      <div className="flex items-center mb-2">
+                        <h3 className="text-xl font-semibold">
                           {job.url ? (
                             <a
                               href={job.url.toString()}
-                              className="hover:text-blue-700"
+                              className="text-blue-700 hover:underline"
                             >
                               {job.name}
                             </a>
@@ -116,10 +125,10 @@ export default function ResumePage() {
                         <div>{endDate || 'Current'}</div>
                       </div>
                     </div>
-                    <h3 className="mb-2 font-medium">{job.position}</h3>
-                    <p className="text-sm md:w-2/3 text-gray-800">
-                      {job.summary}
-                    </p>
+                    <h3 className="mb-1 text-lg font-medium text-gray-700">
+                      {job.position}
+                    </h3>
+                    <p className="text-gray-600">{job.summary}</p>
                   </li>
                 );
               })}
@@ -142,6 +151,7 @@ export const getStaticProps: GetStaticProps = async () => {
       props: {
         dehydratedState: dehydrate(queryClient),
       },
+      revalidate: 60 * 60,
     };
   } catch (error) {
     console.error(error);
