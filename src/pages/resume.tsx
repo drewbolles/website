@@ -8,6 +8,7 @@ import Layout from '../components/Layout/Layout';
 import Main from '../components/Layout/Main';
 import PageTitle from '../components/PageTitle';
 import { Resume } from '../types/resume';
+import classNames from 'classnames';
 import { dehydrate } from 'react-query/hydration';
 
 function formatDate(date: Date) {
@@ -48,94 +49,109 @@ export default function ResumePage() {
   return (
     <Layout title="Resume">
       <Main>
-        <div className="container max-w-prose">
+        <div className="container max-w-prose print:!max-w-full print:!px-0">
           <PageTitle>Resume</PageTitle>
-          <div className="mb-6 md:mb-8">
-            <h2 className="mb-4 text-2xl lg:text-3xl">{basics?.name}</h2>
-            <ul className="mb-4 flex flex-col space-y-3 leading-none sm:flex-row sm:items-center sm:space-y-0 sm:space-x-3 ">
-              <li>
-                <a
-                  className="flex items-center text-blue-700"
-                  href={`mailto:${basics?.email}`}
-                  aria-label="Send me an email"
-                >
-                  <FaEnvelope />
-                  <span className="ml-2">{basics?.email}</span>
-                </a>
-              </li>
-              <li className="hidden sm:block">/</li>
-              <li>
-                <a
-                  href={basics?.url?.toString()}
-                  className="flex items-center text-blue-700"
-                >
-                  <FaLink />
-                  <span className="ml-2">{basics?.url}</span>
-                </a>
-              </li>
-              <li className="hidden sm:block">/</li>
-              {(basics?.profiles || []).map(profile => (
-                <li key={profile.url?.toString()}>
+          <h2 className="mb-4 text-2xl lg:text-3xl">{basics?.name}</h2>
+          <div className="print:aflex-row flex flex-col gap-6 md:gap-8">
+            <div className="print:aw-1/3">
+              <ul className="mb-4 flex flex-col space-y-3 leading-none sm:flex-row sm:items-center sm:space-y-0 sm:space-x-3">
+                <li>
                   <a
-                    href={profile.url?.toString()}
                     className="flex items-center text-blue-700"
+                    href={`mailto:${basics?.email}`}
+                    aria-label="Send me an email"
                   >
-                    <FaLinkedin />
-                    <span className="ml-2">{profile.network}</span>
+                    <FaEnvelope />
+                    <span className="ml-2">{basics?.email}</span>
                   </a>
                 </li>
-              ))}
-            </ul>
-            <div className="text-gray-700 md:text-lg">
-              <p>{basics?.summary}</p>
+                <li className="hidden sm:block">/</li>
+                <li>
+                  <a
+                    href={basics?.url?.toString()}
+                    className="flex items-center text-blue-700"
+                  >
+                    <FaLink />
+                    <span className="ml-2">{basics?.url}</span>
+                  </a>
+                </li>
+                <li className="hidden sm:block">/</li>
+                {(basics?.profiles || []).map(profile => (
+                  <li key={profile.url?.toString()}>
+                    <a
+                      href={profile.url?.toString()}
+                      className="flex items-center text-blue-700"
+                    >
+                      <FaLinkedin />
+                      <span className="ml-2">{profile.network}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div className="text-gray-700 md:text-lg">
+                <p>{basics?.summary}</p>
+              </div>
+            </div>
+            <div className="print:aw-2/3">
+              <div className="mb-6 md:mb-8">
+                <h2 className="mb-4 text-2xl font-bold md:mb-6" id="experience">
+                  Experience
+                </h2>
+                <ul className="divide-y" data-testid="experience-list">
+                  {work?.map((job, idx) => {
+                    const startDate = job.startDate
+                      ? formatDate(new Date(job.startDate))
+                      : null;
+                    const endDateRaw = job.endDate
+                      ? new Date(job.endDate)
+                      : null;
+                    const endDate = endDateRaw
+                      ? formatDate(endDateRaw)
+                      : 'Current';
+                    return (
+                      <li
+                        key={`${job.name}-${idx}`}
+                        className={classNames(
+                          'py-6 first:pt-0 last:pb-0 md:py-8',
+                          { 'print:hidden': idx > 2 },
+                        )}
+                      >
+                        <div className="items-center justify-between print:flex md:flex">
+                          <div className="mb-2 flex items-center print:mb-1">
+                            <h3 className="text-xl font-semibold">
+                              {job.url ? (
+                                <a
+                                  href={job.url.toString()}
+                                  className="text-blue-700 hover:underline"
+                                >
+                                  {job.name}
+                                </a>
+                              ) : (
+                                job.name
+                              )}
+                            </h3>
+                          </div>
+                          <div className="mb-1 flex text-xs italic text-gray-700 sm:text-sm md:mb-0">
+                            <div>{startDate}</div>
+                            <div className="mx-2">-</div>
+                            <div>{endDate || 'Current'}</div>
+                          </div>
+                        </div>
+                        <h3 className="mb-1 text-lg font-medium text-gray-700">
+                          {job.position}
+                        </h3>
+                        <p className="text-gray-600">{job.summary}</p>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              <h2 className="mb-2 text-2xl font-bold" id="references">
+                References
+              </h2>
+              <p>Available upon request</p>
             </div>
           </div>
-          <div className="mb-6 md:mb-8">
-            <h2 className="mb-4 text-2xl font-bold md:mb-6">Experience</h2>
-            <ul className="divide-y" data-testid="experience-list">
-              {work?.map((job, idx) => {
-                const startDate = job.startDate
-                  ? formatDate(new Date(job.startDate))
-                  : null;
-                const endDateRaw = job.endDate ? new Date(job.endDate) : null;
-                const endDate = endDateRaw ? formatDate(endDateRaw) : 'Current';
-                return (
-                  <li
-                    key={`${job.name}-${idx}`}
-                    className="py-6 first:pt-0 last:pb-0 md:py-8"
-                  >
-                    <div className="items-center justify-between md:flex">
-                      <div className="mb-2 flex items-center">
-                        <h3 className="text-xl font-semibold">
-                          {job.url ? (
-                            <a
-                              href={job.url.toString()}
-                              className="text-blue-700 hover:underline"
-                            >
-                              {job.name}
-                            </a>
-                          ) : (
-                            job.name
-                          )}
-                        </h3>
-                      </div>
-                      <div className="mb-1 flex text-xs italic text-gray-700 sm:text-sm md:mb-0">
-                        <div>{startDate}</div>
-                        <div className="mx-2">-</div>
-                        <div>{endDate || 'Current'}</div>
-                      </div>
-                    </div>
-                    <h3 className="mb-1 text-lg font-medium text-gray-700">
-                      {job.position}
-                    </h3>
-                    <p className="text-gray-600">{job.summary}</p>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-          <h2 className="mb-2 text-2xl font-bold">References</h2>
-          <p>Available upon request</p>
         </div>
       </Main>
     </Layout>

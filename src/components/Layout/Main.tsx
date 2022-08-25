@@ -8,7 +8,7 @@ export default function Main({
 }: React.ComponentProps<'main'>) {
   return (
     <main
-      className={classNames('flex-grow py-8 md:py-12', className)}
+      className={classNames('flex-grow py-8 print:p-0 md:py-12', className)}
       {...rest}
     />
   );

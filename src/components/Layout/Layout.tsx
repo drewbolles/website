@@ -101,8 +101,8 @@ export default function Layout({
           },
         ]}
       />
-      <div className="flex min-h-screen flex-col pt-12 font-sans text-gray-900 antialiased md:pt-16">
-        <header className="fixed top-0 z-50 w-full bg-white shadow">
+      <div className="flex min-h-screen flex-col pt-12 font-sans text-gray-900 antialiased print:pt-0 md:pt-16">
+        <header className="fixed top-0 z-50 w-full bg-white shadow print:hidden">
           <div className="container flex h-12 items-center justify-between md:h-16">
             <NextLink href="/">
               <a className="flex flex-col">
@@ -121,7 +121,7 @@ export default function Layout({
           </div>
         </header>
         {children}
-        <footer className="bg-gray-100 py-6 text-center">
+        <footer className="bg-gray-100 py-6 text-center print:hidden">
           <div className="container items-center justify-between md:flex">
             <div className="mb-1 flex flex-col items-center space-y-1 text-xs md:mb-0">
               <p className="">
